@@ -1,0 +1,1760 @@
+{
+  "current_page": 1,
+  "data": [
+    {
+      "id": "6816e2ee44c4abfbc3041819",
+      "title": "Beach And Bar Wear - La Dolce Vite Collection - Ultra Heavy White Oversized Cotton Mens T-Shirt",
+      "description": "\u003Ctable id=\"size-guide\" style=\"min-width: 360px;\"\u003E\n\u003Cthead\u003E\n\u003Ctr\u003E\n\u003Cth style=\"padding: 10px;\"\u003E&nbsp;\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003EXS\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003ES\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003EM\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003EL\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003EXL\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003E2XL\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003E3XL\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003E4XL\u003C/th\u003E\n\u003Cth style=\"color: #000000; font-weight: 500; text-align: left; font-size: 15px; padding: 10px;\"\u003E5XL\u003C/th\u003E\n\u003C/tr\u003E\n\u003C/thead\u003E\n\u003Ctbody\u003E\n\u003Ctr\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003EWidth, in\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E24.02\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E25.20\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E26.38\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E27.56\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E28.74\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E29.92\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E31.69\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E33.46\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E35.24\u003C/td\u003E\n\u003C/tr\u003E\n\u003Ctr\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003ELength, in\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E28.15\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E28.94\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E29.72\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E30.51\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E31.30\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E32.09\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E32.48\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E32.87\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E33.27\u003C/td\u003E\n\u003C/tr\u003E\n\u003Ctr\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003ESleeve length, in\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E8.11\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E8.27\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E8.43\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E8.58\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E8.74\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E8.90\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E9.06\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E9.21\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E9.37\u003C/td\u003E\n\u003C/tr\u003E\n\u003Ctr\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003ESize tolerance, in\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003Ctd style=\"padding: 10px; color: #525252; font-size: 15px; border-top: 1px solid #ededed; word-break: break-word;\"\u003E1.00\u003C/td\u003E\n\u003C/tr\u003E\n\u003C/tbody\u003E\n\u003C/table\u003E\n\u003Cp\u003EEmbrace a laid-back style with our ultra-comfortable Box Tee. This unisex tee exudes a chill vibe, perfect for everyday wear or lounging at home. Its relaxed fit allows for freedom of movement, making it an ideal choice for casual outings or weekend adventures. The unique design showcases a playful spirit, making it a great addition to your wardrobe. Perfect for anyone who loves effortless fashion, this tee is suited for both men and women. Celebrate special occasions like birthdays or casual gatherings with this versatile piece, or simply enjoy it during your leisurely days. Add a pop of personality to your look with this must-have wardrobe staple!\u003Cbr /\u003E\u003Cbr /\u003EProduct features\u003Cbr /\u003E- 100% cotton for a soft, durable feel\u003Cbr /\u003E- Classic crew-neck design with a ribbed collar\u003Cbr /\u003E- Relaxed dropped shoulders for extra comfort\u003Cbr /\u003E- Boxy, oversized fit for a modern look\u003Cbr /\u003E- Heavy fabric weight for added quality and warmth\u003Cbr /\u003E\u003Cbr /\u003ECare instructions\u003Cbr /\u003E- Machine wash: cold (max 30C or 90F), with similar colors \u003Cbr /\u003E- Non-chlorine: bleach as needed\u003Cbr /\u003E- Tumble dry: low heat\u003Cbr /\u003E- Iron, steam or dry: low heat, do not iron on print\u003Cbr /\u003E- Do not dryclean\u003C/p\u003E",
+      "tags": [
+        "T-shirts",
+        "Unisex",
+        "Men's Clothing",
+        "Women's Clothing",
+        "DTG",
+        "Premium Apparel",
+        "Cotton"
+      ],
+      "options": [
+        {
+          "name": "Colors",
+          "type": "color",
+          "values": [
+            {
+              "id": 5235,
+              "title": "White",
+              "colors": [
+                "#fafafa"
+              ]
+            },
+            {
+              "id": 3943,
+              "title": "Black",
+              "colors": [
+                "#343434"
+              ]
+            },
+            {
+              "id": 5236,
+              "title": "Sand",
+              "colors": [
+                "#efe5d5"
+              ]
+            },
+            {
+              "id": 5193,
+              "title": "Union Beige",
+              "colors": [
+                "#bb967a"
+              ]
+            },
+            {
+              "id": 3944,
+              "title": "Olive",
+              "colors": [
+                "#77724c"
+              ]
+            }
+          ],
+          "display_in_preview": true
+        },
+        {
+          "name": "Sizes",
+          "type": "size",
+          "values": [
+            {
+              "id": 13,
+              "title": "XS"
+            },
+            {
+              "id": 1546,
+              "title": "S"
+            },
+            {
+              "id": 1547,
+              "title": "M"
+            },
+            {
+              "id": 1548,
+              "title": "L"
+            },
+            {
+              "id": 1549,
+              "title": "XL"
+            },
+            {
+              "id": 18,
+              "title": "2XL"
+            },
+            {
+              "id": 19,
+              "title": "3XL"
+            },
+            {
+              "id": 20,
+              "title": "4XL"
+            },
+            {
+              "id": 21,
+              "title": "5XL"
+            }
+          ],
+          "display_in_preview": false
+        }
+      ],
+      "variants": [
+        {
+          "id": 112439,
+          "sku": "10285403166909112711",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / XS",
+          "grams": 366,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3943, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112440,
+          "sku": "31764860961528172438",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / XS",
+          "grams": 367,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112441,
+          "sku": "38681567887434104041",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / XS",
+          "grams": 372,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112442,
+          "sku": "22789946364932395865",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / XS",
+          "grams": 373,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112443,
+          "sku": "11261477745076694322",
+          "cost": 2903,
+          "price": 4838,
+          "title": "White / XS",
+          "grams": 369,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [5235, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112444,
+          "sku": "23497064055936795009",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / S",
+          "grams": 374,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112445,
+          "sku": "32381229686842217532",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / S",
+          "grams": 398,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3944, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112446,
+          "sku": "33637013884265616064",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / S",
+          "grams": 389,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112447,
+          "sku": "20944157570882635817",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / S",
+          "grams": 409,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112448,
+          "sku": "32708203662223031918",
+          "cost": 2903,
+          "price": 3500,
+          "title": "White / S",
+          "grams": 376,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112449,
+          "sku": "20522598630157887609",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / M",
+          "grams": 410,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3943, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112450,
+          "sku": "13038713848280889503",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / M",
+          "grams": 421,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3944, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112451,
+          "sku": "13006394234791893222",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / M",
+          "grams": 408,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112452,
+          "sku": "19989207553941002676",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / M",
+          "grams": 433,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112453,
+          "sku": "12377911081431872639",
+          "cost": 2903,
+          "price": 3500,
+          "title": "White / M",
+          "grams": 398,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [5235, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112454,
+          "sku": "19438251749337830472",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / L",
+          "grams": 426,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112455,
+          "sku": "11174774572133912158",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / L",
+          "grams": 447,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3944, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112456,
+          "sku": "30025108147521612080",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / L",
+          "grams": 431,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112457,
+          "sku": "26817804363506941971",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / L",
+          "grams": 449,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112458,
+          "sku": "32589751791251238357",
+          "cost": 2903,
+          "price": 3500,
+          "title": "White / L",
+          "grams": 418,
+          "is_enabled": true,
+          "is_default": true,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112459,
+          "sku": "14176751738452003813",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / XL",
+          "grams": 473,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112460,
+          "sku": "47386044019663869472",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / XL",
+          "grams": 469,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112461,
+          "sku": "20686184322766136806",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / XL",
+          "grams": 457,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112462,
+          "sku": "29811658203645805057",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / XL",
+          "grams": 478,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112463,
+          "sku": "32421941693932978119",
+          "cost": 2903,
+          "price": 3500,
+          "title": "White / XL",
+          "grams": 446,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112464,
+          "sku": "16206627661734674491",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / 2XL",
+          "grams": 481,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3943, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112465,
+          "sku": "25364097387625279949",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / 2XL",
+          "grams": 493,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112466,
+          "sku": "10691522378542183675",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / 2XL",
+          "grams": 479,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112467,
+          "sku": "27222341340485289721",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / 2XL",
+          "grams": 502,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112468,
+          "sku": "33010300902739264598",
+          "cost": 2903,
+          "price": 4838,
+          "title": "White / 2XL",
+          "grams": 474,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112469,
+          "sku": "35654045791662750950",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Black / 3XL",
+          "grams": 556,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112470,
+          "sku": "28611094795065022236",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Olive / 3XL",
+          "grams": 515,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112471,
+          "sku": "18546918158038462839",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Sand / 3XL",
+          "grams": 512,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112472,
+          "sku": "22296077580564612156",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Union Beige / 3XL",
+          "grams": 536,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112473,
+          "sku": "15861702549378139266",
+          "cost": 2986,
+          "price": 4977,
+          "title": "White / 3XL",
+          "grams": 535,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112474,
+          "sku": "25345261111686210719",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Black / 4XL",
+          "grams": 587,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112475,
+          "sku": "57777470784503543274",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Olive / 4XL",
+          "grams": 523,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112476,
+          "sku": "31856767873510135917",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Sand / 4XL",
+          "grams": 545,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112477,
+          "sku": "12859252996887460414",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Union Beige / 4XL",
+          "grams": 566,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112478,
+          "sku": "28163798889422192059",
+          "cost": 2986,
+          "price": 4977,
+          "title": "White / 4XL",
+          "grams": 552,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112479,
+          "sku": "37519720134317909191",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Black / 5XL",
+          "grams": 592,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 21],
+          "quantity": 1
+        },
+        {
+          "id": 112480,
+          "sku": "26106007224871566546",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Olive / 5XL",
+          "grams": 535,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 21],
+          "quantity": 1
+        },
+        {
+          "id": 112481,
+          "sku": "13316520386905930926",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Sand / 5XL",
+          "grams": 572,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 21],
+          "quantity": 1
+        },
+        {
+          "id": 112482,
+          "sku": "37771353498149523954",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Union Beige / 5XL",
+          "grams": 575,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 21],
+          "quantity": 1
+        },
+        {
+          "id": 112483,
+          "sku": "11343161922858201606",
+          "cost": 2986,
+          "price": 4977,
+          "title": "White / 5XL",
+          "grams": 565,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 21],
+          "quantity": 1
+        }
+      ],
+      "images": [
+        {
+          "src": "https://images-api.printify.com/mockup/6816e2ee44c4abfbc3041819/112458/105676/beach-and-bar-wear-la-dolce-vite-collection-ultra-heavy-white-oversized-cotton-mens-t-shirt.jpg?camera_label=front",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "front",
+          "is_default": true,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816e2ee44c4abfbc3041819/112458/105677/beach-and-bar-wear-la-dolce-vite-collection-ultra-heavy-white-oversized-cotton-mens-t-shirt.jpg?camera_label=back",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "back",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816e2ee44c4abfbc3041819/112458/105925/beach-and-bar-wear-la-dolce-vite-collection-ultra-heavy-white-oversized-cotton-mens-t-shirt.jpg?camera_label=person-1-front",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "other",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816e2ee44c4abfbc3041819/112458/105926/beach-and-bar-wear-la-dolce-vite-collection-ultra-heavy-white-oversized-cotton-mens-t-shirt.jpg?camera_label=person-1-back",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "other",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816e2ee44c4abfbc3041819/112458/105927/beach-and-bar-wear-la-dolce-vite-collection-ultra-heavy-white-oversized-cotton-mens-t-shirt.jpg?camera_label=person-2-front",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "other",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816e2ee44c4abfbc3041819/112458/105928/beach-and-bar-wear-la-dolce-vite-collection-ultra-heavy-white-oversized-cotton-mens-t-shirt.jpg?camera_label=person-2-back",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "other",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        }
+      ],
+      "created_at": "2025-05-04 03:45:50+00:00",
+      "updated_at": "2025-05-04 03:48:45+00:00",
+      "visible": true,
+      "is_locked": true,
+      "blueprint_id": 1612,
+      "user_id": 23014874,
+      "shop_id": 22158930,
+      "print_provider_id": 26,
+      "print_areas": [
+        {
+          "variant_ids": [112439, 112440, 112441, 112442, 112443, 112444, 112445, 112446, 112447, 112448, 112449, 112450, 112451, 112452, 112453, 112454, 112455, 112456, 112457, 112458, 112459, 112460, 112461, 112462, 112463, 112464, 112465, 112466, 112467, 112468, 112469, 112470, 112471, 112472, 112473, 112474, 112475, 112476, 112477, 112478, 112479, 112480, 112481, 112482, 112483],
+          "placeholders": [
+            {
+              "position": "back",
+              "images": [
+                {
+                  "id": "6816b749947aa2ef940f8d85",
+                  "name": "Final Back Finished.png",
+                  "type": "image/png",
+                  "height": 3840,
+                  "width": 3840,
+                  "x": 0.500550403508246,
+                  "y": 0.457776890077296,
+                  "scale": 1.00110080701649,
+                  "angle": 0,
+                  "src": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/23014874/747756f4-5f5a-425f-ac1c-6e5c909b56bd"
+                }
+              ]
+            },
+            {
+              "position": "front",
+              "images": [
+                {
+                  "id": "6816e29e947aa2ef940f92eb",
+                  "name": "Final Front With Shells.png",
+                  "type": "image/png",
+                  "height": 3840,
+                  "width": 3840,
+                  "x": 0.842497943683957,
+                  "y": 0.267626511849937,
+                  "scale": 0.365593930115273,
+                  "angle": 0,
+                  "src": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/23014874/e6a7265d-0bd6-4c9c-a75c-a8bc38348d78"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "print_details": [],
+      "sales_channel_properties": [],
+      "is_printify_express_eligible": false,
+      "is_printify_express_enabled": false,
+      "is_economy_shipping_eligible": false,
+      "is_economy_shipping_enabled": false,
+      "is_deleted": false,
+      "original_product_id": "",
+      "views": [
+        {
+          "id": 132369,
+          "label": "Front side",
+          "position": "front",
+          "files": [
+            {
+              "src": "https://images.printify.com/api/catalog/66e82d0b1d025f1de1085b82.svg",
+              "variant_ids": [112439, 112440, 112441, 112442, 112443, 112444, 112445, 112446, 112447, 112448, 112449, 112450, 112451, 112452, 112453, 112454, 112455, 112456, 112457, 112458, 112459, 112460, 112461, 112462, 112463, 112464, 112465, 112466, 112467, 112468, 112469, 112470, 112471, 112472, 112473, 112474, 112475, 112476, 112477, 112478, 112479, 112480, 112481, 112482, 112483]
+            }
+          ]
+        },
+        {
+          "id": 132370,
+          "label": "Back side",
+          "position": "back",
+          "files": [
+            {
+              "src": "https://images.printify.com/api/catalog/66e82d2d2185c593690d9b92.svg",
+              "variant_ids": [112439, 112440, 112441, 112442, 112443, 112444, 112445, 112446, 112447, 112448, 112449, 112450, 112451, 112452, 112453, 112454, 112455, 112456, 112457, 112458, 112459, 112460, 112461, 112462, 112463, 112464, 112465, 112466, 112467, 112468, 112469, 112470, 112471, 112472, 112473, 112474, 112475, 112476, 112477, 112478, 112479, 112480, 112481, 112482, 112483]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6816aa3bb03bb3ed0c0239c7",
+      "title": "Ober Sized Beach Bar Graphic Tee - Dolce Vita Summer Vibes",
+      "description": "",
+      "tags": [
+        "T-shirts",
+        "Unisex",
+        "Men's Clothing",
+        "Women's Clothing",
+        "DTG",
+        "Premium Apparel",
+        "Cotton"
+      ],
+      "options": [
+        {
+          "name": "Colors",
+          "type": "color",
+          "values": [
+            {
+              "id": 5235,
+              "title": "White",
+              "colors": [
+                "#fafafa"
+              ]
+            },
+            {
+              "id": 3943,
+              "title": "Black",
+              "colors": [
+                "#343434"
+              ]
+            },
+            {
+              "id": 5236,
+              "title": "Sand",
+              "colors": [
+                "#efe5d5"
+              ]
+            },
+            {
+              "id": 5193,
+              "title": "Union Beige",
+              "colors": [
+                "#bb967a"
+              ]
+            },
+            {
+              "id": 3944,
+              "title": "Olive",
+              "colors": [
+                "#77724c"
+              ]
+            }
+          ],
+          "display_in_preview": true
+        },
+        {
+          "name": "Sizes",
+          "type": "size",
+          "values": [
+            {
+              "id": 13,
+              "title": "XS"
+            },
+            {
+              "id": 1546,
+              "title": "S"
+            },
+            {
+              "id": 1547,
+              "title": "M"
+            },
+            {
+              "id": 1548,
+              "title": "L"
+            },
+            {
+              "id": 1549,
+              "title": "XL"
+            },
+            {
+              "id": 18,
+              "title": "2XL"
+            },
+            {
+              "id": 19,
+              "title": "3XL"
+            },
+            {
+              "id": 20,
+              "title": "4XL"
+            },
+            {
+              "id": 21,
+              "title": "5XL"
+            }
+          ],
+          "display_in_preview": false
+        }
+      ],
+      "variants": [
+        {
+          "id": 112439,
+          "sku": "14538286976279312389",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / XS",
+          "grams": 366,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3943, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112440,
+          "sku": "68004975063428642333",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / XS",
+          "grams": 367,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112441,
+          "sku": "67350774090732830845",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / XS",
+          "grams": 372,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112442,
+          "sku": "22679301896220516101",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / XS",
+          "grams": 373,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112443,
+          "sku": "10026956620912364448",
+          "cost": 2903,
+          "price": 4838,
+          "title": "White / XS",
+          "grams": 369,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [5235, 13],
+          "quantity": 1
+        },
+        {
+          "id": 112444,
+          "sku": "16401039152614834464",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / S",
+          "grams": 374,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112445,
+          "sku": "98128467808958396414",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / S",
+          "grams": 398,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3944, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112446,
+          "sku": "22404489033069024252",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / S",
+          "grams": 389,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112447,
+          "sku": "82205809649412095171",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / S",
+          "grams": 409,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112448,
+          "sku": "23905321096775925411",
+          "cost": 2903,
+          "price": 3500,
+          "title": "White / S",
+          "grams": 376,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 1546],
+          "quantity": 1
+        },
+        {
+          "id": 112449,
+          "sku": "16667110404863257846",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / M",
+          "grams": 410,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3943, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112450,
+          "sku": "25105926883153125929",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / M",
+          "grams": 421,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3944, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112451,
+          "sku": "37968696153276797914",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / M",
+          "grams": 408,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112452,
+          "sku": "32910322885969075553",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / M",
+          "grams": 433,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112453,
+          "sku": "29585873544248789986",
+          "cost": 2903,
+          "price": 3500,
+          "title": "White / M",
+          "grams": 398,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [5235, 1547],
+          "quantity": 1
+        },
+        {
+          "id": 112454,
+          "sku": "19879027171110942391",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / L",
+          "grams": 426,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112455,
+          "sku": "29134154134733797574",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / L",
+          "grams": 447,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3944, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112456,
+          "sku": "67492614477159688149",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / L",
+          "grams": 431,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112457,
+          "sku": "31712524467735459998",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / L",
+          "grams": 449,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112458,
+          "sku": "16494762702821265535",
+          "cost": 2903,
+          "price": 3500,
+          "title": "White / L",
+          "grams": 418,
+          "is_enabled": true,
+          "is_default": true,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 1548],
+          "quantity": 1
+        },
+        {
+          "id": 112459,
+          "sku": "42540839340433001851",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / XL",
+          "grams": 473,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112460,
+          "sku": "28469379868509872296",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / XL",
+          "grams": 469,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112461,
+          "sku": "66206174605258284598",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / XL",
+          "grams": 457,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112462,
+          "sku": "81809918147725087167",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / XL",
+          "grams": 478,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112463,
+          "sku": "33074364561331122288",
+          "cost": 2903,
+          "price": 4838,
+          "title": "White / XL",
+          "grams": 446,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 1549],
+          "quantity": 1
+        },
+        {
+          "id": 112464,
+          "sku": "10380344374377587700",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Black / 2XL",
+          "grams": 481,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": false,
+          "is_printify_express_eligible": false,
+          "options": [3943, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112465,
+          "sku": "91589386648072015749",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Olive / 2XL",
+          "grams": 493,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112466,
+          "sku": "26024079361780653348",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Sand / 2XL",
+          "grams": 479,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112467,
+          "sku": "70947099846900886504",
+          "cost": 2903,
+          "price": 4838,
+          "title": "Union Beige / 2XL",
+          "grams": 502,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112468,
+          "sku": "44964632167257087733",
+          "cost": 2903,
+          "price": 4838,
+          "title": "White / 2XL",
+          "grams": 474,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 18],
+          "quantity": 1
+        },
+        {
+          "id": 112469,
+          "sku": "21937346977849702225",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Black / 3XL",
+          "grams": 556,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112470,
+          "sku": "13052200360372321359",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Olive / 3XL",
+          "grams": 515,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112471,
+          "sku": "20750534141532416795",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Sand / 3XL",
+          "grams": 512,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112472,
+          "sku": "86355617449446727894",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Union Beige / 3XL",
+          "grams": 536,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112473,
+          "sku": "29707747053620041335",
+          "cost": 2986,
+          "price": 4977,
+          "title": "White / 3XL",
+          "grams": 535,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 19],
+          "quantity": 1
+        },
+        {
+          "id": 112474,
+          "sku": "31400045185980532951",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Black / 4XL",
+          "grams": 587,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112475,
+          "sku": "33390948019879619385",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Olive / 4XL",
+          "grams": 523,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112476,
+          "sku": "22130818724817948536",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Sand / 4XL",
+          "grams": 545,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112477,
+          "sku": "55338177990501236009",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Union Beige / 4XL",
+          "grams": 566,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112478,
+          "sku": "29067711014728886681",
+          "cost": 2986,
+          "price": 4977,
+          "title": "White / 4XL",
+          "grams": 552,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 20],
+          "quantity": 1
+        },
+        {
+          "id": 112479,
+          "sku": "29637585439267552010",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Black / 5XL",
+          "grams": 592,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3943, 21],
+          "quantity": 1
+        },
+        {
+          "id": 112480,
+          "sku": "10325896339904520165",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Olive / 5XL",
+          "grams": 535,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [3944, 21],
+          "quantity": 1
+        },
+        {
+          "id": 112481,
+          "sku": "24704750196901275238",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Sand / 5XL",
+          "grams": 572,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5236, 21],
+          "quantity": 1
+        },
+        {
+          "id": 112482,
+          "sku": "13549981043705501051",
+          "cost": 2986,
+          "price": 4977,
+          "title": "Union Beige / 5XL",
+          "grams": 575,
+          "is_enabled": false,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5193, 21],
+          "quantity": 1
+        },
+        {
+          "id": 112483,
+          "sku": "14021946327030454770",
+          "cost": 2986,
+          "price": 4977,
+          "title": "White / 5XL",
+          "grams": 565,
+          "is_enabled": true,
+          "is_default": false,
+          "is_available": true,
+          "is_printify_express_eligible": false,
+          "options": [5235, 21],
+          "quantity": 1
+        }
+      ],
+      "images": [
+        {
+          "src": "https://images-api.printify.com/mockup/6816aa3bb03bb3ed0c0239c7/112458/105676/ober-sized-beach-bar-graphic-tee-dolce-vita-summer-vibes.jpg?camera_label=front",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "front",
+          "is_default": true,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816aa3bb03bb3ed0c0239c7/112458/105677/ober-sized-beach-bar-graphic-tee-dolce-vita-summer-vibes.jpg?camera_label=back",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "back",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816aa3bb03bb3ed0c0239c7/112458/105925/ober-sized-beach-bar-graphic-tee-dolce-vita-summer-vibes.jpg?camera_label=person-1-front",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "other",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816aa3bb03bb3ed0c0239c7/112458/105926/ober-sized-beach-bar-graphic-tee-dolce-vita-summer-vibes.jpg?camera_label=person-1-back",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "other",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816aa3bb03bb3ed0c0239c7/112458/105927/ober-sized-beach-bar-graphic-tee-dolce-vita-summer-vibes.jpg?camera_label=person-2-front",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "other",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        },
+        {
+          "src": "https://images-api.printify.com/mockup/6816aa3bb03bb3ed0c0239c7/112458/105928/ober-sized-beach-bar-graphic-tee-dolce-vita-summer-vibes.jpg?camera_label=person-2-back",
+          "variant_ids": [112443, 112448, 112453, 112458, 112463, 112468, 112473, 112478, 112483],
+          "position": "other",
+          "is_default": false,
+          "is_selected_for_publishing": true,
+          "order": null
+        }
+      ],
+      "created_at": "2025-05-03 23:43:55+00:00",
+      "updated_at": "2025-05-04 00:41:24+00:00",
+      "visible": true,
+      "is_locked": true,
+      "blueprint_id": 1612,
+      "user_id": 23014874,
+      "shop_id": 22158930,
+      "print_provider_id": 26,
+      "print_areas": [
+        {
+          "variant_ids": [112439, 112440, 112441, 112442, 112443, 112444, 112445, 112446, 112447, 112448, 112449, 112450, 112451, 112452, 112453, 112454, 112455, 112456, 112457, 112458, 112459, 112460, 112461, 112462, 112463, 112464, 112465, 112466, 112467, 112468, 112469, 112470, 112471, 112472, 112473, 112474, 112475, 112476, 112477, 112478, 112479, 112480, 112481, 112482, 112483],
+          "placeholders": [
+            {
+              "position": "back",
+              "images": [
+                {
+                  "id": "6816b749947aa2ef940f8d85",
+                  "name": "Best3.png",
+                  "type": "image/png",
+                  "height": 3840,
+                  "width": 3840,
+                  "x": 0.5,
+                  "y": 0.476397540364783,
+                  "scale": 1,
+                  "angle": 0,
+                  "src": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/23014874/747756f4-5f5a-425f-ac1c-6e5c909b56bd"
+                }
+              ]
+            },
+            {
+              "position": "front",
+              "images": [
+                {
+                  "id": "6816b3685a95cf27577c08e5",
+                  "name": "this3.png",
+                  "type": "image/png",
+                  "height": 3840,
+                  "width": 3840,
+                  "x": 0.80711886618429,
+                  "y": 0.243867359388422,
+                  "scale": 0.457090240083244,
+                  "angle": 0,
+                  "src": "https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/23014874/c3214c84-e9b2-4f91-81ad-62fbdce660b0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "print_details": [],
+      "sales_channel_properties": [],
+      "is_printify_express_eligible": false,
+      "is_printify_express_enabled": false,
+      "is_economy_shipping_eligible": false,
+      "is_economy_shipping_enabled": false,
+      "is_deleted": false,
+      "original_product_id": "",
+      "views": [
+        {
+          "id": 132369,
+          "label": "Front side",
+          "position": "front",
+          "files": [
+            {
+              "src": "https://images.printify.com/api/catalog/66e82d0b1d025f1de1085b82.svg",
+              "variant_ids": [112439, 112440, 112441, 112442, 112443, 112444, 112445, 112446, 112447, 112448, 112449, 112450, 112451, 112452, 112453, 112454, 112455, 112456, 112457, 112458, 112459, 112460, 112461, 112462, 112463, 112464, 112465, 112466, 112467, 112468, 112469, 112470, 112471, 112472, 112473, 112474, 112475, 112476, 112477, 112478, 112479, 112480, 112481, 112482, 112483]
+            }
+          ]
+        },
+        {
+          "id": 132370,
+          "label": "Back side",
+          "position": "back",
+          "files": [
+            {
+              "src": "https://images.printify.com/api/catalog/66e82d2d2185c593690d9b92.svg",
+              "variant_ids": [112439, 112440, 112441, 112442, 112443, 112444, 112445, 112446, 112447, 112448, 112449, 112450, 112451, 112452, 112453, 112454, 112455, 112456, 112457, 112458, 112459, 112460, 112461, 112462, 112463, 112464, 112465, 112466, 112467, 112468, 112469, 112470, 112471, 112472, 112473, 112474, 112475, 112476, 112477, 112478, 112479, 112480, 112481, 112482, 112483]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "first_page_url": "/?page=1",
+  "from": 1,
+  "last_page": 1,
+  "last_page_url": "/?page=1",
+  "links": [
+    {
+      "url": null,
+      "label": "&laquo; Previous",
+      "active": false
+    },
+    {
+      "url": "/?page=1",
+      "label": "1",
+      "active": true
+    },
+    {
+      "url": null,
+      "label": "Next &raquo;",
+      "active": false
+    }
+  ],
+  "next_page_url": null,
+  "path": "/",
+  "per_page": 50,
+  "prev_page_url": null,
+  "to": 2,
+  "total": 2
+}
