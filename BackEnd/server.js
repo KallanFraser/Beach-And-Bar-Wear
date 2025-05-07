@@ -13,6 +13,12 @@ import axios from "axios";
 import { pool } from "./Database/Database.js";
 import routes from "./Routes/Routes.js";
 
+//Server / Database Update Functions
+import { updateProductData } from "./PrintifyAPIController/RefreshProducts.js";
+
+//Testing / Other
+import { cancelAndDeleteProduct } from "./PrintifyAPIController/cancelAndDeleteProduct.js";
+
 /*---------------------------------------------------------------------------------------------
 										Globals
 ----------------------------------------------------------------------------------------------*/
@@ -49,4 +55,5 @@ pool.query("SELECT NOW()", (error, response) => {
 //Server start point
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
+	updateProductData();
 });

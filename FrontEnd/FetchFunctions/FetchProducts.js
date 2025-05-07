@@ -2,18 +2,20 @@
 /*---------------------------------------------------------------------------------------------
 										Imports
 ----------------------------------------------------------------------------------------------*/
-//Imported Libraries
-import express from "express";
+import axios from "axios";
 
-//Imported Functions
-import { fetchAllProducts } from "../PrintifyAPIController/FetchAllProducts.js";
 /*---------------------------------------------------------------------------------------------
-									Routes and Router
+									Fetch Function
 ----------------------------------------------------------------------------------------------*/
-//Creation and reference to express' router object
-const expressRouter = express.Router();
+const fetchProducts = async () => {
+	try {
+		let serverResponse = await axios.get(`http://localhost:3000/fetchAllProducts`);
 
-//All Routes (in expected use order)
-expressRouter.get("/fetchAllProducts", fetchAllProducts);
+		console.log(serverResponse.data);
+		return serverResponse.data;
+	} catch (error) {
+		console.error("Error fetching all product data");
+	}
+};
 
-export default expressRouter;
+export default fetchProducts;
