@@ -1,0 +1,50 @@
+/** @format */
+
+.product-card {
+	width: 30rem;
+	border-radius: 1rem;
+	border: solid white 1rem;
+}
+
+.image-swapper {
+	position: relative;
+	width: 100%; /* match your card width */
+	padding-top: 100%; /* or height: Xpx; to lock aspect ratio */
+	overflow: hidden;
+}
+
+.image-swapper img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: opacity 0.3s ease-in-out;
+}
+
+/* show only the primary by default */
+.image-swapper .primary {
+	opacity: 1;
+	z-index: 1;
+}
+.image-swapper .secondary {
+	opacity: 0;
+	z-index: 0;
+}
+
+/* on hover, fade primary out and secondary in */
+.image-swapper:hover .primary {
+	opacity: 0;
+}
+.image-swapper:hover .secondary {
+	opacity: 1;
+}
+
+.price-section {
+	list-style-type: none;
+	text-align: center;
+	background-color: hsl(0, 0%, 74%);
+	padding: 0.25rem;
+	font-size: 1.25rem;
+}

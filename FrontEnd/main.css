@@ -1,1 +1,27 @@
 /** @format */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-weight: 500;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	letter-spacing: 0.5px;
+}
+
+body {
+	height: 100%;
+	max-width: 100vw;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: rgb(25, 25, 25);
+}
+
+:root {
+	--dark: hsl(156, 12%, 8%);
+	--secondary-color: hsl(157, 41%, 22%);
+	--text-color: hsl(0, 0%, 95%);
+	--accent-color: hsl(0, 0%, 53%);
+	--border-color: hsla(0, 0%, 100%, 0.1);
+	--hunter-green: hsl(157, 26%, 27%);
+	--button-background-color: hsl(156, 27%, 31%);
+}

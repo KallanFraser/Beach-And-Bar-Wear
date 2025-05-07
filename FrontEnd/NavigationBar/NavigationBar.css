@@ -1,0 +1,27 @@
+/** @format */
+
+#navigation-bar {
+	width: 100vw;
+	background-color: var(--dark);
+	height: 4rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#navigation-bar img {
+	max-width: 4rem;
+}
+
+#navigation-bar-center-content {
+	display: flex;
+	justify-content: space-between;
+	gap: 5rem;
+	text-decoration: none;
+}
+
+#navigation-bar-center-content a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.25rem;
+}
