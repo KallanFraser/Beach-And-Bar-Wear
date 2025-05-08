@@ -8,13 +8,100 @@
 	letter-spacing: 0.5px;
 }
 
+/*--------------------------------------------------------------------------*/
+/*                              Rainbow Effects                             */
+/*--------------------------------------------------------------------------*/
+
 body {
 	height: 100%;
 	max-width: 100vw;
 	overflow-y: auto;
 	overflow-x: hidden;
 	background-color: rgb(25, 25, 25);
+	position: relative;
+	min-height: 100vh;
+
+	/* start dark, then fade in effect */
+	filter: brightness(0);
+	animation: fadeInBrightness 2s ease-in-out forwards;
 }
+
+/* both layers fill the screen and sit behind the content */
+body::before,
+body::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-size: 600% 600%;
+	background-repeat: no-repeat;
+	mix-blend-mode: screen;
+	z-index: -1;
+}
+
+/* layer #1: rainbow-ish diagonal */
+body::before {
+	background-image: linear-gradient(45deg, #65c160, #0989b4, #336aa8, #42d283, #444ea8, #06c160, #0e6aba);
+	animation: gradientShift1 10s ease infinite;
+}
+
+/* layer #2: reverse diagonal, slower & semi-transparent */
+body::after {
+	background-image: linear-gradient(-45deg, #06c160, #0e6aba, #60c16f, #0989b4, #0e6aba, #444ea8, #8e24aa);
+	animation: gradientShift2 15s ease infinite reverse;
+	opacity: 0.6;
+}
+
+/*--------------------------------------------------------------------------*/
+/*                              Keyframes                                   */
+/*--------------------------------------------------------------------------*/
+/* multi-stop keyframes to move both X and Y around */
+@keyframes gradientShift1 {
+	0%,
+	100% {
+		background-position: 0% 50%;
+	}
+	25% {
+		background-position: 50% 0%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	75% {
+		background-position: 50% 100%;
+	}
+}
+
+@keyframes gradientShift2 {
+	0%,
+	100% {
+		background-position: 100% 50%;
+	}
+	25% {
+		background-position: 50% 100%;
+	}
+	50% {
+		background-position: 0% 50%;
+	}
+	75% {
+		background-position: 50% 0%;
+	}
+}
+
+@keyframes fadeInBrightness {
+	from {
+		filter: brightness(0);
+	}
+	to {
+		filter: brightness(1);
+	}
+}
+
+/*--------------------------------------------------------------------------*/
+/*                              Root Colors                                 */
+/*--------------------------------------------------------------------------*/
 
 :root {
 	--dark: hsl(156, 12%, 8%);
@@ -24,4 +111,24 @@ body {
 	--border-color: hsla(0, 0%, 100%, 0.1);
 	--hunter-green: hsl(157, 26%, 27%);
 	--button-background-color: hsl(156, 27%, 31%);
+}
+
+/*--------------------------------------------------------------------------*/
+/*                         Tried to hide scrollbar                          */
+/*--------------------------------------------------------------------------*/
+
+/* 1. For WebKit browsers (Chrome, Safari, Edge) */
+body::-webkit-scrollbar {
+	width: 0; /* remove scrollbar width */
+	height: 0; /* remove horizontal scrollbar */
+}
+
+/* 2. For Firefox */
+body {
+	scrollbar-width: none; /* “auto” or “thin” are the defaults */
+}
+
+/* 3. For IE 10+ / Edge Legacy */
+body {
+	-ms-overflow-style: none; /* hide scrollbar in Windows browsers */
 }

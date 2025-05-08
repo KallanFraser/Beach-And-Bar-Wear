@@ -1,0 +1,42 @@
+/** @format */
+#landing-page {
+	width: 100vw;
+	height: auto;
+	min-height: 100vh;
+
+	/* Background Hero Gradient Effect Section*/
+	background: linear-gradient(45deg, #60c16f, #0989b4, #0e6aba, #06c160);
+	background-size: 400% 400%; /* super zoomed out so it can pan around */
+	animation: gradientShift 10s ease infinite;
+
+	/*Fade in on load effect*/
+	filter: brightness(0);
+	animation: fadeInBrightness 2s ease-in-out forwards;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#logo-section {
+	color: white;
+	font-size: 2rem;
+}
+
+@keyframes gradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes fadeInBrightness {
+	to {
+		filter: brightness(1);
+	}
+}

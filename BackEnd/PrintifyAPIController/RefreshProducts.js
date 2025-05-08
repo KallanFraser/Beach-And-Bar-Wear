@@ -84,9 +84,7 @@ function parseAndUpdateEssentialProductData(data) {
 			.map((img) => img.src);
 
 		// 4. (Optional) Single consolidated log per product
-		console.log(
-			`[Product] id= ${id} title= "${title}" amount of variants= ${filteredVariants.length} amount of images= ${matchedImages.length}`
-		);
+		//console.log(`[Product] id= ${id} title= "${title}" amount of variants= ${filteredVariants.length} amount of images= ${matchedImages.length}`);
 
 		//returns the following as an object:
 		//product_id
@@ -173,14 +171,14 @@ const upsertProductIntoDatabase = async (product) => {
 		if (variantValues.length) {
 			await client.query(
 				`INSERT INTO product_variants
-		   		(variant_id, product_id, variant_sku, variant_price, variant_cost, variant_title, in_stock)
-		   		VALUES ${variantValues.join(",")}
-		   		ON CONFLICT (variant_id)
-		   		DO UPDATE SET
-			 	variant_price = EXCLUDED.variant_price,
-			 	variant_cost  = EXCLUDED.variant_cost,
-			 	variant_title = EXCLUDED.variant_title,
-			 	in_stock      = EXCLUDED.in_stock;`,
+				(variant_id, product_id, variant_sku, variant_price, variant_cost, variant_title, in_stock)
+				VALUES ${variantValues.join(",")}
+				ON CONFLICT (variant_id, product_id)
+				DO UPDATE SET
+				variant_price = EXCLUDED.variant_price,
+				variant_cost  = EXCLUDED.variant_cost,
+				variant_title = EXCLUDED.variant_title,
+				in_stock      = EXCLUDED.in_stock;`,
 				params
 			);
 		}
@@ -200,6 +198,7 @@ const upsertProductIntoDatabase = async (product) => {
 		}
 
 		await client.query("COMMIT");
+		console.log("Successful Insert / Update for: ", title);
 	} catch (err) {
 		await client.query("ROLLBACK");
 		console.error(`DB upsert failed for product ${id}:`, err.message);

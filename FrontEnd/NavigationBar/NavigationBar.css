@@ -2,7 +2,7 @@
 
 #navigation-bar {
 	width: 100vw;
-	background-color: var(--dark);
+	background-color: rgba(0, 0, 0, 0.75);
 	height: 4rem;
 	display: flex;
 	justify-content: space-between;
@@ -18,10 +18,12 @@
 	justify-content: space-between;
 	gap: 5rem;
 	text-decoration: none;
+	height: 4rem;
 }
 
-#navigation-bar-center-content a {
-	text-decoration: none;
-	color: white;
-	font-size: 1.25rem;
+#navigation-bar-center-content img {
+	height: 100%;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
 }

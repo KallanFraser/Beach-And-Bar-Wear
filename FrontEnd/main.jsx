@@ -9,15 +9,19 @@ import { createRoot } from "react-dom/client";
 import "./main.css";
 
 import LandingPage from "./LandingPage/LandingPage";
+import HomePage from "./HomePage/HomePage";
 /*---------------------------------------------------------------------------------------------
 										Entry Point
 ----------------------------------------------------------------------------------------------*/
 createRoot(document.getElementById("root")).render(
-	<StrictMode>
-		<Router>
-			<Routes>
-				<Route path="/" element={<LandingPage />} />
-			</Routes>
-		</Router>
-	</StrictMode>
+	<Router>
+		<Routes>
+			<Route path="/" element={<LandingPage />} />
+			<Route path="/HomePage" element={<HomePage />} />
+		</Routes>
+	</Router>
 );
+
+//add back strict mode if errors
+//	<StrictMode>
+//	</StrictMode>

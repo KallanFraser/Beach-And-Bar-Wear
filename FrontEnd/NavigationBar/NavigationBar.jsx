@@ -19,15 +19,7 @@ const NavigationBar = () => {
 				<img src="/Images/UserIcon.png" alt="Logo"></img>
 			</Link>
 			<div id="navigation-bar-center-content">
-				<Link to="/">
-					<h3>Mens</h3>
-				</Link>
-				<Link to="/">
-					<h3>Womens</h3>
-				</Link>
-				<Link to="/">
-					<h3>Sale</h3>
-				</Link>
+				<img src="/Images/LogoScratched.png" alt="Logo"></img>
 			</div>
 			<Link to="/">
 				<img src="/Images/Cart.png" alt="Logo"></img>

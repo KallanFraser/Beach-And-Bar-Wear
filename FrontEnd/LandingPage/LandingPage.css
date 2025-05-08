@@ -1,14 +1,86 @@
 /** @format */
+/*--------------------------------------------------------------------------*/
+/*                              Main CSS                                    */
+/*--------------------------------------------------------------------------*/
 #landing-page {
-	width: 100vw;
-	height: auto;
+	position: relative;
+	overflow: hidden;
 	min-height: 100vh;
-	background: radial-gradient(circle at top left, var(--dark), var(--hunter-green));
-	filter: brightness(96%);
+
+	/*Styling for inner content*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+/*--------------------------------------------------------------------------*/
+/*                              Keyframes                                   */
+/*--------------------------------------------------------------------------*/
+@keyframes sway {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(-0.1eg);
+	}
+	50% {
+		transform: rotate(0deg);
+	}
+	75% {
+		transform: rotate(0.1deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+/*--------------------------------------------------------------------------*/
+/*                              Logo Section                                */
+/*--------------------------------------------------------------------------*/
+
+#logo-section {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-#products-container {
-	width: 100%;
-	padding-inline: 10rem;
-	padding-top: 5rem;
+#logo-section img {
+	position: absolute;
+	width: 50%;
+	object-fit: cover;
+	transition: transform 0.3s;
+	transform-origin: bottom center;
+	animation: sway 6s ease-in-out infinite;
+}
+
+/*--------------------------------------------------------------------------*/
+/*                              Button Section                                */
+/*--------------------------------------------------------------------------*/
+
+#button-section {
+	position: relative;
+	z-index: 1;
+	margin-top: 10rem;
+}
+
+#button-section button {
+	padding: 1rem 1.5rem;
+	font-size: 1.5rem;
+	border-radius: 1rem;
+	border-style: none;
+	background-color: rgba(52, 47, 47, 0.694);
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out;
+}
+
+#button-section button:hover {
+	/* scale up by 10% on hover */
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+#button-section button img {
+	height: 3rem; /* or whatever size you’d like, e.g. 24px */
+	display: inline-block; /* ensures it respects width/height */
+	vertical-align: middle; /* if you want it centered next to text */
 }
