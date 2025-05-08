@@ -10,6 +10,7 @@ import "./main.css";
 
 import LandingPage from "./LandingPage/LandingPage";
 import HomePage from "./HomePage/HomePage";
+import ViewProduct from "./ViewProduct/ViewProduct";
 /*---------------------------------------------------------------------------------------------
 										Entry Point
 ----------------------------------------------------------------------------------------------*/
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
 		<Routes>
 			<Route path="/" element={<LandingPage />} />
 			<Route path="/HomePage" element={<HomePage />} />
+			<Route path="/ViewProduct" element={<ViewProduct />} />
 		</Routes>
 	</Router>
 );

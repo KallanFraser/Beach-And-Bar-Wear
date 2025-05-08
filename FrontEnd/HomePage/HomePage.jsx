@@ -5,6 +5,7 @@
 ----------------------------------------------------------------------------------------------*/
 //Library Imports
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 //Component Imports
 import NavigationBar from "../NavigationBar/NavigationBar.jsx";
@@ -23,8 +24,15 @@ function ProductCard({ product }) {
 	const largeVariant = product.variants.find((v) => /(^|\W)L($|\W)/i.test(v.title));
 	const [first, second] = product.imageUrls; // grab the first two
 
+	const navigate = useNavigate();
+
+	const handleClick = () => {
+		// navigate to /ViewProduct and pass the product in state
+		navigate("/ViewProduct", { state: { product } });
+	};
+
 	return (
-		<div className="product-card">
+		<div className="product-card" onClick={handleClick}>
 			<div className="image-swapper">
 				{first && <img className="primary" src={first} alt={product.title} />}
 				{second && <img className="secondary" src={second} alt={product.title} />}
