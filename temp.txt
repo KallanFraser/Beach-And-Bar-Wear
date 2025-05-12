@@ -1,7 +1,0 @@
- - Reduce image quality for efficiency
- - Preload content
- - Load only certain content
- - pre determine what content to show
-
- - Make some super higher level parent that stores the fetched data and calls
- immediately on website load

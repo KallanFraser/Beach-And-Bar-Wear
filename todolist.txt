@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------------
+ - Reduce the image quality of each image stored in the db.
+    - Convert to json then downsize then convert to byte form and store it.
+---------------------------------------------------------------------------------
+ - Add a viewproduct/productID endpoint so people can save urls to products
+---------------------------------------------------------------------------------
+ - Add views in the database for different categories
+    - Predetermined / Selected opening page
+    - Mens clothing
+    - Womens clothing
+    - Sale clothing
+---------------------------------------------------------------------------------
+ - Modify the query that stores all products to at first only load Predetermined
+    - Then as the consumer views more we can store more 
+---------------------------------------------------------------------------------
+ - Method of adjusting text to view port size (JS function?)
+    - This way the website looks the same for all devices
+---------------------------------------------------------------------------------

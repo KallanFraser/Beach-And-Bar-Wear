@@ -45,7 +45,6 @@
 }
 
 #logo-section img {
-	position: absolute;
 	width: 50%;
 	object-fit: cover;
 	transition: transform 0.3s;
@@ -56,31 +55,28 @@
 /*--------------------------------------------------------------------------*/
 /*                              Button Section                                */
 /*--------------------------------------------------------------------------*/
-
 #button-section {
-	position: relative;
-	z-index: 1;
-	margin-top: 10rem;
+	margin-top: 1rem;
+	display: flex;
+	justify-content: center;
 }
 
 #button-section button {
-	padding: 1rem 1.5rem;
-	font-size: 1.5rem;
+	padding: 1% 1.5%;
+	width: 18%;
 	border-radius: 1rem;
 	border-style: none;
 	background-color: rgba(52, 47, 47, 0.694);
-	cursor: pointer;
 	transition: transform 0.3s ease-in-out;
 }
 
 #button-section button:hover {
-	/* scale up by 10% on hover */
 	transform: scale(1.1);
 	cursor: pointer;
 }
 
 #button-section button img {
-	height: 3rem; /* or whatever size you’d like, e.g. 24px */
-	display: inline-block; /* ensures it respects width/height */
-	vertical-align: middle; /* if you want it centered next to text */
+	width: 100%;
+	object-fit: cover;
+	vertical-align: middle;
 }

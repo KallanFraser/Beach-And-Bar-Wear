@@ -4,7 +4,7 @@
 									Imports
 ----------------------------------------------------------------------------------------------*/
 //Library Imports
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //Component Imports
@@ -13,9 +13,7 @@ import NavigationBar from "../NavigationBar/NavigationBar.jsx";
 //CSS Import
 import "./HomePage.css";
 import "./ProductCard.css";
-
-//Fetch Imports
-import fetchProducts from "../FetchFunctions/FetchProducts.js";
+import { GlobalContext } from "../GlobalContext.jsx";
 /*---------------------------------------------------------------------------------------------
 									Product Component
 ----------------------------------------------------------------------------------------------*/
@@ -27,8 +25,7 @@ function ProductCard({ product }) {
 	const navigate = useNavigate();
 
 	const handleClick = () => {
-		// navigate to /ViewProduct and pass the product in state
-		navigate("/ViewProduct", { state: { product } });
+		navigate(`/ViewProduct/${product.id}`);
 	};
 
 	return (
@@ -47,17 +44,13 @@ function ProductCard({ product }) {
 								Main Component
 ----------------------------------------------------------------------------------------------*/
 const HomePage = () => {
-	const [products, setProducts] = useState([]);
-
-	useEffect(() => {
-		fetchProducts(setProducts);
-	}, []);
+	const { products, loading } = useContext(GlobalContext);
 
 	return (
 		<div id="home-page">
 			<NavigationBar />
 			<div className="products-container">
-				{products.length === 0 ? (
+				{loading || !products ? (
 					<p>Loading…</p>
 				) : (
 					products.map((p) => <ProductCard key={p.id} product={p} />)
