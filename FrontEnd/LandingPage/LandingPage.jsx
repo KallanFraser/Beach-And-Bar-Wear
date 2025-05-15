@@ -7,6 +7,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//Image imports
+import mainLogo from "../Images/LogoScratched.png";
+import shopButtonImage from "../Images/Shop.png";
+
 //CSS Import
 import "./LandingPage.css";
 
@@ -23,12 +27,12 @@ const LandingPage = () => {
 	return (
 		<div id="landing-page">
 			<div id="logo-section">
-				<img src="../Images/LogoScratched.png" id="first" />
+				<img src={mainLogo} id="first" />
 			</div>
 			<div id="button-section">
 				<button onClick={handleClick}>
 					{" "}
-					<img src="../Images/Shop.png" alt="Shop" />
+					<img src={shopButtonImage} alt="Shop" />
 				</button>
 			</div>
 		</div>

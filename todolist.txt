@@ -16,3 +16,21 @@
  - Method of adjusting text to view port size (JS function?)
     - This way the website looks the same for all devices
 ---------------------------------------------------------------------------------
+ - Batch Product Fetch (for cart or category)
+    - Sends an array of productIDs
+    - Returns each product as an object
+
+- For each product ID to be displayed on page:
+    - If not in globalcontext(cache)...
+    - add to list of productIDs that need to be fetched.
+    - once iteration through each product ID for the page is complete...
+        - Bulk fetch
+---------------------------------------------------------------------------------
+ - some kind of svg image background of palm trees?
+ - maybe there is an application out there that converts images to simple svgs?
+ ---------------------------------------------------------------------------------
+ - Check out button on my cart should not be scrollable.
+ - It should always be visible
+ - Take it out and add it below fixed
+ ---------------------------------------------------------------------------------
+ - Loading images properly when server is built

@@ -7,11 +7,11 @@
 
 .products-container {
 	width: 100%;
-	padding-top: 5rem;
+	padding-top: 2%;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	gap: 2rem;
-	padding-inline: 5rem;
+	padding-inline: 5%;
 	justify-content: center;
 }

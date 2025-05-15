@@ -10,16 +10,16 @@ import { useParams } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext.jsx";
 
 //Component Imports
-import NavigationBar from "../NavigationBar/NavigationBar";
+import NavigationBar from "../NavigationBar/NavigationBar.jsx";
 
 //CSS Import
-import "./ViewProduct.css";
+import "./ViewProductPage.css";
 
 //Fetch Imports
 /*---------------------------------------------------------------------------------------------
 								Main Component
 ----------------------------------------------------------------------------------------------*/
-const ViewProduct = () => {
+const ViewProductPage = () => {
 	const { id } = useParams();
 	console.log("Product ID from URL:", id);
 
@@ -224,4 +224,4 @@ const Loading = () => {
 	);
 };
 
-export default ViewProduct;
+export default ViewProductPage;

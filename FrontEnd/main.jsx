@@ -16,7 +16,9 @@ import { GlobalProvider } from "./GlobalContext";
 //Component Imports
 import LandingPage from "./LandingPage/LandingPage";
 import HomePage from "./HomePage/HomePage";
-import ViewProduct from "./ViewProduct/ViewProduct";
+import ViewProductPage from "./ViewProductPage/ViewProductPage";
+import ViewCartPage from "./ViewCartPage/ViewCartPage";
+import PaymentPage from "./PaymentPage/PaymentPage";
 /*---------------------------------------------------------------------------------------------
 										Entry Point
 ----------------------------------------------------------------------------------------------*/
@@ -26,7 +28,9 @@ createRoot(document.getElementById("root")).render(
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/HomePage" element={<HomePage />} />
-				<Route path="/ViewProduct/:id" element={<ViewProduct />} />
+				<Route path="/ViewProduct/:id" element={<ViewProductPage />} />
+				<Route path="/ViewCart" element={<ViewCartPage />} />
+				<Route path="/PaymentPage" element={<PaymentPage />} />
 			</Routes>
 		</Router>
 	</GlobalProvider>

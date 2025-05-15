@@ -66,14 +66,18 @@ function parseAndUpdateEssentialProductData(data) {
 		//will only pick out the fields mentioned below.
 		const filteredVariants = variants
 			.filter((v) => v.is_enabled)
-			.map((v) => ({
-				variant_sku: v.sku,
-				variant_ID: v.id,
-				variant_price: v.price / 100,
-				variant_cost: v.cost / 100,
-				variant_title: v.title,
-				variant_availability: v.is_available ? true : false,
-			}));
+			.map((v) => {
+				const variantTitle = extractSize(v.title);
+
+				return {
+					variant_sku: v.sku,
+					variant_ID: v.id,
+					variant_price: v.price / 100,
+					variant_cost: v.cost / 100,
+					variant_title: variantTitle,
+					variant_availability: Boolean(v.is_available),
+				};
+			});
 
 		// 2. Build a Set of those enabled variant IDs for image checks
 		const enabledVariantIds = new Set(filteredVariants.map((v) => v.variant_ID));
@@ -135,12 +139,12 @@ const upsertProductIntoDatabase = async (product) => {
 
 		/* --- products ----------------------------------------------------------- */
 		await client.query(
-			`INSERT INTO products (product_id, product_title, is_visible)
-		 	VALUES ($1, $2, $3)
-		 	ON CONFLICT (product_id)
-		 	DO UPDATE SET
-			product_title = EXCLUDED.product_title,
-			is_visible = EXCLUDED.is_visible;`,
+			`INSERT INTO products (product_id, product_title, is_visible, featured)
+			 VALUES ($1, $2, $3, false)
+			 ON CONFLICT (product_id)
+			 DO UPDATE SET
+				product_title = EXCLUDED.product_title,
+				is_visible = EXCLUDED.is_visible;`,
 			[id, title, visible]
 		);
 
@@ -206,5 +210,19 @@ const upsertProductIntoDatabase = async (product) => {
 		client.release();
 	}
 };
+
+/*---------------------------------------------------------------------------------------------
+                             Helpers
+----------------------------------------------------------------------------------------------*/
+/**
+ * Look for a size token in the string and return it;
+ * if none is found, fall back to returning the original title.
+ */
+function extractSize(title) {
+	// Match longest tokens first
+	const sizePattern = /\b(?:5XL|4XL|3XL|2XL|XL|XS|L|M|S)\b/;
+	const match = title.match(sizePattern);
+	return match ? match[0] : title;
+}
 
 export { updateProductData };

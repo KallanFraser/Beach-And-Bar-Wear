@@ -1,7 +1,7 @@
 /** @format */
 
 .product-card {
-	width: 25rem;
+	width: 25%;
 	border-radius: 1rem;
 	border: solid white 1rem;
 	background-color: white;
@@ -29,10 +29,12 @@
 .image-swapper .primary {
 	opacity: 1;
 	z-index: 1;
+	cursor: pointer;
 }
 .image-swapper .secondary {
 	opacity: 0;
 	z-index: 0;
+	cursor: pointer;
 }
 
 /* on hover, fade primary out and secondary in */
@@ -46,7 +48,14 @@
 .price-section {
 	list-style-type: none;
 	text-align: center;
-	background-color: hsl(0, 0%, 74%);
+	background-color: hsla(0, 0%, 74%, 0.3);
 	padding: 0.25rem;
 	font-size: 1.25rem;
+	border-radius: 0.25rem;
+}
+
+.price-section li {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.7);
 }

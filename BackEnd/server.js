@@ -31,9 +31,9 @@ const currentDirectory = path.dirname(currentFile);
 ----------------------------------------------------------------------------------------------*/
 //Express App Setup
 const app = express();
-app.use(express.static(path.join(currentDirectory, "../FrontEnd/dist")));
 app.use(express.json());
 app.use(cors()); //Must be called before routes are defined
+app.use(express.static(path.join(currentDirectory, "../FrontEnd/dist")));
 app.use(routes); //Routes defined here
 const PORT = 3000;
 
@@ -55,5 +55,5 @@ pool.query("SELECT NOW()", (error, response) => {
 //Server start point
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
-	updateProductData();
+	//updateProductData();
 });
