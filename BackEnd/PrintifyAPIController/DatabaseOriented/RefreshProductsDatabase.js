@@ -88,7 +88,11 @@ function parseAndUpdateEssentialProductData(data) {
 		// Pick images tied to at least one enabled variant
 		const matchedImages = images
 			.filter((img) => img.variant_ids.some((vid) => enabledVariantIds.has(vid)))
-			.map((img) => img.src);
+			.map((img) => {
+				// simple test for either query param
+				const is_selected = /[?&]camera_label=(front|back)\b/.test(img.src);
+				return { src: img.src, is_selected };
+			});
 
 		//console.log(`[Product] id= ${id} title= "${title}" amount of variants= ${filteredVariants.length} amount of images= ${matchedImages.length}`);
 
@@ -177,15 +181,17 @@ const upsertProductIntoDatabase = async (product) => {
 
 		/* --- images ------------------------------------------------------------- */
 		// download & insert each image
-		for (const imgURL of images) {
+		for (const { src: imgURL, is_selected } of images) {
 			const bytes = await downloadImage(imgURL);
 			if (!bytes) continue;
 
 			await client.query(
-				`INSERT INTO product_images (product_id, image_src)
-		   		VALUES ($1, $2)
-		   		ON CONFLICT DO NOTHING;`,
-				[id, bytes]
+				`INSERT INTO product_images (product_id, image_src, is_selected)
+				VALUES ($1, $2, $3)
+				ON CONFLICT (product_id, (md5(image_src)))
+				DO UPDATE SET
+				is_selected = EXCLUDED.is_selected;`,
+				[id, bytes, is_selected]
 			);
 		}
 
