@@ -90,7 +90,7 @@ function parseAndUpdateEssentialProductData(data) {
 			.filter((img) => img.variant_ids.some((vid) => enabledVariantIds.has(vid)))
 			.map((img) => {
 				// simple test for either query param
-				const is_selected = /[?&]camera_label=(front|back)\b/.test(img.src);
+				const is_selected = /[?&]camera_label=(?:front|back)(?=$|&)/.test(img.src);
 				return { src: img.src, is_selected };
 			});
 
