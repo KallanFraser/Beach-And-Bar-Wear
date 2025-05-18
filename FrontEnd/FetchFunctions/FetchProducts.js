@@ -11,24 +11,26 @@ import axios from "axios";
 //Set products = useState setter function for all products
 const fetchProducts = async (setProducts) => {
 	try {
-		const { data } = await axios.get(`https://beachandbarwear.com/fetchAllProducts`);
+		const { data } = await axios.get("https://beachandbarwear.com/fetchAllProducts");
 
-		// transform each product:
 		const ready = data.map((product) => {
-			// convert each Buffer-like object → Blob URL
-			const imageUrls = product.images.map((bufObj) => {
-				const u8 = new Uint8Array(bufObj.data);
-				const blob = new Blob([u8], { type: "image/png" });
-				return URL.createObjectURL(blob);
-			});
+			//Checks if product.images is actually an array
+			//If so... for each base 64 string, turns it into a usable image
+			//If not an array, then transforms it into an empty array
+			const imageUrls = Array.isArray(product.images)
+				? product.images.map((b64) => {
+						return `data:image/jpeg;base64,${b64}`;
+				  })
+				: [];
 
 			return {
 				...product,
 				imageUrls,
 			};
 		});
-		setProducts(ready); //sets the state
-		return ready; //but also returns the value
+
+		setProducts(ready);
+		return ready;
 	} catch (error) {
 		console.error("Error fetching all product data", error);
 	}

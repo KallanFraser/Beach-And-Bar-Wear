@@ -8,38 +8,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //Component Imports
-import NavigationBar from "../NavigationBar/NavigationBar.jsx";
+import NavigationBar from "../../NavigationBar/NavigationBar.jsx";
 
 //CSS Import
 import "./HomePage.css";
 import "./ProductCard.css";
-import { GlobalContext } from "../GlobalContext.jsx";
-/*---------------------------------------------------------------------------------------------
-									Product Component
-----------------------------------------------------------------------------------------------*/
-// A little component to show one product
-function ProductCard({ product }) {
-	const largeVariant = product.variants.find((v) => /(^|\W)L($|\W)/i.test(v.title));
-	const [first, second] = product.imageUrls; // grab the first two
 
-	const navigate = useNavigate();
-
-	const handleClick = () => {
-		navigate(`/ViewProduct/${product.id}`);
-	};
-
-	return (
-		<div className="product-card" onClick={handleClick}>
-			<div className="image-swapper">
-				{first && <img className="primary" src={first} alt={product.title} />}
-				{second && <img className="secondary" src={second} alt={product.title} />}
-			</div>
-			<ul className="price-section">
-				{largeVariant && <li key={largeVariant.id}> ${largeVariant.price.toFixed(2)}</li>}
-			</ul>
-		</div>
-	);
-}
+//Global Context Import
+import { GlobalContext } from "../../GlobalContext.jsx";
 /*---------------------------------------------------------------------------------------------
 								Main Component
 ----------------------------------------------------------------------------------------------*/
@@ -59,5 +35,36 @@ const HomePage = () => {
 		</div>
 	);
 };
+
+/*---------------------------------------------------------------------------------------------
+									Product Component
+----------------------------------------------------------------------------------------------*/
+function ProductCard({ product }) {
+	const { id, title, variants = [], imageUrls = [], images = [] } = product;
+
+	const navigate = useNavigate();
+
+	//Grabs the first two images of a known size always available for display
+	const largeVariant = product.variants.find((v) => /(^|\W)L($|\W)/i.test(v.title));
+
+	const first = product.imageUrls?.[0];
+	const second = product.imageUrls?.[1];
+
+	const handleClick = () => {
+		navigate(`/ViewProduct/${product.id}`);
+	};
+
+	return (
+		<div className="product-card" onClick={handleClick}>
+			<div className="image-swapper">
+				{first && <img className="primary" src={first} alt={product.title} />}
+				{second && <img className="secondary" src={second} alt={product.title} />}
+			</div>
+			<ul className="price-section">
+				{largeVariant && <li key={largeVariant.id}> ${largeVariant.price.toFixed(2)}</li>}
+			</ul>
+		</div>
+	);
+}
 
 export default HomePage;

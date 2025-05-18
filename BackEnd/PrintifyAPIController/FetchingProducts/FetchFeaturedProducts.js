@@ -1,6 +1,6 @@
 /** @format */
 
-import { pool } from "../Database/Database.js";
+import { pool } from "../../Database/Database.js";
 
 export async function fetchFeaturedProducts(req, res) {
 	console.log("[🌟] GET /fetchFeaturedProducts");

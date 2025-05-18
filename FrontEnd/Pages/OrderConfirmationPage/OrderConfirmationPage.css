@@ -1,0 +1,48 @@
+/** @format */
+#order-confirmation-page {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#order-confirmation-container {
+	margin-top: 15%;
+	padding: 2%;
+	background-color: rgba(80, 80, 80, 0.486);
+	border-radius: 1rem;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#order-confirmation-container h2 {
+	font-size: 2rem;
+	border-bottom: solid white 1px;
+	margin-bottom: 4%;
+}
+
+#order-confirmation-container p {
+	text-align: center;
+	margin: 4%;
+	font-size: 1.25rem;
+}
+
+#order-confirmation-container button {
+	padding: 4% 6%;
+	border-radius: 1rem;
+	border: none;
+	font-size: 1.25rem;
+	font-weight: 600;
+	background-color: hsla(180, 56%, 70%, 0.404);
+	color: white;
+	transition: 0.25s;
+}
+
+#order-confirmation-container button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}

@@ -1,5 +1,7 @@
 /** @format */
-
+/*--------------------------------------------------------------------------
+                           	Individual Product Card                               
+--------------------------------------------------------------------------*/
 .product-card {
 	width: 25%;
 	border-radius: 1rem;
@@ -7,6 +9,9 @@
 	background-color: white;
 }
 
+/*--------------------------------------------------------------------------
+                           Image itself                                
+--------------------------------------------------------------------------*/
 .image-swapper {
 	position: relative;
 	width: 100%; /* match your card width */
@@ -24,8 +29,9 @@
 	transition: opacity 0.3s ease-in-out;
 	border-radius: 1rem;
 }
-
-/* show only the primary by default */
+/*--------------------------------------------------------------------------
+                           	  Image Switching Styles                               
+--------------------------------------------------------------------------*/
 .image-swapper .primary {
 	opacity: 1;
 	z-index: 1;
@@ -37,14 +43,15 @@
 	cursor: pointer;
 }
 
-/* on hover, fade primary out and secondary in */
 .image-swapper:hover .primary {
 	opacity: 0;
 }
 .image-swapper:hover .secondary {
 	opacity: 1;
 }
-
+/*--------------------------------------------------------------------------
+								Displayed Price
+--------------------------------------------------------------------------*/
 .price-section {
 	list-style-type: none;
 	text-align: center;

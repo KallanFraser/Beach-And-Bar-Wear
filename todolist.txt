@@ -1,7 +1,4 @@
 ---------------------------------------------------------------------------------
- - Reduce the image quality of each image stored in the db.
-    - Convert to json then downsize then convert to byte form and store it.
----------------------------------------------------------------------------------
  - Add a viewproduct/productID endpoint so people can save urls to products
 ---------------------------------------------------------------------------------
  - Add views in the database for different categories
@@ -34,3 +31,9 @@
  - Take it out and add it below fixed
  ---------------------------------------------------------------------------------
  - Loading images properly when server is built
+ ---------------------------------------------------------------------------------
+ - More efficient fetching for images
+    - Select only the first two images in the SQL statement
+    - More effiicent storage, size and format jpeg?
+ ---------------------------------------------------------------------------------
+ - Add Tax section as well (4.50)

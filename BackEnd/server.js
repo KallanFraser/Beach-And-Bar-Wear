@@ -14,10 +14,9 @@ import { pool } from "./Database/Database.js";
 import routes from "./Routes/Routes.js";
 
 //Server / Database Update Functions
-import { updateProductData } from "./PrintifyAPIController/RefreshProducts.js";
+import { refreshProductsDatabase } from "./PrintifyAPIController/DatabaseOriented/RefreshProductsDatabase.js";
 
 //Testing / Other
-import { cancelAndDeleteProduct } from "./PrintifyAPIController/cancelAndDeleteProduct.js";
 
 /*---------------------------------------------------------------------------------------------
 										Globals
@@ -25,6 +24,8 @@ import { cancelAndDeleteProduct } from "./PrintifyAPIController/cancelAndDeleteP
 //File system variables
 const currentFile = fileURLToPath(import.meta.url);
 const currentDirectory = path.dirname(currentFile);
+const FIVE_MINUTES_MS = 5 * 60 * 1000;
+const PORT = 3000;
 
 /*---------------------------------------------------------------------------------------------
 										Setup
@@ -35,7 +36,6 @@ app.use(express.json());
 app.use(cors()); //Must be called before routes are defined
 app.use(express.static(path.join(currentDirectory, "../FrontEnd/dist")));
 app.use(routes); //Routes defined here
-const PORT = 3000;
 
 /*---------------------------------------------------------------------------------------------
 										Tests
@@ -55,5 +55,10 @@ pool.query("SELECT NOW()", (error, response) => {
 //Server start point
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
-	//updateProductData();
+
+	//Code to update the database of products every 5 minutes
+	refreshProductsDatabase();
+	setInterval(() => {
+		refreshProductsDatabase();
+	}, FIVE_MINUTES_MS);
 });

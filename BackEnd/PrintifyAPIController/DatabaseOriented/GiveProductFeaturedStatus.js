@@ -1,8 +1,8 @@
 /** @format */
 
-import { pool } from "../Database/Database.js";
+import { pool } from "../../Database/Database.js";
 
-export async function updateFeaturedStatus(req, res) {
+export async function giveProductFeaturedStatus(req, res) {
 	console.log("[🔧] POST /updateFeaturedStatus");
 
 	const { product_id, featured } = req.body;

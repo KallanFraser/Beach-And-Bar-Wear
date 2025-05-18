@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import userIcon from "../Images/UserIcon.png";
 import mainLogo from "../Images/LogoScratched.png";
 import cartIcon from "../Images/Cart.png";
+import homeButton from "../Images/HomePage.png";
 
 //CSS import
 import "./NavigationBar.css";
@@ -20,11 +21,11 @@ import "./NavigationBar.css";
 const NavigationBar = () => {
 	return (
 		<div id="navigation-bar">
-			<Link to="/">
-				<img src={userIcon} alt="Logo"></img>
+			<Link to="/HomePage">
+				<img src={homeButton} alt="Logo"></img>
 			</Link>
 			<div id="navigation-bar-center-content">
-				<Link to="/HomePage">
+				<Link to="/">
 					<img src={mainLogo} alt="Logo"></img>
 				</Link>
 			</div>

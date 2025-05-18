@@ -10,7 +10,7 @@ dotenv.config();
 import axios from "axios";
 
 //Database imports
-import { pool } from "../Database/Database.js";
+import { pool } from "../../Database/Database.js";
 
 /*---------------------------------------------------------------------------------------------
 									Globals
@@ -20,12 +20,9 @@ const SHOP_ID = process.env.printifyShopID;
 const BASE_URL = "https://api.printify.com/v1";
 
 if (!PRINTIFY_TOKEN || !SHOP_ID) {
-	console.error("⚠️ Missing PRINTIFY_TOKEN or PRINTIFY_SHOP_ID in .env");
+	console.error("⚠️⚠️⚠️ Missing PRINTIFY_TOKEN or PRINTIFY_SHOP_ID in .env");
 }
 
-/*---------------------------------------------------------------------------------------------
-                            Printify Axios Instance & Endpoints
-----------------------------------------------------------------------------------------------*/
 const ShopifyAPI = axios.create({
 	baseURL: BASE_URL,
 	headers: {
@@ -33,13 +30,18 @@ const ShopifyAPI = axios.create({
 		"Content-Type": "application/json",
 	},
 });
-
-const updateProductData = async () => {
+/*---------------------------------------------------------------------------------------------
+								Main Function
+----------------------------------------------------------------------------------------------*/
+const refreshProductsDatabase = async () => {
 	try {
+		//Fetching our product data from the shopify API
 		const { data } = await ShopifyAPI.get(`/shops/${SHOP_ID}/products.json`);
 
+		//Extract each products data from the returned json file
 		const parsedProducts = parseAndUpdateEssentialProductData(data.data);
 
+		//For each product, update or insert into the database
 		for (const product of parsedProducts) {
 			await upsertProductIntoDatabase(product);
 		}
@@ -57,16 +59,16 @@ function parseAndUpdateEssentialProductData(data) {
 		return [];
 	}
 
+	//These are the sizes we offer so only inserting these sizes
+	const allowedSizes = new Set(["S", "M", "L", "XL"]);
+
 	return data.map(({ id, title, variants = [], images = [], visible }) => {
-		// 1. Collect only enabled variants, and project into objects
-		//filter =  returns a new array with only elements that test true.
-		//no side effects = does not modify the original array.
-		//so it will not accidentally fuck with the original array.
-		//map = returns a new array of the SAME LENGTH but each element is modified.
-		//will only pick out the fields mentioned below.
+		// Collect only enabled variants
+		// Project each variant into a object
 		const filteredVariants = variants
 			.filter((v) => v.is_enabled)
 			.map((v) => {
+				//Uses regexs to get "S" "M" "L" "XL"
 				const variantTitle = extractSize(v.title);
 
 				return {
@@ -77,32 +79,18 @@ function parseAndUpdateEssentialProductData(data) {
 					variant_title: variantTitle,
 					variant_availability: Boolean(v.is_available),
 				};
-			});
+			})
+			.filter((v) => allowedSizes.has(v.variant_title));
 
-		// 2. Build a Set of those enabled variant IDs for image checks
+		// For each enabled variant, create a set for them
 		const enabledVariantIds = new Set(filteredVariants.map((v) => v.variant_ID));
 
-		// 3. Pick only images tied to at least one enabled variant
+		// Pick images tied to at least one enabled variant
 		const matchedImages = images
 			.filter((img) => img.variant_ids.some((vid) => enabledVariantIds.has(vid)))
 			.map((img) => img.src);
 
-		// 4. (Optional) Single consolidated log per product
 		//console.log(`[Product] id= ${id} title= "${title}" amount of variants= ${filteredVariants.length} amount of images= ${matchedImages.length}`);
-
-		//returns the following as an object:
-		//product_id
-		//product_title
-		//is_visible
-		//variants
-		//	variant_id
-		//	variant_sku
-		//	variant_price
-		//	variant_cost
-		//	variant_title
-		//	in_stock
-		//images
-		//	image_src
 
 		return {
 			id,
@@ -154,7 +142,7 @@ const upsertProductIntoDatabase = async (product) => {
 		const params = [];
 		variants.forEach((v, idx) => {
 			//builds parameter placeholders for a bulk insert
-			//instead of inserting variant at a time
+			//instead of inserting one variant at a time
 			const base = idx * 7;
 			variantValues.push(
 				`($${base + 1}, $${base + 2}, $${base + 3}, $${base + 4}, $${base + 5}, $${base + 6}, $${
@@ -225,4 +213,4 @@ function extractSize(title) {
 	return match ? match[0] : title;
 }
 
-export { updateProductData };
+export { refreshProductsDatabase };

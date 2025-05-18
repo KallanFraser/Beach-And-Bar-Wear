@@ -3,14 +3,14 @@
 									Imports
 ----------------------------------------------------------------------------------------------*/
 //Library Imports
-import React, { useEffect, useState, useContext, useMemo } from "react";
+import React, { useEffect, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 //Context import
-import { GlobalContext } from "../GlobalContext.jsx";
+import { GlobalContext } from "../../GlobalContext.jsx";
 
 //Component Imports
-import NavigationBar from "../NavigationBar/NavigationBar.jsx";
+import NavigationBar from "../../NavigationBar/NavigationBar.jsx";
 
 //CSS Import
 import "./ViewCartPage.css";
@@ -27,15 +27,14 @@ const ViewCartPage = () => {
 	};
 
 	// Function to combine cart items with product details
+	// Such that we can display each product in the cart with its details
+	// Can maybe change in future to mark global context products as in cart?
 	const cartWithDetails = useMemo(() => {
 		return cart
 			.map((cartItem) => {
 				// Find matching product by ID
 				const product = products.find((product) => String(product.id) === String(cartItem.productId));
 
-				//For now we will return null but later we will:
-				//Add to array
-				//Bulk fetch
 				if (!product) return null;
 
 				return {
@@ -43,16 +42,12 @@ const ViewCartPage = () => {
 					sku: cartItem.sku,
 					quantity: cartItem.quantity,
 					title: product.title,
-					images: product.images,
+					imageUrls: product.imageUrls,
 					variant: product.variants.find((v) => v.sku === cartItem.sku) || {},
 				};
 			})
 			.filter(Boolean);
 	}, [cart, products]);
-
-	useEffect(() => {
-		console.log("Cart with details:", cartWithDetails);
-	}, [cartWithDetails]);
 
 	return (
 		<div id="view-cart-page">
@@ -65,13 +60,11 @@ const ViewCartPage = () => {
 						</div>
 					) : (
 						cartWithDetails.map((item) => (
-							<CartItemWidget
+							<CartItemComponent
 								key={`${item.productId}-${item.sku}`}
-								productID={item.productId}
-								sku={item.sku}
 								quantity={item.quantity}
 								title={item.title}
-								images={item.images}
+								imageUrls={item.imageUrls}
 								variant={item.variant}
 							/>
 						))
@@ -88,13 +81,8 @@ const ViewCartPage = () => {
 /*---------------------------------------------------------------------------------------------
                         Cart Item Widget Component
 ----------------------------------------------------------------------------------------------*/
-const CartItemWidget = ({ productID, sku, quantity, title, images, variant }) => {
-	const thumbnail =
-		images && images.length > 0
-			? typeof images[0] === "string"
-				? images[0]
-				: `data:image/jpeg;base64,${btoa(String.fromCharCode(...images[0].data))}`
-			: "";
+const CartItemComponent = ({ quantity, title, imageUrls, variant }) => {
+	const thumbnail = imageUrls?.[0];
 
 	return (
 		<div id="cart-item-widget">
