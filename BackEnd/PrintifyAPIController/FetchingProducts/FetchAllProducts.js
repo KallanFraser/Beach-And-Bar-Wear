@@ -29,8 +29,11 @@ export async function fetchAllProducts(req, res) {
 					'[]'::jsonb
 				) AS images
 			FROM products p
-			LEFT JOIN product_variants v ON p.product_id = v.product_id
-			LEFT JOIN product_images pi ON p.product_id = pi.product_id
+			LEFT JOIN product_variants v
+			  ON p.product_id = v.product_id
+			LEFT JOIN product_images pi
+			  ON p.product_id = pi.product_id
+			  AND pi.is_selected = true
 			GROUP BY p.product_id
 		`);
 

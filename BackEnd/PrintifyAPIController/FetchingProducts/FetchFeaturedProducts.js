@@ -3,8 +3,6 @@
 import { pool } from "../../Database/Database.js";
 
 export async function fetchFeaturedProducts(req, res) {
-	console.log("[🌟] GET /fetchFeaturedProducts");
-
 	const client = await pool.connect();
 	try {
 		const { rows: products } = await client.query(`
@@ -12,8 +10,8 @@ export async function fetchFeaturedProducts(req, res) {
         product_id   AS id,
         product_title AS title,
         is_visible    AS visible
-      FROM public.products
-      WHERE featured = true
+      	FROM public.products
+      	WHERE featured = true
     `);
 		console.log(`[🌟] found ${products.length} featured products`);
 
