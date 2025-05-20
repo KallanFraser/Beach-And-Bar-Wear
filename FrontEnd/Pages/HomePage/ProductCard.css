@@ -17,6 +17,7 @@
 	width: 100%; /* match your card width */
 	padding-top: 100%; /* or height: Xpx; to lock aspect ratio */
 	overflow: hidden;
+	background-color: rgb(255, 255, 255);
 }
 
 .image-swapper img {
@@ -28,6 +29,7 @@
 	object-fit: cover;
 	transition: opacity 0.3s ease-in-out;
 	border-radius: 1rem;
+	background-color: rgb(255, 255, 255);
 }
 /*--------------------------------------------------------------------------
                            	  Image Switching Styles                               
@@ -55,14 +57,45 @@
 .price-section {
 	list-style-type: none;
 	text-align: center;
-	background-color: hsla(0, 0%, 74%, 0.3);
+	background-color: hsla(189, 74%, 54%, 0.2);
 	padding: 0.25rem;
 	font-size: 1.25rem;
-	border-radius: 0.25rem;
+	border-radius: 1rem;
 }
 
 .price-section li {
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 500;
-	color: rgba(0, 0, 0, 0.7);
+	color: rgb(0, 0, 0);
+}
+
+/*--------------------------------------------------------------------------
+								Dark Mode
+--------------------------------------------------------------------------*/
+/* Dark-mode overrides for ProductCard */
+body.night-mode .product-card {
+	background-color: hsl(0, 0%, 9%); /* Dark card background */
+	border-color: hsl(0, 0%, 9%); /* Darker border */
+}
+
+body.night-mode .price-section {
+	background-color: hsla(0, 0%, 6%, 0.774); /* Subtle light overlay */
+	border: solid hsla(0, 0%, 100%, 0.1) 1px;
+}
+
+body.night-mode .price-section li {
+	color: hsl(0, 0%, 100%); /* Light text for contrast */
+}
+
+body.night-mode .image-swapper img {
+	filter: brightness(0.8); /* Dim images slightly for mood */
+}
+
+/* night-mode override */
+body.night-mode .product-card {
+	background-color: hsl(0, 0%, 9%);
+}
+
+body.night-mode .image-swapper {
+	background-color: hsl(0, 0%, 9%);
 }

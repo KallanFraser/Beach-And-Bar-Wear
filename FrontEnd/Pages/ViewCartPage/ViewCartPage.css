@@ -1,24 +1,35 @@
 /** @format */
-
+/*---------------------------------------------------------------------------------------------
+									View Cart Page
+----------------------------------------------------------------------------------------------*/
 #view-cart-page {
 	width: 100vw;
 }
 
+/*---------------------------------------------------------------------------------------------
+									Cart Section
+----------------------------------------------------------------------------------------------*/
 #cart-list-section {
 	width: 100%;
 	padding: 5%;
 	margin-top: -1%;
 }
 
+/*---------------------------------------------------------------------------------------------
+									Cart Container
+----------------------------------------------------------------------------------------------*/
 #cart-list {
 	background-color: rgba(130, 130, 130, 0.655);
 	padding: 2%;
 	padding-top: -3%;
 	border-radius: 1rem;
-	height: 80vh;
-	overflow-y: scroll;
+	height: auto;
+	overflow-y: visible;
 }
 
+/*---------------------------------------------------------------------------------------------
+								Each Cart Item Component Styling
+----------------------------------------------------------------------------------------------*/
 #cart-item-widget {
 	display: flex;
 	flex-direction: row;
@@ -35,16 +46,32 @@
 	padding-bottom: 5%;
 	color: white;
 	justify-content: space-between;
+	width: 100%;
 }
 
 .cart-item-info h2 {
-	font-family: "Pacifico", cursive;
+	text-align: center;
+	border-top: solid white 1px;
+	border-bottom: solid white 1px;
+	padding-block: 2%;
+}
+
+.cart-item-info p {
+	text-align: center;
+	margin-top: 1rem;
+	font-size: 1.2rem;
 }
 
 .cart-item-thumb {
-	max-width: 15%;
+	height: auto;
+	width: auto;
+	max-width: 20%;
+	border: 3px solid black;
 }
 
+/*---------------------------------------------------------------------------------------------
+									Check out Section 
+----------------------------------------------------------------------------------------------*/
 #checkout-section {
 	width: 100%;
 	display: flex;
@@ -64,4 +91,15 @@
 #checkout-section button:hover {
 	transform: scale(1.1);
 	cursor: pointer;
+}
+
+/*---------------------------------------------------------------------------------------------
+								Empty Cart Display
+----------------------------------------------------------------------------------------------*/
+#empty-cart-display {
+	text-align: center;
+	padding: 5%;
+	padding-top: 23%;
+	font-size: 2rem;
+	color: white;
 }

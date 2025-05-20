@@ -52,102 +52,11 @@
 
 #right-column h1 {
 	color: white;
-	font-family: "Pacifico", cursive;
-	font-size: 1.4vw;
+	font-size: 1.7vw;
 	text-align: center;
-	border-bottom: 1px solid white;
-}
-/*------------------------------------------------------------------------------
-								Button for sizes
--------------------------------------------------------------------------------*/
-#variant-listings {
-	margin-top: 3%;
-	flex-direction: row;
-	justify-content: space-evenly;
-
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 0.5rem;
-	min-width: 0;
-	justify-items: center; /* center items horizontally */
-}
-
-#variant-listings button {
-	padding: 5% 5%;
-	width: 70%;
-	font-size: 0.9rem;
-	font-weight: 600;
-	border-radius: 1rem;
-	border-style: none;
-	background-color: rgba(0, 0, 0, 0.694);
-	transition: transform 0.3s ease-in-out;
-	color: white;
-}
-
-#variant-listings button:hover {
-	transform: scale(1.1);
-	cursor: pointer;
-}
-
-#variant-listings button.not-in-stock-button {
-	color: hsla(0, 0%, 41%, 0.374);
-}
-
-.in-stock-selected {
-	outline: 2px solid hsl(0, 0%, 100%);
-	background-color: rgba(9, 255, 9, 0.1);
-}
-/*------------------------------------------------------------------------------
-						Quantity & Cart Button Section
--------------------------------------------------------------------------------*/
-#cart-section {
-	width: 100%;
-	margin-top: 4%;
-	display: flex;
-	justify-content: center;
-	gap: 5%;
-}
-
-#cart-section button {
-	padding: 2% 3%;
-	border-radius: 1rem;
-	border-style: none;
-	background-color: rgba(0, 0, 0, 0.694);
-	color: white;
-	font-size: 1.2rem;
-	font-weight: 600;
-}
-
-#cart-section button:hover {
-	transform: scale(1.1);
-	cursor: pointer;
-}
-
-.qty-controls {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-}
-.qty-controls button {
-	width: 2rem;
-	height: 2rem;
-	font-size: 1.2rem;
-	border: none;
-	background: rgba(0, 0, 0, 0.1);
-	cursor: pointer;
-}
-.qty-controls button:disabled {
-	opacity: 0.4;
-	cursor: not-allowed;
-}
-.qty-controls input {
-	width: 34%;
-	font-size: 1.2rem;
-	text-align: center;
-	text-align: center;
-	padding: 0.2rem;
-	border: none;
-	border-radius: 0.5rem;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	padding-bottom: 2%;
+	margin-bottom: 4%;
 }
 /*------------------------------------------------------------------------------
 								Alert Message Styling

@@ -160,7 +160,7 @@ export default function PaymentPage() {
 			<form id="payment-box" onSubmit={handleSubmit}>
 				<div id="payment-list">
 					{/* Cart Display column (Left)*/}
-					<div id="left-column">
+					<div id="payment-left-column">
 						<h3>My Cart</h3>
 						{cartWithDetails.length === 0 ? (
 							<div id="empty-cart-display">
@@ -180,7 +180,7 @@ export default function PaymentPage() {
 					</div>
 
 					{/* Payment & Shipping column (Right) */}
-					<div id="right-column">
+					<div id="payment-right-column">
 						<h3>Payment & Shipping</h3>
 
 						{/* Shipping Information */}
@@ -276,6 +276,7 @@ function CartItemMiniWidget({ quantity, title, imageUrls, variant }) {
 				<h2>{title}</h2>
 				<p>Quantity: {quantity}</p>
 				<p>Price: ${((variant.price || 0) * quantity).toFixed(2)}</p>
+				<p>Size: {variant.title}</p>
 			</div>
 		</div>
 	);

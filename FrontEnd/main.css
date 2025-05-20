@@ -1,6 +1,55 @@
 /** @format */
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
+/*--------------------------------------------------------------------------*/
+/*                        Gradient Color Palettes                            */
+/*--------------------------------------------------------------------------*/
+:root {
+	/* Day-mode stops for ::before */
+	--g1-1: #ff0080;
+	--g1-2: #ff8c00;
+	--g1-3: #00b0ff;
+	--g1-4: #00e5aa;
+	--g1-5: #00b0ff;
+	--g1-6: #8c00ff;
+	--g1-7: #ff00ff;
+
+	/* Day-mode stops for ::after */
+	--g2-1: #ff8c00;
+	--g2-2: #00b0ff;
+	--g2-3: #00e5aa;
+	--g2-4: #00b0ff;
+	--g2-5: #8c00ff;
+	--g2-6: #ff00ff;
+	--g2-7: #ff0080;
+}
+
+/*--------------------------------------------------------------------------*/
+/*                            Night-mode overrides                           */
+/*--------------------------------------------------------------------------*/
+body.night-mode {
+	/* ::before stops */
+	--g1-1: #000000;
+	--g1-2: #2d0b0b;
+	--g1-3: #8a0000;
+	--g1-4: #000000;
+	--g1-5: #101010;
+	--g1-6: #0d1b2a;
+	--g1-7: #000000;
+
+	/* ::after stops */
+	--g2-1: #2d0b0b;
+	--g2-2: #000000;
+	--g2-3: #000000;
+	--g2-4: #8a0000;
+	--g2-5: #000000;
+	--g2-6: #000000;
+	--g2-7: #2d0b0b;
+}
+
+/*--------------------------------------------------------------------------*/
+/*                                Reset Styles                              */
+/*--------------------------------------------------------------------------*/
 * {
 	margin: 0;
 	padding: 0;
@@ -13,18 +62,17 @@
 /*--------------------------------------------------------------------------*/
 /*                              Rainbow Effects                             */
 /*--------------------------------------------------------------------------*/
-
 body {
+	position: relative;
 	height: 100%;
+	min-height: 100vh;
 	max-width: 100vw;
 	overflow-y: auto;
 	overflow-x: hidden;
 	background-color: rgb(25, 25, 25);
-	position: relative;
-	min-height: 100vh;
 
-	/* start dark, then fade in effect */
-	filter: brightness(0);
+	/* start at full brightness, then animate in on page load */
+	filter: brightness(1);
 	animation: fadeInBrightness 2s ease-in-out forwards;
 }
 
@@ -32,34 +80,55 @@ body {
 body::before,
 body::after {
 	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	position: fixed;
+	inset: 0;
 	background-size: 600% 600%;
 	background-repeat: no-repeat;
 	mix-blend-mode: screen;
 	z-index: -1;
 }
 
-/* layer #1: rainbow-ish diagonal */
 body::before {
-	background-image: linear-gradient(45deg, #65c160, #0989b4, #336aa8, #42d283, #444ea8, #06c160, #0e6aba);
+	background-image: linear-gradient(
+		45deg,
+		var(--g1-1),
+		var(--g1-2),
+		var(--g1-3),
+		var(--g1-4),
+		var(--g1-5),
+		var(--g1-6),
+		var(--g1-7)
+	);
 	animation: gradientShift1 10s ease infinite;
+	opacity: 1;
 }
 
-/* layer #2: reverse diagonal, slower & semi-transparent */
+body.night-mode::before {
+	opacity: 0;
+}
+
 body::after {
-	background-image: linear-gradient(-45deg, #06c160, #0e6aba, #60c16f, #0989b4, #0e6aba, #444ea8, #8e24aa);
+	background-image: linear-gradient(
+		-45deg,
+		var(--g2-1),
+		var(--g2-2),
+		var(--g2-3),
+		var(--g2-4),
+		var(--g2-5),
+		var(--g2-6),
+		var(--g2-7)
+	);
 	animation: gradientShift2 15s ease infinite reverse;
 	opacity: 0.6;
 }
 
+body.night-mode::after {
+	opacity: 1;
+}
+
 /*--------------------------------------------------------------------------*/
-/*                              Keyframes                                   */
+/*                                Keyframes                                 */
 /*--------------------------------------------------------------------------*/
-/* multi-stop keyframes to move both X and Y around */
 @keyframes gradientShift1 {
 	0%,
 	100% {
@@ -102,8 +171,11 @@ body::after {
 }
 
 /*--------------------------------------------------------------------------*/
-/*                              Root Colors                                 */
+/*                              Root Color Tokens                          */
 /*--------------------------------------------------------------------------*/
+body.fade {
+	animation: fadeInBrightness 3s ease forwards;
+}
 
 :root {
 	--dark: hsl(156, 12%, 8%);
@@ -113,24 +185,4 @@ body::after {
 	--border-color: hsla(0, 0%, 100%, 0.1);
 	--hunter-green: hsl(157, 26%, 27%);
 	--button-background-color: hsl(156, 27%, 31%);
-}
-
-/*--------------------------------------------------------------------------*/
-/*                         Tried to hide scrollbar                          */
-/*--------------------------------------------------------------------------*/
-
-/* 1. For WebKit browsers (Chrome, Safari, Edge) */
-body::-webkit-scrollbar {
-	width: 0; /* remove scrollbar width */
-	height: 0; /* remove horizontal scrollbar */
-}
-
-/* 2. For Firefox */
-body {
-	scrollbar-width: none; /* “auto” or “thin” are the defaults */
-}
-
-/* 3. For IE 10+ / Edge Legacy */
-body {
-	-ms-overflow-style: none; /* hide scrollbar in Windows browsers */
 }

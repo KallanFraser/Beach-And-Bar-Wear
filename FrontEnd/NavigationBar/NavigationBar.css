@@ -1,5 +1,7 @@
 /** @format */
-
+/*---------------------------------------------------------------------------------------------
+								Navigation Bar
+----------------------------------------------------------------------------------------------*/
 #navigation-bar {
 	width: 100vw;
 	background-color: rgba(0, 0, 0, 0.75);
@@ -9,9 +11,18 @@
 	align-items: center;
 }
 
+/*---------------------------------------------------------------------------------------------
+								Navigation Images
+----------------------------------------------------------------------------------------------*/
+
 #navigation-bar img {
 	max-width: 4rem;
+	margin-inline: 0.5rem;
 }
+
+/*---------------------------------------------------------------------------------------------
+								Center piece Logo
+----------------------------------------------------------------------------------------------*/
 
 #navigation-bar-center-content {
 	display: flex;
@@ -23,6 +34,65 @@
 
 #navigation-bar-center-content img {
 	height: 100%;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+/*---------------------------------------------------------------------------------------------
+								Categories
+----------------------------------------------------------------------------------------------*/
+#clothing-categories {
+	display: flex;
+	color: white;
+	gap: 50%;
+	font-size: 1.1rem;
+	justify-content: space-between;
+	font-size: 1.1rem;
+	width: 15%;
+	color: hsla(0, 0%, 100%, 0.7);
+}
+
+/*---------------------------------------------------------------------------------------------
+								Theme Controller
+----------------------------------------------------------------------------------------------*/
+#theme-controller {
+	display: flex;
+	color: white;
+	justify-content: space-between;
+	font-size: 1.1rem;
+	width: 15%;
+	color: hsla(0, 0%, 100%, 0.7);
+}
+
+/* make the theme buttons look like text links */
+.theme-button {
+	background: none;
+	border: none;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	padding: 0;
+}
+
+/* Full-screen black overlay for mode switch */
+.mode-overlay {
+	position: fixed;
+	inset: 0; /* top/right/bottom/left = 0 */
+	background-color: black;
+	opacity: 1;
+	transition: opacity 8s ease; /* fade duration */
+	z-index: 9999; /* sit above everything */
+	pointer-events: none; /* don’t block clicks */
+}
+
+/* When `fade-out` class is added, animate to transparent */
+.mode-overlay.fade-out {
+	opacity: 0;
+}
+
+.theme-icon {
+	height: 50%;
 	width: auto;
 	max-width: 100%;
 	object-fit: contain;

@@ -65,7 +65,7 @@
 	width: 18%;
 	border-radius: 1rem;
 	border-style: none;
-	background-color: rgba(52, 47, 47, 0.694);
+	background-color: rgba(52, 47, 47, 0.3);
 	transition: transform 0.3s ease-in-out;
 }
 

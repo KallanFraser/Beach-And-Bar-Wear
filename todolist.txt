@@ -25,15 +25,9 @@
 ---------------------------------------------------------------------------------
  - some kind of svg image background of palm trees?
  - maybe there is an application out there that converts images to simple svgs?
- ---------------------------------------------------------------------------------
- - Check out button on my cart should not be scrollable.
- - It should always be visible
- - Take it out and add it below fixed
- ---------------------------------------------------------------------------------
- - Loading images properly when server is built
- ---------------------------------------------------------------------------------
- - More efficient fetching for images
-    - Select only the first two images in the SQL statement
-    - More effiicent storage, size and format jpeg?
- ---------------------------------------------------------------------------------
- - Add Tax section as well (4.50)
+---------------------------------------------------------------------------------
+ - New column for products:
+    - Is Night Mode
+    - Function in back to set it
+    - On Default creation is false
+ - Then code on front end to select which to display

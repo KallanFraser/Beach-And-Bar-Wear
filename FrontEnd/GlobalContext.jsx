@@ -28,13 +28,17 @@ export const GlobalProvider = ({ children }) => {
 
 	const [cart, setCart] = useState([]);
 
+	const [isDayMode, setIsDayMode] = useState(true);
+
 	useEffect(() => {
 		fetchProducts(setProducts);
 		setLoading(false);
 	}, []);
 
 	return (
-		<GlobalContext.Provider value={{ products, setProducts, cart, setCart, loading }}>
+		<GlobalContext.Provider
+			value={{ products, setProducts, cart, setCart, loading, isDayMode, setIsDayMode }}
+		>
 			{children}
 		</GlobalContext.Provider>
 	);

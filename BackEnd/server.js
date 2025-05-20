@@ -15,6 +15,7 @@ import routes from "./Routes/Routes.js";
 
 //Server / Database Update Functions
 import { refreshProductsDatabase } from "./PrintifyAPIController/DatabaseOriented/RefreshProductsDatabase.js";
+import { markAsNightClothing } from "./PrintifyAPIController/ProductStatus/MarkProductAsNightClothing.js";
 
 //Testing / Other
 
@@ -61,4 +62,6 @@ app.listen(PORT, () => {
 	setInterval(() => {
 		refreshProductsDatabase();
 	}, FIVE_MINUTES_MS);
+
+	//markAsNightClothing("681c021da55bae26fe097788");
 });

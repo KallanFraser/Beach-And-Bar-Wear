@@ -69,9 +69,13 @@ const ViewCartPage = () => {
 							/>
 						))
 					)}
-					<div id="checkout-section">
-						<button onClick={handleClick}>Check Out</button>
-					</div>
+					{cartWithDetails.length > 0 ? (
+						<div id="checkout-section">
+							<button onClick={handleClick}>Check Out</button>
+						</div>
+					) : (
+						<></>
+					)}
 				</div>
 			</div>
 		</div>
@@ -91,6 +95,7 @@ const CartItemComponent = ({ quantity, title, imageUrls, variant }) => {
 				<h2>{title}</h2>
 				<p>Quantity: {quantity}</p>
 				<p>Price: ${variant.price?.toFixed(2) * quantity || "N/A"}</p>
+				<p>Size: {variant.title}</p>
 			</div>
 		</div>
 	);
