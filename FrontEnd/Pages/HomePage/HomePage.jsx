@@ -20,16 +20,36 @@ import { GlobalContext } from "../../GlobalContext.jsx";
 								Main Component
 ----------------------------------------------------------------------------------------------*/
 const HomePage = () => {
-	const { products, loading } = useContext(GlobalContext);
+	const { products, loading, isDayMode } = useContext(GlobalContext);
+
+	//Debugging purposes
+	useEffect(() => {
+		if (!loading && Array.isArray(products)) {
+			products.forEach((p) =>
+				console.log(`Product ${p.id} → is_night_clothing = ${p.is_night_clothing}`)
+			);
+		}
+	}, [loading, products]);
+
+	// filter based on current mode
+	const visibleProducts =
+		!loading && Array.isArray(products)
+			? products.filter(
+					(p) =>
+						isDayMode
+							? p.is_night_clothing === false // daytime: show only day clothing
+							: p.is_night_clothing === true // night mode: show only night clothing
+			  )
+			: [];
 
 	return (
 		<div id="home-page">
 			<NavigationBar />
 			<div className="products-container">
-				{loading || !products ? (
+				{loading ? (
 					<p>Loading…</p>
 				) : (
-					products.map((p) => <ProductCard key={p.id} product={p} />)
+					visibleProducts.map((p) => <ProductCard key={p.id} product={p} />)
 				)}
 			</div>
 		</div>
