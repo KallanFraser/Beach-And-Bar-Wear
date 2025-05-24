@@ -9,6 +9,9 @@ import { fileURLToPath } from "url";
 import cors from "cors";
 import axios from "axios";
 
+//Next import
+import next from "next";
+
 //Local static file imports
 import { pool } from "./Database/Database.js";
 import routes from "./Routes/Routes.js";
@@ -22,46 +25,62 @@ import { markAsNightClothing } from "./PrintifyAPIController/ProductStatus/MarkP
 /*---------------------------------------------------------------------------------------------
 										Globals
 ----------------------------------------------------------------------------------------------*/
-//File system variables
+// File system variables
 const currentFile = fileURLToPath(import.meta.url);
 const currentDirectory = path.dirname(currentFile);
+
+// Timing & port
 const FIVE_MINUTES_MS = 5 * 60 * 1000;
 const PORT = 3000;
 
-/*---------------------------------------------------------------------------------------------
-										Setup
-----------------------------------------------------------------------------------------------*/
-//Express App Setup
-const app = express();
-app.use(express.json());
-app.use(cors()); //Must be called before routes are defined
-app.use(express.static(path.join(currentDirectory, "../FrontEnd/dist")));
-app.use(routes); //Routes defined here
-
-/*---------------------------------------------------------------------------------------------
-										Tests
-----------------------------------------------------------------------------------------------*/
-//Database connection test
-pool.query("SELECT NOW()", (error, response) => {
-	if (error) {
-		console.error("Error occured whilst connecting to the database", error);
-	} else {
-		console.log("Connected to the Database");
-	}
+// Next.js flags
+const dev = process.env.NODE_ENV !== "production";
+const nextApp = next({
+	dev,
+	dir: path.join(currentDirectory, "../FrontEnd"),
 });
 
-/*---------------------------------------------------------------------------------------------
-										Server
-----------------------------------------------------------------------------------------------*/
-//Server start point
-app.listen(PORT, () => {
-	console.log(`Server is running on http://localhost:${PORT}`);
+const handle = nextApp.getRequestHandler();
 
-	//Code to update the database of products every 5 minutes
+/*---------------------------------------------------------------------------------------------
+                                        Bootstrap Next + Express
+----------------------------------------------------------------------------------------------*/
+nextApp.prepare().then(() => {
+	//Create the application
+	const application = express();
+
+	//Apply cors & JSON
+	application.use(express.json());
+	application.use(cors());
+
+	// Mounts existing API routes from routes.js
+	application.use(routes);
+
+	// Mount all next js routes
+	application.all(/.*/, (req, res) => {
+		return handle(req, res);
+	});
+
+	/*---------------------------------------------------------------------------------------------
+                                        Tests & Recurring Jobs
+  	----------------------------------------------------------------------------------------------*/
+	// Database connection test
+	pool.query("SELECT NOW()", (err) => {
+		console.log(err ? "[❌] DB connect error:" + err : "[✅] Connected to the Database");
+	});
+
+	//Refresh DB products
 	refreshProductsDatabase();
 	setInterval(() => {
 		refreshProductsDatabase();
 	}, FIVE_MINUTES_MS);
 
-	//markAsNightClothing("681c021da55bae26fe097788");
+	// markAsNightClothing("681c021da55bae26fe097788");
+
+	/*---------------------------------------------------------------------------------------------
+                                        Server Start
+  	----------------------------------------------------------------------------------------------*/
+	application.listen(PORT, () => {
+		console.log(`Server is running on http://localhost:${PORT}`);
+	});
 });

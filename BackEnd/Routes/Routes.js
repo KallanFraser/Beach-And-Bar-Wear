@@ -20,8 +20,4 @@ expressRouter.get("/fetchAllProducts", fetchAllProducts);
 
 expressRouter.post("/checkout", checkoutHandler);
 
-expressRouter.get("/", (request, response) => {
-	response.sendFile(path.join(__dirname, "../../FrontEnd/dist", "index.html"));
-});
-
 export default expressRouter;

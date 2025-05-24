@@ -26,6 +26,11 @@ const BASE_URL = "https://api.printify.com/v1";
 /*---------------------------------------------------------------------------------------------
 									Main Method
 ----------------------------------------------------------------------------------------------*/
+/* Security Questions That Need to be tested*/
+//Do we check if the stripe received the payment
+//Do we check if the payment stripe received is the amount we received
+//Does everything add up?
+
 export async function checkoutHandler(req, res) {
 	const { cart, shippingInfo, shippingCost, tax, paymentMethodId } = req.body;
 

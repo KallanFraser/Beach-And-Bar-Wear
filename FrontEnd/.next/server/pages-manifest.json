@@ -1,0 +1,13 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/LandingPage": "pages/LandingPage.html",
+  "/HomePage": "pages/HomePage.html",
+  "/OrderConfirmationPage": "pages/OrderConfirmationPage.html",
+  "/ViewCartPage": "pages/ViewCartPage.html",
+  "/PaymentPage": "pages/PaymentPage.html",
+  "/ViewProductPage/[id]": "pages/ViewProductPage/[id].html",
+  "/": "pages/index.html",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}

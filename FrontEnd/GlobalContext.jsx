@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------------------------------
 										Imports
 ----------------------------------------------------------------------------------------------*/
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
 //Fetch Imports
 import fetchProducts from "./FetchFunctions/FetchProducts.js";
@@ -31,8 +31,13 @@ export const GlobalProvider = ({ children }) => {
 	const [isDayMode, setIsDayMode] = useState(true);
 
 	useEffect(() => {
-		fetchProducts(setProducts);
-		setLoading(false);
+		const load = async () => {
+			setLoading(true);
+			await fetchProducts(setProducts);
+			setLoading(false);
+		};
+
+		load();
 	}, []);
 
 	return (
