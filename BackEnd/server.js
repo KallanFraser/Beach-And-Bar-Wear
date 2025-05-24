@@ -59,7 +59,7 @@ nextApp.prepare().then(() => {
 		windowMs: 1 * 60 * 1000, // 1 minute
 		max: 20, // limit each IP to 20 requests per minute
 	});
-	app.use(globalLimiter);
+	application.use(globalLimiter);
 
 	// Mounts existing API routes from routes.js
 	application.use(routes);
