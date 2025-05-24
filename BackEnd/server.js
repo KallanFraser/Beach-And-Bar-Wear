@@ -8,6 +8,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import axios from "axios";
+import rateLimit from "express-rate-limit";
 
 //Next import
 import next from "next";
@@ -52,6 +53,13 @@ nextApp.prepare().then(() => {
 	//Apply cors & JSON
 	application.use(express.json());
 	application.use(cors());
+
+	// Global rate limiter for all endpoints
+	const globalLimiter = rateLimit({
+		windowMs: 1 * 60 * 1000, // 1 minute
+		max: 20, // limit each IP to 20 requests per minute
+	});
+	app.use(globalLimiter);
 
 	// Mounts existing API routes from routes.js
 	application.use(routes);

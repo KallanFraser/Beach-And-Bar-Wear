@@ -32,12 +32,19 @@ const BASE_URL = "https://api.printify.com/v1";
 //Does everything add up?
 
 export async function checkoutHandler(req, res) {
+	//Extracting the information from the request
+	//Ignoring shippingCost and tax for now
 	const { cart, shippingInfo, shippingCost, tax, paymentMethodId } = req.body;
 
 	try {
 		// Calculate total from DB to ensure request matches price of product
 		let totalAmount = 0;
 		for (const item of cart) {
+			//Has a valid quantity been given (non zero)
+			if (!Number.isInteger(item.quantity) || item.quantity < 1) {
+				return res.status(400).json({ error: `Invalid quantity for SKU ${item.sku}` });
+			}
+			//Select varieant price of item
 			const { rows } = await pool.query(
 				"SELECT variant_price FROM product_variants WHERE variant_sku = $1 LIMIT 1",
 				[item.sku]
@@ -45,6 +52,7 @@ export async function checkoutHandler(req, res) {
 			if (!rows.length) {
 				return res.status(400).json({ error: `Invalid SKU: ${item.sku}` });
 			}
+			//Increment totalamount with variants price multipled by its quantity
 			totalAmount += rows[0].variant_price * item.quantity;
 		}
 
@@ -69,6 +77,19 @@ export async function checkoutHandler(req, res) {
 				allow_redirects: "never",
 			},
 		});
+
+		//Check if payment through stripe was successful
+		if (paymentIntent.status !== "succeeded") {
+			console.error("Unexpected payment status:", paymentIntent.status);
+			return res.status(400).json({ error: `Payment failed: status ${paymentIntent.status}` });
+		}
+
+		if (paymentIntent.amount !== amountCents) {
+			console.error(
+				`Amount mismatch: calculated ${amountCents}, stripe charged ${paymentIntent.amount}`
+			);
+			return res.status(500).json({ error: "Payment amount mismatch detected" });
+		}
 
 		//FRIENDLY VERSION ------------------------------------------
 		//CHARGES 0.50$ ONLY FOR TESTING PURPOSES
