@@ -5,7 +5,7 @@
 #navigation-bar {
 	width: 100vw;
 	background-color: rgba(0, 0, 0, 0.75);
-	height: 4rem;
+	height: 8vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -46,9 +46,8 @@
 	display: flex;
 	color: white;
 	gap: 50%;
-	font-size: 1.1rem;
+	font-size: clamp(0.3rem, 1rem, 1rem);
 	justify-content: space-between;
-	font-size: 1.1rem;
 	width: 15%;
 	color: hsla(0, 0%, 100%, 0.7);
 }
@@ -96,4 +95,50 @@
 	width: auto;
 	max-width: 100%;
 	object-fit: contain;
+}
+
+/*---------------------------------------------------------------------------------------------
+							Responsive Styles for Phones
+----------------------------------------------------------------------------------------------*/
+@media (max-width: 600px) {
+	#navigation-bar {
+		flex-direction: row;
+		height: 8vh;
+		padding: 0.2rem 0.1rem;
+		gap: 0.1rem;
+	}
+
+	#navigation-bar img {
+		max-width: 2.1rem;
+		margin-inline: 0.15rem;
+	}
+
+	#navigation-bar-center-content {
+		height: auto;
+		align-items: center;
+		padding: 0rem;
+		width: 100vw; /* Make it span the whole viewport */
+		display: flex;
+		justify-content: center; /* Center its contents horizontally */
+		align-items: center;
+	}
+
+	#navigation-bar-center-content img {
+		width: auto;
+		max-width: 100%;
+		object-fit: contain;
+		padding: 0rem;
+	}
+
+	#clothing-categories,
+	#theme-controller {
+		width: 100%;
+		justify-content: center;
+		gap: 1rem;
+		font-size: 0.7rem;
+	}
+
+	.theme-icon {
+		height: 1.5rem;
+	}
 }

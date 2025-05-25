@@ -195,3 +195,83 @@
 	opacity: 0.6;
 	cursor: not-allowed;
 }
+
+/*---------------------------------------------------------------------------------------------
+                    Responsive Styles for Phones – Payment Section
+----------------------------------------------------------------------------------------------*/
+@media (max-width: 600px) {
+	#payment-box {
+		padding: 2%;
+	}
+
+	#payment-list {
+		flex-direction: column;
+		padding: 1rem;
+		width: 100%;
+	}
+
+	#payment-left-column,
+	#payment-right-column {
+		width: 100%;
+		padding-left: 0;
+		margin-bottom: 2rem;
+	}
+
+	#payment-left-column h3,
+	#payment-right-column h3 {
+		font-size: 1.2rem;
+	}
+
+	.cart-item-mini-widget {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.cart-item-mini-thumb,
+	.cart-item-mini-widget img {
+		max-width: 80%;
+		margin-bottom: 1rem;
+	}
+
+	.cart-item-mini-info {
+		font-size: 0.95rem;
+		padding-inline: 0;
+	}
+
+	.cart-item-mini-info h2 {
+		font-size: 1rem;
+		padding-block: 1rem;
+	}
+
+	.cart-item-mini-info p {
+		padding-block: 0.5rem;
+	}
+
+	.form-section h4 {
+		font-size: 1rem;
+	}
+
+	.form-section label,
+	.checkbox-label {
+		font-size: 0.85rem;
+	}
+
+	.form-section input[type="text"],
+	.form-section input[type="email"],
+	.form-section input[type="tel"],
+	.form-section input[type="number"],
+	.form-section select {
+		font-size: 0.85rem;
+		padding: 0.4rem;
+	}
+
+	.billing-address h5 {
+		font-size: 0.95rem;
+	}
+
+	#payment-right-column button[type="submit"] {
+		font-size: 1rem;
+		padding: 0.75rem 1.2rem;
+	}
+}

@@ -32,3 +32,22 @@
 	font-size: 3rem;
 	color: white;
 }
+
+/*---------------------------------------------------------------------------
+                        Responsive Styling for Phones
+---------------------------------------------------------------------------*/
+@media (max-width: 600px) {
+	/* Container adjustments */
+	.products-container {
+		padding-inline: 3%;
+		gap: 1rem;
+	}
+
+	/* Loading text */
+	#home-page-loading {
+		margin-top: 40%;
+		font-size: 2rem;
+		text-align: center;
+		padding-inline: 1rem;
+	}
+}

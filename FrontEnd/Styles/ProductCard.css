@@ -99,3 +99,35 @@ body.night-mode .product-card {
 body.night-mode .image-swapper {
 	background-color: hsl(0, 0%, 9%);
 }
+
+/*---------------------------------------------------------------------------
+                        Responsive Styling for Phones
+---------------------------------------------------------------------------*/
+@media (max-width: 600px) {
+	/* Each product card should take about half width */
+	.product-card {
+		width: 48%; /* Allows 2 cards per row with some spacing */
+		font-size: 0.85rem;
+		border-width: 0.5rem;
+	}
+
+	/* Shrink image swappers gracefully */
+	.image-swapper {
+		padding-top: 100%; /* Maintain 1:1 aspect ratio */
+	}
+
+	.image-swapper img {
+		border-radius: 0.75rem;
+	}
+
+	/* Price section text scaling */
+	.price-section {
+		font-size: 1rem;
+		padding: 0.2rem;
+		border-radius: 0.75rem;
+	}
+
+	.price-section li {
+		font-size: 0.9rem;
+	}
+}

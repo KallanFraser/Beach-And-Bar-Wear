@@ -104,3 +104,63 @@
 	align-items: center;
 	justify-content: center;
 }
+
+/*---------------------------------------------------------------------------------------------
+                        Responsive Styles for Phones – View Cart
+----------------------------------------------------------------------------------------------*/
+@media (max-width: 600px) {
+	#cart-list-section {
+		padding: 4%;
+		margin-top: 0;
+	}
+
+	#cart-list {
+		padding: 1rem;
+	}
+
+	#cart-page-cart-item-widget {
+		flex-direction: column;
+		align-items: center;
+		padding: 1rem;
+		gap: 1rem;
+	}
+
+	.cart-page-cart-item-thumb {
+		max-width: 80%;
+		width: 100%;
+	}
+
+	.cart-page-cart-item-info {
+		padding-inline: 0;
+		padding-bottom: 0;
+		text-align: center;
+	}
+
+	.cart-page-cart-item-info h2 {
+		font-size: 1.2rem;
+		padding-block: 1rem;
+	}
+
+	.cart-page-cart-item-info p {
+		font-size: 1rem;
+		margin-top: 0.5rem;
+	}
+
+	#checkout-section {
+		flex-direction: column;
+		align-items: center;
+		margin-top: 2rem;
+	}
+
+	#checkout-section button {
+		width: 90%;
+		padding: 0.8rem 1.5rem;
+		font-size: 1.1rem;
+	}
+
+	#empty-cart-display {
+		font-size: 1.4rem;
+		padding: 2rem 1rem;
+		text-align: center;
+	}
+}

@@ -92,3 +92,55 @@
 	border: none;
 	border-radius: 0.5rem;
 }
+
+/*------------------------------------------------------------------------------
+						Responsive Styles for Phones
+------------------------------------------------------------------------------*/
+@media (max-width: 600px) {
+	.image-container img {
+		width: 100%;
+		height: auto;
+		max-height: 40vh;
+		object-fit: contain;
+	}
+
+	#variant-listings {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.5rem;
+		margin-top: 2rem;
+	}
+
+	#variant-listings button {
+		padding: 0.5rem;
+		width: 90%;
+		font-size: 0.8rem;
+	}
+
+	#cart-section {
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+		margin-bottom: 2vh;
+	}
+
+	#cart-section button {
+		font-size: 1rem;
+		padding: 0.8rem 1.5rem;
+	}
+
+	.qty-controls {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.qty-controls button {
+		width: 2rem;
+		height: 2rem;
+		font-size: 1rem;
+	}
+
+	.qty-controls input {
+		width: 3rem;
+		font-size: 1rem;
+	}
+}
