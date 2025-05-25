@@ -106,9 +106,10 @@ body.night-mode .image-swapper {
 @media (max-width: 600px) {
 	/* Each product card should take about half width */
 	.product-card {
-		width: 48%; /* Allows 2 cards per row with some spacing */
+		width: 45vw; /* Two cards per row with margin room */
 		font-size: 0.85rem;
 		border-width: 0.5rem;
+		box-sizing: border-box; /* Ensures padding/border are included in width */
 	}
 
 	/* Shrink image swappers gracefully */

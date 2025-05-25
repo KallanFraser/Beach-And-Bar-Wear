@@ -20,6 +20,7 @@ import routes from "./Routes/Routes.js";
 //Server / Database Update Functions
 import { refreshProductsDatabase } from "./PrintifyAPIController/DatabaseOriented/RefreshProductsDatabase.js";
 import { markAsNightClothing } from "./PrintifyAPIController/ProductStatus/MarkProductAsNightClothing.js";
+import markProductPublishingSucceeded from "./PrintifyAPIController/ProductStatus/PublishProduct.js";
 
 //Testing / Other
 
@@ -83,6 +84,11 @@ nextApp.prepare().then(() => {
 		refreshProductsDatabase();
 	}, FIVE_MINUTES_MS);
 
+	markProductPublishingSucceeded(
+		"681bf654a55bae26fe09749d",
+		"681bf654a55bae26fe09749d",
+		"https://beachandbarwear.com/ViewProductPage/681bf654a55bae26fe09749d"
+	);
 	// markAsNightClothing("681c021da55bae26fe097788");
 
 	/*---------------------------------------------------------------------------------------------

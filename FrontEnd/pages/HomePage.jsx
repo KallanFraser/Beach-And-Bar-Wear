@@ -41,15 +41,22 @@ const HomePage = () => {
 	return (
 		<div id="home-page">
 			<NavigationBar />
-			<div className="products-container">
+			<>
 				{loading ? (
 					<div id="home-page-loading">
 						<p>Loading clothing now</p>
 					</div>
 				) : (
-					visibleProducts.map((p) => <ProductCard key={p.id} product={p} />)
+					<div id="first-line">
+						<h1>Hot In Summer Collection</h1>
+						<div className="products-container">
+							{visibleProducts.map((p) => (
+								<ProductCard key={p.id} product={p} />
+							))}
+						</div>
+					</div>
 				)}
-			</div>
+			</>
 		</div>
 	);
 };
