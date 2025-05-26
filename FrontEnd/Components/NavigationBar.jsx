@@ -49,13 +49,17 @@ const NavigationBar = () => {
 
 	return (
 		<div id="navigation-bar">
-			<Link href="/HomePage">
+			<Link href="/HomePage" className="page-icon">
 				<img src="/images/HomePage.png" alt="Home" />
 			</Link>
 
-			<div id="clothing-categories">
-				<h2>Mens</h2>
-				<h2>Womens</h2>
+			<div id="theme-controller">
+				{/* Day button sets isDayMode = true */}
+				<button className="theme-button" onClick={() => setIsDayMode(true)}>
+					<Link href="/HomePage">
+						<img src="/images/DayWear.png" alt="Day Mode" className="theme-icon" />
+					</Link>
+				</button>
 			</div>
 
 			<div id="navigation-bar-center-content">
@@ -65,17 +69,15 @@ const NavigationBar = () => {
 			</div>
 
 			<div id="theme-controller">
-				{/* Day button sets isDayMode = true */}
-				<button className="theme-button" onClick={() => setIsDayMode(true)}>
-					<img src="/images/SunIcon.png" alt="Day Mode" className="theme-icon" />
-				</button>
 				{/* Night button sets isDayMode = false */}
 				<button className="theme-button" onClick={() => setIsDayMode(false)}>
-					<img src="/images/MoonIcon.png" alt="Night Mode" className="theme-icon" />
+					<Link href="/HomePage">
+						<img src="/images/NightWear.png" alt="Night Mode" className="theme-icon" />
+					</Link>
 				</button>
 			</div>
 
-			<Link href="/ViewCartPage">
+			<Link href="/ViewCartPage" className="page-icon">
 				<img src="/images/Cart.png" alt="Cart" />
 			</Link>
 		</div>

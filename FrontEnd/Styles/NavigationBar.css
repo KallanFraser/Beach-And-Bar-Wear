@@ -57,21 +57,26 @@
 ----------------------------------------------------------------------------------------------*/
 #theme-controller {
 	display: flex;
-	color: white;
-	justify-content: space-between;
-	font-size: 1.1rem;
-	width: 15%;
-	color: hsla(0, 0%, 100%, 0.7);
+	align-items: center;
+	justify-content: center;
+	width: 12%;
+	height: 70%;
 }
 
-/* make the theme buttons look like text links */
 .theme-button {
+	width: 100%;
+	height: 100%;
 	background: none;
 	border: none;
-	color: inherit;
-	font: inherit;
 	cursor: pointer;
 	padding: 0;
+}
+
+#theme-controller img {
+	height: 100%;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
 }
 
 /* Full-screen black overlay for mode switch */
@@ -90,13 +95,6 @@
 	opacity: 0;
 }
 
-.theme-icon {
-	height: 50%;
-	width: auto;
-	max-width: 100%;
-	object-fit: contain;
-}
-
 /*---------------------------------------------------------------------------------------------
 							Responsive Styles for Phones
 ----------------------------------------------------------------------------------------------*/
@@ -109,7 +107,6 @@
 	}
 
 	#navigation-bar img {
-		max-width: 2.1rem;
 		margin-inline: 0.15rem;
 	}
 
@@ -117,7 +114,7 @@
 		height: auto;
 		align-items: center;
 		padding: 0rem;
-		width: 100vw; /* Make it span the whole viewport */
+		width: 35vw; /* Make it span the whole viewport */
 		display: flex;
 		justify-content: center; /* Center its contents horizontally */
 		align-items: center;
@@ -130,15 +127,23 @@
 		padding: 0rem;
 	}
 
-	#clothing-categories,
 	#theme-controller {
-		width: 100%;
-		justify-content: center;
-		gap: 1rem;
-		font-size: 0.7rem;
+		width: 20%;
+		height: 100%;
 	}
 
 	.theme-icon {
-		height: 1.5rem;
+		height: 100%;
+		width: 100%;
+		max-width: 100%;
+		object-fit: contain;
+	}
+
+	.page-icon {
+		max-width: 15%;
+	}
+	.page-icon img {
+		width: 80%;
+		object-fit: contain;
 	}
 }

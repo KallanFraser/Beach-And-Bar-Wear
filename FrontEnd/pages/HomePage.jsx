@@ -48,7 +48,7 @@ const HomePage = () => {
 					</div>
 				) : (
 					<div id="first-line">
-						<h1>Hot In Summer Collection</h1>
+						<h1>Summer Collection</h1>
 						<div className="products-container">
 							{visibleProducts.map((p) => (
 								<ProductCard key={p.id} product={p} />
