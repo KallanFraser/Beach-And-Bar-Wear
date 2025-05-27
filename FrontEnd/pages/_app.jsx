@@ -25,6 +25,21 @@ import { GlobalProvider } from "../GlobalContext";
 export default function App({ Component, pageProps }) {
 	return (
 		<>
+			<Script
+				strategy="afterInteractive"
+				src="https://www.googletagmanager.com/gtag/js?id=AW-17120768042"
+			/>
+			<Script
+				strategy="afterInteractive"
+				dangerouslySetInnerHTML={{
+					__html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17120768042');
+          `,
+				}}
+			/>
 			<Script src="https://js.stripe.com/v3/" strategy="beforeInteractive" />
 			<GlobalProvider>
 				<Component {...pageProps} />
