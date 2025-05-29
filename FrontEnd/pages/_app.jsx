@@ -15,6 +15,7 @@ import "../Styles/NavigationBar.css";
 import "../Styles/ProductCard.css";
 
 import Script from "next/script";
+import Head from "next/head";
 
 // Global Context
 import { GlobalProvider } from "../GlobalContext";
@@ -25,6 +26,9 @@ import { GlobalProvider } from "../GlobalContext";
 export default function App({ Component, pageProps }) {
 	return (
 		<>
+			<Head>
+				<link rel="icon" type="image/png" href="/images/LogoType.png" />
+			</Head>
 			<Script
 				strategy="afterInteractive"
 				src="https://www.googletagmanager.com/gtag/js?id=AW-17120768042"
