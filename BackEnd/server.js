@@ -84,13 +84,15 @@ nextApp.prepare().then(() => {
 		refreshProductsDatabase();
 	}, FIVE_MINUTES_MS);
 
+	/*
 	markProductPublishingSucceeded(
-		"6833fa4869e74216610115c6",
-		"6833fa4869e74216610115c6",
-		"https://beachandbarwear.com/ViewProductPage/6833fa4869e74216610115c6"
+		"6838a086ea1cf51f95060911",
+		"6838a086ea1cf51f95060911",
+		"https://beachandbarwear.com/ViewProductPage/6838a086ea1cf51f95060911"
 	);
+	*/
 
-	markAsNightClothing("6833fa4869e74216610115c6");
+	//markAsNightClothing("6838a1bc449ad46c85074c5d");
 
 	/*---------------------------------------------------------------------------------------------
                                         Server Start

@@ -18,15 +18,6 @@ import { GlobalContext } from "../GlobalContext.jsx";
 const HomePage = () => {
 	const { products, loading, isDayMode } = useContext(GlobalContext);
 
-	//Debugging purposes
-	useEffect(() => {
-		if (!loading && Array.isArray(products)) {
-			products.forEach((p) =>
-				console.log(`Product ${p.id} → is_night_clothing = ${p.is_night_clothing}`)
-			);
-		}
-	}, [loading, products]);
-
 	// filter based on current mode
 	const visibleProducts =
 		!loading && Array.isArray(products)

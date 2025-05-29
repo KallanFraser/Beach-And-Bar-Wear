@@ -23,6 +23,11 @@ Perfect for:
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
+	//Different kinds of fetch functions to be called
+	//products should always store all the products until MAX array size
+	const MAX = 200;
+	//Fetch for home page on web page load
+	//
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
 

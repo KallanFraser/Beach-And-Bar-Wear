@@ -1,16 +1,16 @@
 /** @format */
 /*---------------------------------------------------------------------------------------------
-								    Imports
+                                 Imports
 ----------------------------------------------------------------------------------------------*/
-//Libary import
+// Library import
 import { useEffect, useContext } from "react";
 import Link from "next/link"; // ← Next.js Link
 
-//Global Context Import
+// Global Context Import
 import { GlobalContext } from "../GlobalContext.jsx";
 
 /*---------------------------------------------------------------------------------------------
-								Navigation Component
+                             Navigation Component
 ----------------------------------------------------------------------------------------------*/
 const NavigationBar = () => {
 	// Pull from global context:
@@ -20,8 +20,9 @@ const NavigationBar = () => {
 	const isNight = !isDayMode;
 
 	useEffect(() => {
-		// 1) toggle your theme
+		// 1) toggle theme class on both <body> and <html>
 		document.body.classList.toggle("night-mode", isNight);
+		document.documentElement.classList.toggle("night-mode", isNight);
 
 		// 2) create & style the full-screen overlay
 		const overlay = document.createElement("div");

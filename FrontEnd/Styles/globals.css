@@ -27,7 +27,7 @@
 /*--------------------------------------------------------------------------*/
 /*                            Night-mode overrides                           */
 /*--------------------------------------------------------------------------*/
-body.night-mode {
+html.night-mode {
 	/* ::before stops */
 	--g1-1: #000000;
 	--g1-2: #2d0b0b;
@@ -60,27 +60,33 @@ body.night-mode {
 }
 
 /*--------------------------------------------------------------------------*/
-/*                              Rainbow Effects                             */
+/*                       Make html the scroll container                     */
 /*--------------------------------------------------------------------------*/
-body {
-	position: relative;
-	height: 100%;
-	min-height: 100vh;
-	max-width: 100vw;
-	overflow-y: auto;
-	overflow-x: hidden;
-	background-color: rgb(25, 25, 25);
+html {
+	position: relative; /* for absolute pseudos */
+	min-height: 100%; /* at least one viewport, but can grow */
+	overflow-x: hidden; /* prevent horizontal scroll */
 
-	/* start at full brightness, then animate in on page load */
-	filter: brightness(1);
+	/* start dark, then fade up */
+	filter: brightness(0);
 	animation: fadeInBrightness 2s ease-in-out forwards;
 }
 
-/* both layers fill the screen and sit behind the content */
-body::before,
-body::after {
+/*--------------------------------------------------------------------------*/
+/*                              Rainbow Effects                             */
+/*--------------------------------------------------------------------------*/
+body {
+	position: relative; /* stacking context for content */
+	min-height: 100vh; /* at least a full viewport, but grows */
+	overflow-x: hidden; /* horizontal overflow hidden */
+	background-color: rgb(25, 25, 25);
+}
+
+/* attach gradient layers to html so they cover the full scrollable area */
+html::before,
+html::after {
 	content: "";
-	position: fixed;
+	position: absolute;
 	inset: 0;
 	background-size: 600% 600%;
 	background-repeat: no-repeat;
@@ -88,7 +94,7 @@ body::after {
 	z-index: -1;
 }
 
-body::before {
+html::before {
 	background-image: linear-gradient(
 		45deg,
 		var(--g1-1),
@@ -103,11 +109,7 @@ body::before {
 	opacity: 1;
 }
 
-body.night-mode::before {
-	opacity: 0;
-}
-
-body::after {
+html::after {
 	background-image: linear-gradient(
 		-45deg,
 		var(--g2-1),
@@ -122,7 +124,11 @@ body::after {
 	opacity: 0.6;
 }
 
-body.night-mode::after {
+/* night-mode opacity overrides */
+html.night-mode::before {
+	opacity: 0;
+}
+html.night-mode::after {
 	opacity: 1;
 }
 
@@ -173,9 +179,6 @@ body.night-mode::after {
 /*--------------------------------------------------------------------------*/
 /*                              Root Color Tokens                          */
 /*--------------------------------------------------------------------------*/
-body.fade {
-	animation: fadeInBrightness 3s ease forwards;
-}
 
 :root {
 	--dark: hsl(156, 12%, 8%);
