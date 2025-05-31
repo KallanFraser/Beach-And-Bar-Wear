@@ -10,16 +10,18 @@
                            	Container for ALL products                                
 --------------------------------------------------------------------------*/
 #first-line {
-	margin-top: 10vh;
+	margin-top: 6vh;
 	margin-bottom: 10vh;
 }
 
 #first-line h1 {
 	text-align: center;
-	margin-bottom: 1vh;
+	margin-bottom: 3vh;
 	font-size: 3rem;
 	color: white;
-	border-bottom: 4px solid white;
+	padding-block: 1vh;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
 }
 
 .products-container {
@@ -31,7 +33,6 @@
 	padding-inline: 1vw;
 	justify-content: center;
 	padding-bottom: 1vh;
-	border-bottom: 4px solid white;
 }
 
 .products-container h1 {
