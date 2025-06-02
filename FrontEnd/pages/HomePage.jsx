@@ -29,6 +29,21 @@ const HomePage = () => {
 			  )
 			: [];
 
+	visibleProducts.map((p) => {
+		console.log("123", p);
+	});
+	/*
+is_boxy_oversized
+is_classic_heavy
+is_dj_oversized
+is_heavy_tank
+is_hoodie
+is_swim_short
+
+
+is_night_clothing
+	*/
+
 	return (
 		<div id="home-page">
 			<NavigationBar />
@@ -39,11 +54,54 @@ const HomePage = () => {
 					</div>
 				) : (
 					<div id="first-line">
-						<h1>Summer Arrivals Collection</h1>
+						{isDayMode && (
+							<>
+								<div className="summer-header">
+									<h1>Summer Arrivals Collection</h1>
+									<h2>Mens Swim Shorts</h2>
+								</div>
+								<div className="products-container">
+									{visibleProducts.map((p) => {
+										if (p.is_swim_short) {
+											return <ProductCard key={p.id} product={p} />;
+										}
+										return null; // ensure something is returned for every item
+									})}
+								</div>
+							</>
+						)}
+						<div className="summer-header">
+							<h1>Summer Arrivals Collection</h1>
+							<h2>Oversized DJ Tee's</h2>
+						</div>
 						<div className="products-container">
-							{visibleProducts.map((p) => (
-								<ProductCard key={p.id} product={p} />
-							))}
+							{visibleProducts.map((p) => {
+								if (p.is_dj_oversized) {
+									return <ProductCard key={p.id} product={p} />;
+								}
+							})}
+						</div>
+						<div className="summer-header">
+							<h1>Summer Arrivals Collection</h1>
+							<h2>Boxy Oversized Tee's</h2>
+						</div>
+						<div className="products-container">
+							{visibleProducts.map((p) => {
+								if (p.is_boxy_oversized) {
+									return <ProductCard key={p.id} product={p} />;
+								}
+							})}
+						</div>
+						<div className="summer-header">
+							<h1>Summer Arrivals Collection</h1>
+							<h2>Mens Hoodies</h2>
+						</div>
+						<div className="products-container">
+							{visibleProducts.map((p) => {
+								if (p.is_hoodie) {
+									return <ProductCard key={p.id} product={p} />;
+								}
+							})}
 						</div>
 					</div>
 				)}

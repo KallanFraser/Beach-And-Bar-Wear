@@ -3,7 +3,7 @@
                            	Individual Product Card                               
 --------------------------------------------------------------------------*/
 .product-card {
-	width: 25%;
+	width: 30vw;
 	border-radius: 1rem;
 	border: solid white 1rem;
 	background-color: white;
