@@ -2,11 +2,13 @@
 /*---------------------------------------------------------------------------------------------
                                         Imports
 ----------------------------------------------------------------------------------------------*/
-//ENV imports
+// ENV imports
 import dotenv from "dotenv";
 dotenv.config();
 
 import axios from "axios";
+
+import { pool } from "../../Database/Database.js"; // <-- make sure this points to where you export your `pool` instance
 
 /*---------------------------------------------------------------------------------------------
                                     Globals
@@ -26,16 +28,12 @@ const ShopifyAPI = axios.create({
 		"Content-Type": "application/json",
 	},
 });
+
 /*---------------------------------------------------------------------------------------------
                                     Delete Product Function
 ----------------------------------------------------------------------------------------------*/
-/**
- * Cancel a still‐publishing product and remove it completely.
- *
- * @param {string} productId   – Printify product_id that’s mid-publish
- * @param {string} [reason]    – Why we’re cancelling (shown in Printify UI)
- * @returns {Promise<void>}
- */
+
+// NOTE: Now also removes the product row from Postgres (and cascades to related tables)
 export const cancelAndDeleteProduct = async (productId, reason = "Cancelled by user") => {
 	if (!productId) {
 		throw new Error("productId is required to cancel and delete a product");
@@ -51,10 +49,18 @@ export const cancelAndDeleteProduct = async (productId, reason = "Cancelled by u
 		);
 		console.log(`✅ publishing_failed sent for ${productId}`);
 
-		// 2. Delete the product entirely
-		console.log(`🗑  deleting product ${productId}…`);
+		// 2. Delete the product in Printify
+		console.log(`🗑  deleting product ${productId} from Printify…`);
 		const { status, data } = await ShopifyAPI.delete(`/shops/${SHOP_ID}/products/${productId}.json`);
-		console.log(`✅ product ${productId} deleted (HTTP ${status})`);
+		console.log(`✅ product ${productId} deleted on Printify (HTTP ${status})`);
+
+		// 3. Delete from Postgres (will cascade to the two related tables)
+		console.log(`🗑  deleting product ${productId} from local database…`);
+		const deleteQuery = `DELETE FROM products WHERE product_id = $1`;
+		await pool.query(deleteQuery, [productId]);
+		console.log(`✅ product ${productId} deleted from DB (and cascaded to related tables)`);
+
+		// Return whatever Printify sent back (if you need it elsewhere)
 		return data;
 	} catch (err) {
 		console.error(

@@ -21,15 +21,9 @@ if (!PRINTIFY_TOKEN || !SHOP_ID) {
 /*---------------------------------------------------------------------------------------------
                                 Publish‑Succeeded Helper
 ----------------------------------------------------------------------------------------------*/
-/**
- * Unlocks a newly‑published Printify product so we can keep editing it.
- *
- * @param {string|number} productId   – Printify product_id that got locked
- * @param {string|number} externalId  – Listing ID your store uses for this product (e.g. SKU)
- * @param {string}        handleUrl   – Public URL of the product on your site
- * @returns {Promise<object>}         – Raw Printify response payload
- */
-const markProductPublishingSucceeded = async (productId, externalId, handleUrl) => {
+const markProductPublishingSucceeded = async (productId) => {
+	const externalId = productId;
+	const handleUrl = "https://beachandbarwear.com/ViewProductPage/" + productId;
 	if (!productId || !externalId || !handleUrl) {
 		throw new Error("productId, externalId, and handleUrl are all required for publishing_succeeded.");
 	}

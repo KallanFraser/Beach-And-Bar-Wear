@@ -14,6 +14,12 @@ export async function fetchAllProducts(req, res) {
 			p.product_title        AS title,
 			p.is_visible           AS visible,
 			p.is_night_clothing    AS is_night_clothing,
+			p.swim_short           AS is_swim_short,
+			p.dj_oversized         AS is_dj_oversized,
+			p.hoodie               AS is_hoodie,
+			p.boxy_oversized       AS is_boxy_oversized,
+			p.classic_heavy        AS is_classic_heavy,
+			p.heavy_tank           AS is_heavy_tank,
 			COALESCE(
 			JSON_AGG(DISTINCT JSONB_BUILD_OBJECT(
 				'id',        v.variant_id,

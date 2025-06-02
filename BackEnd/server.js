@@ -19,8 +19,18 @@ import routes from "./Routes/Routes.js";
 
 //Server / Database Update Functions
 import { refreshProductsDatabase } from "./PrintifyAPIController/DatabaseOriented/RefreshProductsDatabase.js";
+
 import { markAsNightClothing } from "./PrintifyAPIController/ProductStatus/MarkProductAsNightClothing.js";
+
 import markProductPublishingSucceeded from "./PrintifyAPIController/ProductStatus/PublishProduct.js";
+import { cancelAndDeleteProduct } from "./PrintifyAPIController/ProductStatus/CancelAndDeleteProduct.js";
+
+import { markAsSwimShorts } from "./PrintifyAPIController/ProductStatus/MarkProductAsSwimShorts.js";
+import { markAsClassicHeavy } from "./PrintifyAPIController/ProductStatus/MarkProductAsClassicHeavy.js";
+import { markAsBoxyOversized } from "./PrintifyAPIController/ProductStatus/MarkProductAsBoxyOversized.js";
+import { markAsDJOversized } from "./PrintifyAPIController/ProductStatus/MarkProductAsDJOversized.js";
+import { markAsHoodie } from "./PrintifyAPIController/ProductStatus/MarkProductAsHoodie.js";
+import { markAsHeavyTank } from "./PrintifyAPIController/ProductStatus/MarkProductAsHeavyTank.js";
 
 //Testing / Other
 
@@ -84,15 +94,9 @@ nextApp.prepare().then(() => {
 		refreshProductsDatabase();
 	}, FIVE_MINUTES_MS);
 
-	/*
-	markProductPublishingSucceeded(
-		"683a45aa9eea626e4c07f290",
-		"683a45aa9eea626e4c07f290",
-		"https://beachandbarwear.com/ViewProductPage/683a45aa9eea626e4c07f290"
-	);
+	//markProductPublishingSucceeded("")
 
-	//markAsNightClothing("");
-	*/
+	//markAsHeavyTank("6833e2a17860a870dc0c9206");
 
 	/*---------------------------------------------------------------------------------------------
                                         Server Start

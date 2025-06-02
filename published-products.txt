@@ -1,6 +1,41 @@
-681c021da55bae26fe097788 = over sized black tiki t shirt
-681bdbd2853cbba0fc0cd1dd = over sized white palm tree thing t shirt
-681bf654a55bae26fe09749d = red shorts
-681bf219c9285dd17e0e2836 = white hoodie
-681bedeb1efe1938f306f3e0 = blue shorts
-6816e2ee44c4abfbc3041819 = dolce vite shirt
+DJ Oversized Day ------------------------------------------------------
+Cocktail Girl (White) = 6816e2ee44c4abfbc3041819
+Palm Trees (White) = 681bdbd2853cbba0fc0cd1dd
+
+DJ Oversized Night ------------------------------------------------------
+Caves (Black) = 681c021da55bae26fe097788
+Palms On Fire (Black) = 6833d6501c570ad91d0e479a
+
+
+Oversized Boxy Day ----------------------------------------------------
+Island Club Essentials = 6838a086ea1cf51f95060911
+Worldwide = 683950ee9ca72233de062d3d
+Sip The Daylight = 683a4222abf107a0cc050d17
+Palms Classic Logo = 683a45aa9eea626e4c07f290
+
+Oversized Boxy Night ----------------------------------------------------
+Island Club Essentials = 6838a1bc449ad46c85074c5d
+Eyes = 6839307a2ae28dff930c6894
+C'est La Vie = 68394904d01ec55d5504f733
+From Dusk Til Dawn = 683be100f41472dc010e4f2e
+Smoke & Sweat = 683bf94eabf107a0cc058403
+Service Suspended = 683cb6da3b3af933b20cefc2
+
+Swim Shorts --------------------------------------------------------
+Palms = 681bedeb1efe1938f306f3e0
+Cerveza = 681bf654a55bae26fe09749d
+Palm Leaves = 683a4bec3a7f9a1e04098f04
+Black Sand = 683bfcd88cd7be7c3a05e5fa
+African Pattern = 683cbbc353dcf8db0305995a
+
+Heavy Tank ---------------------------------------------------------
+Classic Heavy Tank = 6833e2a17860a870dc0c9206
+
+Heavy Classic (Night)-------------------------------------------------------
+Meduza = 6833fa4869e74216610115c6
+
+
+Hoodie Day -------------------------------------------------------------------
+Beach Bums = 681bf219c9285dd17e0e2836
+Classic Logo Palms = 683bc78d8cd7be7c3a05da47
+Island Club Essentials = 683cc5213a7f9a1e040a3496
