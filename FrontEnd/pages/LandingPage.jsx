@@ -24,7 +24,7 @@ const LandingPage = () => {
 			<div id="button-section">
 				<button onClick={handleClick}>
 					{" "}
-					<img src="/images/Shop.png" alt="Shop" />
+					<img src="/images/GoToShop.png" alt="Shop" />
 				</button>
 			</div>
 		</div>

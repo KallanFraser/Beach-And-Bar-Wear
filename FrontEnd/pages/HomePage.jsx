@@ -29,12 +29,6 @@ const HomePage = () => {
 			  )
 			: [];
 
-	/*
-	visibleProducts.map((p) => {
-		console.log("123", p);
-	});
-	*/
-
 	return (
 		<div id="home-page">
 			<NavigationBar />
@@ -105,15 +99,16 @@ const HomePage = () => {
 									Product Component
 ----------------------------------------------------------------------------------------------*/
 function ProductCard({ product }) {
-	const { id, title, variants = [], imageUrls = [], images = [] } = product;
-
 	const router = useRouter();
 
 	//Grabs the first two images of a known size always available for display
 	const largeVariant = product.variants.find((v) => /(^|\W)L($|\W)/i.test(v.title));
 
-	const first = product.imageUrls?.[0];
-	const second = product.imageUrls?.[1];
+	const frontObj = product.images.find((img) => img.is_back === false) || null;
+	const backObj = product.images.find((img) => img.is_back === true) || null;
+
+	const frontUrl = frontObj ? `data:image/jpeg;base64,${frontObj.src}` : null;
+	const backUrl = backObj ? `data:image/jpeg;base64,${backObj.src}` : null;
 
 	const handleClick = () => {
 		router.push(`/ViewProductPage/${product.id}`);
@@ -121,10 +116,18 @@ function ProductCard({ product }) {
 
 	return (
 		<div className="product-card" onClick={handleClick}>
-			<div className="image-swapper">
-				{first && <img className="primary" src={first} alt={product.title} />}
-				{second && <img className="secondary" src={second} alt={product.title} />}
-			</div>
+			{!product.is_swim_short && (
+				<div className="image-swapper">
+					{backUrl && <img className="primary" src={backUrl} alt={product.title} />}
+					{frontUrl && <img className="secondary" src={frontUrl} alt={product.title} />}
+				</div>
+			)}
+			{product.is_swim_short && (
+				<div className="image-swapper">
+					{frontUrl && <img className="primary" src={frontUrl} alt={product.title} />}
+					{backUrl && <img className="secondary" src={backUrl} alt={product.title} />}
+				</div>
+			)}
 			<ul className="price-section">
 				{largeVariant && <li key={largeVariant.id}> ${largeVariant.price.toFixed(2)}</li>}
 			</ul>

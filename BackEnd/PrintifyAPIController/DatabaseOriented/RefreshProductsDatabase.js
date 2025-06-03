@@ -49,9 +49,8 @@ const refreshProductsDatabase = async () => {
 		console.error("Printify fetch error:", error.response?.data || error.message);
 	}
 };
-
 /*---------------------------------------------------------------------------------------------
-									Parsing Function
+								Parsing Function
 ----------------------------------------------------------------------------------------------*/
 function parseAndUpdateEssentialProductData(data) {
 	if (!Array.isArray(data)) {
@@ -59,16 +58,14 @@ function parseAndUpdateEssentialProductData(data) {
 		return [];
 	}
 
-	//These are the sizes we offer so only inserting these sizes
+	// These are the sizes we offer so only inserting these sizes
 	const allowedSizes = new Set(["S", "M", "L", "XL"]);
 
 	return data.map(({ id, title, variants = [], images = [], visible }) => {
 		// Collect only enabled variants
-		// Project each variant into a object
 		const filteredVariants = variants
 			.filter((v) => v.is_enabled)
 			.map((v) => {
-				//Uses regexs to get "S" "M" "L" "XL"
 				const variantTitle = extractSize(v.title);
 
 				return {
@@ -82,19 +79,19 @@ function parseAndUpdateEssentialProductData(data) {
 			})
 			.filter((v) => allowedSizes.has(v.variant_title));
 
-		// For each enabled variant, create a set for them
+		// Build a Set of enabled variant IDs
 		const enabledVariantIds = new Set(filteredVariants.map((v) => v.variant_ID));
 
 		// Pick images tied to at least one enabled variant
 		const matchedImages = images
 			.filter((img) => img.variant_ids.some((vid) => enabledVariantIds.has(vid)))
 			.map((img) => {
-				// simple test for either query param
+				// Was this image marked as “front” or “back”?
 				const is_selected = /[?&]camera_label=(?:front|back)(?=$|&)/.test(img.src);
-				return { src: img.src, is_selected };
-			});
+				const is_back = /[?&]camera_label=back(?=$|&)/.test(img.src);
 
-		//console.log(`[Product] id= ${id} title= "${title}" amount of variants= ${filteredVariants.length} amount of images= ${matchedImages.length}`);
+				return { src: img.src, is_selected, is_back };
+			});
 
 		return {
 			id,
@@ -105,6 +102,7 @@ function parseAndUpdateEssentialProductData(data) {
 		};
 	});
 }
+
 /*---------------------------------------------------------------------------------------------
 								Download Image Function
 ----------------------------------------------------------------------------------------------*/
@@ -123,7 +121,6 @@ const downloadImage = async (imageURL) => {
 ----------------------------------------------------------------------------------------------*/
 const upsertProductIntoDatabase = async (product) => {
 	const { id, title, visible, variants, images } = product;
-
 	const client = await pool.connect();
 
 	try {
@@ -136,17 +133,14 @@ const upsertProductIntoDatabase = async (product) => {
 			 ON CONFLICT (product_id)
 			 DO UPDATE SET
 				product_title = EXCLUDED.product_title,
-				is_visible = EXCLUDED.is_visible;`,
+				is_visible   = EXCLUDED.is_visible;`,
 			[id, title, visible]
 		);
 
 		/* --- variants ----------------------------------------------------------- */
-		// build bulk VALUES list
 		const variantValues = [];
 		const params = [];
 		variants.forEach((v, idx) => {
-			//builds parameter placeholders for a bulk insert
-			//instead of inserting one variant at a time
 			const base = idx * 7;
 			variantValues.push(
 				`($${base + 1}, $${base + 2}, $${base + 3}, $${base + 4}, $${base + 5}, $${base + 6}, $${
@@ -167,36 +161,38 @@ const upsertProductIntoDatabase = async (product) => {
 		if (variantValues.length) {
 			await client.query(
 				`INSERT INTO product_variants
-				(variant_id, product_id, variant_sku, variant_price, variant_cost, variant_title, in_stock)
-				VALUES ${variantValues.join(",")}
-				ON CONFLICT (variant_id, product_id)
-				DO UPDATE SET
-				variant_price = EXCLUDED.variant_price,
-				variant_cost  = EXCLUDED.variant_cost,
-				variant_title = EXCLUDED.variant_title,
-				in_stock      = EXCLUDED.in_stock;`,
+				 (variant_id, product_id, variant_sku, variant_price, variant_cost, variant_title, in_stock)
+				 VALUES ${variantValues.join(",")}
+				 ON CONFLICT (variant_id, product_id)
+				 DO UPDATE SET
+				 	variant_price  = EXCLUDED.variant_price,
+				 	variant_cost   = EXCLUDED.variant_cost,
+				 	variant_title  = EXCLUDED.variant_title,
+				 	in_stock       = EXCLUDED.in_stock;`,
 				params
 			);
 		}
 
 		/* --- images ------------------------------------------------------------- */
 		// download & insert each image
-		for (const { src: imgURL, is_selected } of images) {
+		for (const { src: imgURL, is_selected, is_back } of images) {
 			const bytes = await downloadImage(imgURL);
 			if (!bytes) continue;
 
 			await client.query(
-				`INSERT INTO product_images (product_id, image_src, is_selected)
-				VALUES ($1, $2, $3)
-				ON CONFLICT (product_id, (md5(image_src)))
-				DO UPDATE SET
-				is_selected = EXCLUDED.is_selected;`,
-				[id, bytes, is_selected]
+				`INSERT INTO product_images
+				  (product_id, image_src, is_selected, is_back)
+				 VALUES ($1, $2, $3, $4)
+				 ON CONFLICT (product_id, (md5(image_src)))
+				 DO UPDATE SET
+				 	is_selected = EXCLUDED.is_selected,
+				 	is_back     = EXCLUDED.is_back;`,
+				[id, bytes, is_selected, is_back]
 			);
 		}
 
 		await client.query("COMMIT");
-		console.log("Successful Insert / Update for: ", title);
+		console.log("Successful Insert / Update for:", title);
 	} catch (err) {
 		await client.query("ROLLBACK");
 		console.error(`DB upsert failed for product ${id}:`, err.message);

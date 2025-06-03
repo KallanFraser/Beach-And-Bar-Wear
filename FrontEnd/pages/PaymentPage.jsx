@@ -180,7 +180,7 @@ function PaymentForm() {
 					return {
 						...item,
 						title: prod.title,
-						imageUrls: prod.imageUrls,
+						images: prod.images,
 						variant: foundVariant || {}, // fallback after logging
 						typeKey,
 					};
@@ -310,7 +310,7 @@ function PaymentForm() {
 								key={item.sku}
 								quantity={item.quantity}
 								title={item.title}
-								imageUrls={item.imageUrls}
+								images={item.images}
 								variant={item.variant}
 							/>
 						))
@@ -411,11 +411,15 @@ function PaymentPageWrapper() {
 /*---------------------------------------------------------------------------------------------
                             Cart Item mini-widget
 ----------------------------------------------------------------------------------------------*/
-function CartItemMiniWidget({ quantity, title, imageUrls, variant }) {
-	const thumbnail = imageUrls?.[0];
+function CartItemMiniWidget({ quantity, title, images, variant }) {
+	const frontObj = images.find((img) => img.is_back === false) || null;
+	const backObj = images.find((img) => img.is_back === true) || null;
+
+	const frontUrl = frontObj ? `data:image/jpeg;base64,${frontObj.src}` : null;
+	const backUrl = backObj ? `data:image/jpeg;base64,${backObj.src}` : null;
 	return (
 		<div className="cart-item-mini-widget">
-			<img src={thumbnail} alt={title} className="cart-item-mini-thumb" />
+			<img src={backUrl} alt={title} className="cart-item-mini-thumb" />
 			<div className="cart-item-mini-info">
 				<h2>{title}</h2>
 				<p>Quantity: {quantity}</p>

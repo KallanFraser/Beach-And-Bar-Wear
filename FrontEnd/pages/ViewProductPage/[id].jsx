@@ -45,17 +45,23 @@ const ProductCard = ({ product }) => {
 
 	const [modalSrc, setModalSrc] = useState(null);
 
+	const frontObj = product.images.find((img) => img.is_back === false) || null;
+	const backObj = product.images.find((img) => img.is_back === true) || null;
+
+	const frontUrl = frontObj ? `data:image/jpeg;base64,${frontObj.src}` : null;
+	const backUrl = backObj ? `data:image/jpeg;base64,${backObj.src}` : null;
+
 	return (
 		<div id="product-card">
 			<div id="left-column">
-				{first && (
-					<div className="image-container" onClick={() => setModalSrc(first)}>
-						<img src={first} alt={`${product.title} 1`} />
+				{backUrl && (
+					<div className="image-container" onClick={() => setModalSrc(backUrl)}>
+						<img src={backUrl} alt={`${product.title} 1`} />
 					</div>
 				)}
-				{second && (
-					<div className="image-container" onClick={() => setModalSrc(second)}>
-						<img src={second} alt={`${product.title} 2`} />
+				{frontUrl && (
+					<div className="image-container" onClick={() => setModalSrc(frontUrl)}>
+						<img src={frontUrl} alt={`${product.title} 2`} />
 					</div>
 				)}
 			</div>

@@ -94,20 +94,6 @@ nextApp.prepare().then(() => {
 		refreshProductsDatabase();
 	}, FIVE_MINUTES_MS);
 
-	markProductPublishingSucceeded("683d1e0d8cd7be7c3a062eed");
-	markAsNightClothing("683d1f77dc727504cf0f6088");
-	markAsHoodie("683d1f77dc727504cf0f6088");
-
-	markProductPublishingSucceeded("683d20438cd7be7c3a062f82");
-	markAsNightClothing("683d20438cd7be7c3a062f82");
-	markAsHoodie("683d20438cd7be7c3a062f82");
-
-	markProductPublishingSucceeded("683d20993a7f9a1e040a4f2e");
-	markAsNightClothing("683d20993a7f9a1e040a4f2e");
-	markAsHoodie("683d20993a7f9a1e040a4f2e");
-
-	//markAsHeavyTank("6833e2a17860a870dc0c9206");
-
 	/*---------------------------------------------------------------------------------------------
                                         Server Start
   	----------------------------------------------------------------------------------------------*/

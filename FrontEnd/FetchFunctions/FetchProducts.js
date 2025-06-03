@@ -13,6 +13,8 @@ const fetchProducts = async (setProducts) => {
 	try {
 		const { data } = await axios.get("https://beachandbarwear.com/fetchAllProducts");
 
+		//const { data } = await axios.get("http://localhost:3000/fetchAllProducts");
+
 		const ready = data.map((product) => {
 			//Checks if product.images is actually an array
 			//If so... for each base 64 string, turns it into a usable image

@@ -39,7 +39,7 @@ const ViewCartPage = () => {
 					sku: cartItem.sku,
 					quantity: cartItem.quantity,
 					title: product.title,
-					imageUrls: product.imageUrls,
+					images: product.images,
 					variant: product.variants.find((v) => v.sku === cartItem.sku) || {},
 				};
 			})
@@ -61,7 +61,7 @@ const ViewCartPage = () => {
 								key={`${item.productId}-${item.sku}`}
 								quantity={item.quantity}
 								title={item.title}
-								imageUrls={item.imageUrls}
+								images={item.images}
 								variant={item.variant}
 							/>
 						))
@@ -82,12 +82,16 @@ const ViewCartPage = () => {
 /*---------------------------------------------------------------------------------------------
                         Cart Item Widget Component
 ----------------------------------------------------------------------------------------------*/
-const CartItemComponent = ({ quantity, title, imageUrls, variant }) => {
-	const thumbnail = imageUrls?.[0];
+const CartItemComponent = ({ quantity, title, images, variant }) => {
+	const frontObj = images.find((img) => img.is_back === false) || null;
+	const backObj = images.find((img) => img.is_back === true) || null;
+
+	const frontUrl = frontObj ? `data:image/jpeg;base64,${frontObj.src}` : null;
+	const backUrl = backObj ? `data:image/jpeg;base64,${backObj.src}` : null;
 
 	return (
 		<div id="cart-page-cart-item-widget">
-			<img src={thumbnail} alt={title} className="cart-page-cart-item-thumb" />
+			<img src={backUrl} alt={title} className="cart-page-cart-item-thumb" />
 			<div className="cart-page-cart-item-info">
 				<h2>{title}</h2>
 				<p>Quantity: {quantity}</p>
