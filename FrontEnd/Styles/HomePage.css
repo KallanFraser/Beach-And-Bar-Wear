@@ -10,8 +10,15 @@
                            	Container for ALL products                                
 --------------------------------------------------------------------------*/
 #first-line {
-	margin-top: 6vh;
 	margin-bottom: 10vh;
+}
+
+#header-banner {
+	width: 100vw;
+}
+
+#header-banner img {
+	width: 100%;
 }
 
 .summer-header {
@@ -65,10 +72,6 @@
 	#first-line h1 {
 		font-size: 2rem;
 		max-height: none;
-	}
-
-	#first-line {
-		margin-top: 5vh;
 	}
 
 	.products-container {

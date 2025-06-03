@@ -49,14 +49,24 @@
 #right-column {
 	padding: 2%;
 }
+#top-logo {
+	display: flex;
+	justify-content: center;
+	border-top: 4px solid white;
+	border-bottom: 4px solid white;
+}
+
+#top-level-logo {
+	width: 30%;
+}
 
 #right-column h1 {
+	padding-block: 2vw;
 	color: white;
-	font-size: 1.7vw;
+	font-weight: 500;
+	font-size: 1.75vw;
 	text-align: center;
 	font-family: Georgia, "Times New Roman", Times, serif;
-	padding-bottom: 2%;
-	margin-bottom: 4%;
 }
 /*------------------------------------------------------------------------------
 								Alert Message Styling
@@ -70,7 +80,7 @@
 	color: #fff;
 	z-index: 10;
 	height: 12%;
-	border-bottom: 1px solid white;
+	border-bottom: 4px solid white;
 }
 
 /*------------------------------------------------------------------------------
@@ -113,6 +123,33 @@
 	align-items: center;
 	font-size: 1.5rem;
 	color: white;
+}
+
+#socials-area {
+	text-align: center;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	gap: 5%;
+	margin-top: 1vh;
+	height: 15vh;
+}
+
+#social-links {
+	display: flex;
+	justify-content: center;
+	gap: 2vw;
+	align-items: center;
+}
+
+#social-links img {
+	width: 3vw;
+	transition: transform 0.25s ease;
+	display: block;
+}
+
+#social-links img:hover {
+	transform: scale(1.3);
 }
 
 /*------------------------------------------------------------------------------

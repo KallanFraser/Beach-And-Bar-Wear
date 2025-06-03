@@ -66,8 +66,40 @@ const ProductCard = ({ product }) => {
 				)}
 			</div>
 			<div id="right-column">
+				<div id="top-logo">
+					<img src="/images/LogoHorizontal.png" id="top-level-logo" />
+				</div>
 				<h1>{product.title}</h1>
 				<ButtonAndCartSection productId={product.id} productVariantData={product.variants} />
+				<div id="socials-area">
+					<h2>Interested in What you see?</h2>
+					<h3>Check Us Out On These Platforms For More</h3>
+					<div id="social-links">
+						<a
+							href="https://www.instagram.com/beachandbarco/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<img
+								src="/images/InstagramLogo.png"
+								alt="Instagram"
+								style={{ width: 32, height: 32, cursor: "pointer" }}
+							/>
+						</a>
+
+						<a
+							href="https://www.tiktok.com/@thebeachandbarcompany"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<img
+								src="/images/TikTokLogo.png"
+								alt="TikTok"
+								style={{ width: 32, height: 32, cursor: "pointer" }}
+							/>
+						</a>
+					</div>
+				</div>
 			</div>
 			{modalSrc && <ImageModal src={modalSrc} onClose={() => setModalSrc(null)} />}
 		</div>

@@ -32,6 +32,9 @@ const HomePage = () => {
 	return (
 		<div id="home-page">
 			<NavigationBar />
+			<div id="header-banner">
+				<img src="/images/HorizontalLogo.png" />
+			</div>
 			<>
 				{loading ? (
 					<div id="home-page-loading">

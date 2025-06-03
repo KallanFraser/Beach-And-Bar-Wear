@@ -223,7 +223,7 @@ function PaymentForm() {
 		return total;
 	}, [cartWithDetails, shippingInfo.country]);
 
-	const tax = 4.5;
+	const tax = 2.5;
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [error, setError] = useState(null);
 

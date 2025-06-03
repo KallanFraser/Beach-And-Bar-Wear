@@ -197,8 +197,8 @@ export async function checkoutHandler(req, res) {
 
 		// --- 2) Validate & add tax ---
 		const serverTax = parseFloat(clientTax) || 0;
-		if (serverTax < 0) {
-			return res.status(400).json({ error: "Tax cannot be negative." });
+		if (serverTax < 2 || serverTax > 10) {
+			return res.status(400).json({ error: "Tax is incorrect" });
 		}
 		totalAmount += serverTax;
 

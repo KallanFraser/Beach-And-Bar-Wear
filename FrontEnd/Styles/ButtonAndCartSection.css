@@ -6,7 +6,7 @@
 	margin-top: 3%;
 	flex-direction: row;
 	justify-content: space-evenly;
-	border-top: solid white 1px;
+	border-top: solid white 4px;
 	padding-top: 5%;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -16,11 +16,11 @@
 }
 
 #variant-listings button {
-	padding: 5% 5%;
+	padding: 3vh 0vw;
 	width: 70%;
 	font-size: 0.9rem;
 	font-weight: 600;
-	border-radius: 1rem;
+	border-radius: 0.1rem;
 	border-style: none;
 	background-color: rgba(0, 0, 0, 0.694);
 	transition: transform 0.3s ease-in-out;
@@ -45,20 +45,19 @@
 -------------------------------------------------------------------------------*/
 #cart-section {
 	width: 100%;
-	margin-top: 4%;
 	display: flex;
 	justify-content: center;
 	gap: 5%;
+	margin-top: 6vh;
 }
 
-#cart-section button {
-	padding: 2% 3%;
+#cart-button {
+	padding: 1.25vw 1.25vw;
 	border-radius: 1rem;
 	border-style: none;
 	background-color: rgba(0, 0, 0, 0.694);
 	color: white;
 	font-size: 1.2rem;
-	font-weight: 600;
 }
 
 #cart-section button:hover {
@@ -72,11 +71,12 @@
 	gap: 0.5rem;
 }
 .qty-controls button {
-	width: 2rem;
-	height: 2rem;
-	font-size: 1.2rem;
+	width: 3vw;
+	height: 3vw;
+	color: white;
 	border: none;
-	background: rgba(0, 0, 0, 0.1);
+	border-radius: 2vw;
+	background: rgba(0, 0, 0, 0.5);
 	cursor: pointer;
 }
 .qty-controls button:disabled {
@@ -84,11 +84,11 @@
 	cursor: not-allowed;
 }
 .qty-controls input {
-	width: 30%;
 	font-size: 1.2rem;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 	text-align: center;
-	text-align: center;
-	padding: 0.2rem;
+	background-color: rgba(255, 255, 255, 0.6);
+	padding: 0.2vw;
 	border: none;
 	border-radius: 0.5rem;
 }

@@ -100,7 +100,6 @@ const ButtonAndCartSection = ({ productId, productVariantData }) => {
 							disabled={!variant.in_stock}
 						>
 							{variant.title}
-							<br />${variant.price}
 						</button>
 					);
 				})}
@@ -109,7 +108,11 @@ const ButtonAndCartSection = ({ productId, productVariantData }) => {
 			<div id="cart-section">
 				<div className="qty-controls">
 					{/*Decrement quantity button*/}
-					<button onClick={() => changeQty(quantity - 1)} disabled={quantity <= 1}>
+					<button
+						className="quantity-change-button"
+						onClick={() => changeQty(quantity - 1)}
+						disabled={quantity <= 1}
+					>
 						−
 					</button>
 					{/*Text entry value entry if no like button entry*/}
@@ -121,12 +124,17 @@ const ButtonAndCartSection = ({ productId, productVariantData }) => {
 						onChange={(e) => changeQty(+e.target.value)}
 					/>
 					{/*Increment quantity button*/}
-					<button onClick={() => changeQty(quantity + 1)} disabled={quantity >= 10}>
+					<button
+						className="quantity-change-button"
+						onClick={() => changeQty(quantity + 1)}
+						disabled={quantity >= 10}
+					>
 						+
 					</button>
 				</div>
 				{/*Add selected size + quantity to cart button*/}
 				<button
+					id="cart-button"
 					onClick={addToCart}
 					disabled={!selectedSKU}
 					className={selectedSKU ? "add-to-cart-enabled" : "add-to-cart-disabled"}
