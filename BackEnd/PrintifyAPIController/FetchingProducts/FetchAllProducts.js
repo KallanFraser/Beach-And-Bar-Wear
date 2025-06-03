@@ -8,8 +8,26 @@ export async function fetchAllProducts(req, res) {
 		//since jsonb = json data in binary format
 		//JSONB (JSON blob) --> Base64 String
 		//const t0 = Date.now();
+		let rawIp = null;
 
-		const clientIp = req.ip || req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+		if (req.headers["x-forwarded-for"]) {
+			// X-Forwarded-For can be a list of IPs; pick the very first one
+			rawIp = req.headers["x-forwarded-for"].split(",")[0].trim();
+		} else if (req.ip) {
+			rawIp = req.ip;
+		} else if (req.connection && req.connection.remoteAddress) {
+			rawIp = req.connection.remoteAddress;
+		} else {
+			rawIp = "";
+		}
+
+		// 2) If it’s an IPv6-mapped IPv4 (starts with “::ffff:”),
+		//    strip off the prefix so you get a plain IPv4 string.
+		if (rawIp.startsWith("::ffff:")) {
+			rawIp = rawIp.substring(7);
+		}
+
+		const clientIp = rawIp;
 		const userAgent = req.get("User-Agent");
 		const acceptLanguage = req.get("Accept-Language");
 		const referer = req.get("Referer");
