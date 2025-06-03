@@ -32,17 +32,6 @@ const HomePage = () => {
 	visibleProducts.map((p) => {
 		console.log("123", p);
 	});
-	/*
-is_boxy_oversized
-is_classic_heavy
-is_dj_oversized
-is_heavy_tank
-is_hoodie
-is_swim_short
-
-
-is_night_clothing
-	*/
 
 	return (
 		<div id="home-page">

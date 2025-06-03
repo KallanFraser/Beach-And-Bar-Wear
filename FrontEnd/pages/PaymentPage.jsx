@@ -7,14 +7,88 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import axios from "axios";
 
+// Country names & ISO-3166 codes
+import countries from "i18n-iso-countries";
+import enLocale from "i18n-iso-countries/langs/en.json";
+countries.registerLocale(enLocale);
+
 // Component Imports
 import NavigationBar from "../Components/NavigationBar.jsx";
 
 // Global Context Import
 import { GlobalContext } from "../GlobalContext.jsx";
 
-// React-Stripe Elements hooks (Elements provider still comes from react-stripe-js)
+// React-Stripe Elements hooks
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+
+/*---------------------------------------------------------------------------------------------
+                             Constant helpers
+----------------------------------------------------------------------------------------------*/
+// Country->zone mapping sets
+const EUROPE_CODES = new Set([
+	"AL",
+	"AD",
+	"AT",
+	"BY",
+	"BE",
+	"BA",
+	"BG",
+	"HR",
+	"CY",
+	"CZ",
+	"DK",
+	"EE",
+	"FI",
+	"FR",
+	"DE",
+	"GI",
+	"GR",
+	"HU",
+	"IS",
+	"IE",
+	"IT",
+	"LV",
+	"LI",
+	"LT",
+	"LU",
+	"MT",
+	"MD",
+	"MC",
+	"ME",
+	"NL",
+	"MK",
+	"NO",
+	"PL",
+	"PT",
+	"RO",
+	"RU",
+	"SM",
+	"RS",
+	"SK",
+	"SI",
+	"ES",
+	"SE",
+	"CH",
+	"UA",
+	"GB",
+	"XK",
+]);
+const USA_CODES = new Set(["US", "PR", "VI", "GU", "AS", "MP"]);
+const CANADA_CODES = new Set(["CA"]);
+const AUSTRALIA_CODES = new Set(["AU", "NZ"]);
+
+function zoneFor(countryCode) {
+	if (USA_CODES.has(countryCode)) return "usa";
+	if (CANADA_CODES.has(countryCode)) return "canada";
+	if (AUSTRALIA_CODES.has(countryCode)) return "australia";
+	if (EUROPE_CODES.has(countryCode)) return "europe";
+	return "other";
+}
+
+// Reusable list of ISO country names (sorted A->Z)
+const COUNTRY_OPTIONS = Object.entries(countries.getNames("en", { select: "official" })).sort((a, b) =>
+	a[1].localeCompare(b[1])
+);
 
 /*---------------------------------------------------------------------------------------------
                       ElementsLoader: wraps children in Stripe Elements
@@ -24,16 +98,12 @@ function ElementsLoader({ children }) {
 
 	useEffect(() => {
 		if (typeof window !== "undefined" && window.Stripe) {
-			// Initialize Stripe from the script loaded in _app.jsx
 			const s = window.Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 			setStripe(s);
 		}
 	}, []);
 
-	if (!stripe) {
-		return <p>Loading payment form…</p>;
-	}
-
+	if (!stripe) return <p>Loading payment form…</p>;
 	return <Elements stripe={stripe}>{children}</Elements>;
 }
 
@@ -41,35 +111,85 @@ function ElementsLoader({ children }) {
                         PaymentForm Component (client-only)
 ----------------------------------------------------------------------------------------------*/
 function PaymentForm() {
-	//Loading cart items and all products
 	const { cart, products } = useContext(GlobalContext);
-
-	//Loading stripe
 	const stripe = useStripe();
 	const elements = useElements();
-
-	//Loading next js router element
 	const router = useRouter();
 
-	// Combining cart items with details found in products
+	// --- Shipping zones & rates (with "germany" key removed) ---
+	const shippingRates = {
+		hoodie: {
+			usa: { first: 8.5, additional: 2.1 },
+			canada: { first: 13, additional: 7 },
+			australia: { first: 22, additional: 10 },
+			europe: { first: 15, additional: 10 },
+			other: { first: 15, additional: 10 },
+		},
+		swimShorts: {
+			usa: { first: 11.5, additional: 11 },
+			canada: { first: 20, additional: 19 },
+			europe: { first: 11.5, additional: 10.6 },
+			australia: { first: 12, additional: 11 },
+			other: { first: 18, additional: 16.5 },
+		},
+		DJTShirt: {
+			// Removed the "germany" key—Germany will use the "europe" rate
+			europe: { first: 8, additional: 1.5 },
+			canada: { first: 13, additional: 7 },
+			australia: { first: 13, additional: 7 },
+			other: { first: 10, additional: 9 },
+		},
+		BoxyOversizedTee: {
+			usa: { first: 5, additional: 2.5 },
+			canada: { first: 10, additional: 5 },
+			australia: { first: 12.5, additional: 5 },
+			europe: { first: 10, additional: 4 },
+			other: { first: 10, additional: 4 },
+		},
+	};
+
+	// --- Helpers ---
+	function detectTypeKey(prod) {
+		if (prod.is_hoodie) return "hoodie";
+		if (prod.is_swim_short) return "swimShorts";
+		if (prod.is_dj_oversized) return "DJTShirt";
+		if (prod.is_boxy_oversized) return "BoxyOversizedTee";
+		console.warn(`detectTypeKey: no matching flag for product ID ${prod.id}`);
+		return null;
+	}
+
+	// --- Cart with product details (added console.error for missing product/variant) ---
 	const cartWithDetails = useMemo(
 		() =>
 			cart
 				.map((item) => {
 					const prod = products.find((p) => String(p.id) === String(item.productId));
-					if (!prod) return null;
+					if (!prod) {
+						console.error(`No product found for productId ${item.productId}`);
+						return null;
+					}
+
+					const typeKey = detectTypeKey(prod);
+
+					// Attempt to find matching variant by SKU
+					const foundVariant = prod.variants.find((v) => v.sku === item.sku);
+					if (!foundVariant) {
+						console.error(`No variant found for SKU ${item.sku} in product ${prod.id}`);
+					}
+
 					return {
 						...item,
 						title: prod.title,
 						imageUrls: prod.imageUrls,
-						variant: prod.variants.find((v) => v.sku === item.sku) || {},
+						variant: foundVariant || {}, // fallback after logging
+						typeKey,
 					};
 				})
 				.filter(Boolean),
 		[cart, products]
 	);
 
-	//Creating Shipping Info Data Array
+	// --- Shipping form state ---
 	const [shippingInfo, setShippingInfo] = useState({
 		fullName: "",
 		email: "",
@@ -79,39 +199,59 @@ function PaymentForm() {
 		city: "",
 		state: "",
 		zip: "",
-		country: "US",
+		country: "US", // default
 	});
 
-	//Presetting Shipping Cost & Tax (Backend double checks these values)
-	const shippingCost = 10;
-	const tax = 4.5;
+	// --- Shipping cost calculator ---
+	const shippingCost = useMemo(() => {
+		if (cartWithDetails.length === 0) return 0;
+		const zone = zoneFor(shippingInfo.country);
+		let total = 0;
 
-	//Form Submissions handlers
+		const countsByType = cartWithDetails.reduce((acc, { typeKey, quantity }) => {
+			if (!typeKey) return acc;
+			acc[typeKey] = (acc[typeKey] || 0) + quantity;
+			return acc;
+		}, {});
+
+		Object.entries(countsByType).forEach(([typeKey, qty]) => {
+			const rate = shippingRates[typeKey]?.[zone] ?? shippingRates[typeKey]?.other;
+			if (!rate) return;
+			const { first, additional } = rate;
+			total += first + Math.max(qty - 1, 0) * additional;
+		});
+		return total;
+	}, [cartWithDetails, shippingInfo.country]);
+
+	const tax = 4.5;
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [error, setError] = useState(null);
 
-	//Function to handle any input change to any field in shipping
-	const handleShippingChange = (e) => {
-		const { name, value } = e.target;
-		setShippingInfo((prev) => ({ ...prev, [name]: value }));
-	};
+	const handleShippingChange = (e) =>
+		setShippingInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-	//Function to handle submit button click
+	// --- Submit handler (added country validation) ---
 	const handleSubmit = async (e) => {
-		e.preventDefault(); //Prevents page refresh
-
+		e.preventDefault();
 		setIsSubmitting(true);
 		setError(null);
 
-		//Has stripe loaded yet?
+		// Validate that the country is a real ISO code
+		if (!COUNTRY_OPTIONS.some(([code]) => code === shippingInfo.country)) {
+			setError("Please select a valid country.");
+			setIsSubmitting(false);
+			return;
+		}
+
 		if (!stripe || !elements) {
 			setError("Stripe.js has not loaded yet.");
 			setIsSubmitting(false);
 			return;
 		}
 
-		//Extracting card details & forwarding to stripe
 		const cardElement = elements.getElement(CardElement);
+
+		// 1. Create PaymentMethod in Stripe (needs ISO country)
 		const { error: stripeError, paymentMethod } = await stripe.createPaymentMethod({
 			type: "card",
 			card: cardElement,
@@ -125,23 +265,21 @@ function PaymentForm() {
 					city: shippingInfo.city,
 					state: shippingInfo.state,
 					postal_code: shippingInfo.zip,
-					country: shippingInfo.country,
+					country: shippingInfo.country, // ISO-3166 code
 				},
 			},
 		});
 
-		//Stripe error?
 		if (stripeError) {
 			setError(stripeError.message);
 			setIsSubmitting(false);
 			return;
 		}
 
-		//Else no stripe error, forward to backend
-		//Backend should confirm stripe payment went through + other security checks
+		// 2. Forward to backend (backend will map country→zone again & call Printify)
 		try {
 			const res = await axios.post("/checkout", {
-				cart: cartWithDetails.map((i) => ({ sku: i.sku, quantity: i.quantity })),
+				cart: cartWithDetails.map(({ sku, quantity }) => ({ sku, quantity })),
 				shippingInfo,
 				shippingCost,
 				tax,
@@ -155,11 +293,13 @@ function PaymentForm() {
 		}
 	};
 
-	//Finally the HTML JSX section
+	/*-------------------------------------------------------------------------------------------
+                                      JSX
+    -------------------------------------------------------------------------------------------*/
 	return (
 		<form id="payment-box" onSubmit={handleSubmit}>
 			<div id="payment-list">
-				{/* Cart Display column (Left)*/}
+				{/* Cart (Left) */}
 				<div id="payment-left-column">
 					<h3>My Cart</h3>
 					{cartWithDetails.length === 0 ? (
@@ -177,7 +317,7 @@ function PaymentForm() {
 					)}
 				</div>
 
-				{/* Payment & Shipping column (Right) */}
+				{/* Payment & Shipping (Right) */}
 				<div id="payment-right-column">
 					<h3>Payment & Shipping</h3>
 
@@ -211,37 +351,39 @@ function PaymentForm() {
 								name="country"
 								value={shippingInfo.country}
 								onChange={handleShippingChange}
+								required
 							>
-								{/*ISO code options, map for other places?*/}
-								<option value="US">United States</option>
-								<option value="CA">Canada</option>
-								<option value="GB">United Kingdom</option>
+								{COUNTRY_OPTIONS.map(([code, name]) => (
+									<option key={code} value={code}>
+										{name}
+									</option>
+								))}
 							</select>
 						</label>
 					</section>
+
 					{/* Shipping Method */}
-					{/* Fixed for now*/}
 					<section className="form-section">
 						<h4>Shipping Method</h4>
 						<p>
-							Standard (5–7 days) — <strong>$10.00</strong>
+							Standard (5–7 days) — <strong>${shippingCost.toFixed(2)}</strong>
 						</p>
 					</section>
 
+					{/* Tax */}
 					<section className="form-section">
 						<h4>Tax</h4>
 						<p>
-							Tax applied — <strong>$4.50</strong>
+							Tax applied — <strong>${tax.toFixed(2)}</strong>
 						</p>
 					</section>
 
-					{/* Payment Section */}
+					{/* Payment */}
 					<section className="form-section">
 						<h4>Payment Information</h4>
 						<CardElement options={{ style: { base: { fontSize: "16px" } } }} />
 					</section>
 
-					{/* Error Section */}
 					{error && <p className="error-text">{error}</p>}
 					<button type="submit" disabled={isSubmitting || !stripe}>
 						{isSubmitting ? "Placing Order…" : "Place Order"}
@@ -267,13 +409,10 @@ function PaymentPageWrapper() {
 }
 
 /*---------------------------------------------------------------------------------------------
-							Cart Item Display Component
+                            Cart Item mini-widget
 ----------------------------------------------------------------------------------------------*/
-// Mini widget for each cart item
 function CartItemMiniWidget({ quantity, title, imageUrls, variant }) {
-	//Code to render image, need to check if this is even neccessary
 	const thumbnail = imageUrls?.[0];
-
 	return (
 		<div className="cart-item-mini-widget">
 			<img src={thumbnail} alt={title} className="cart-item-mini-thumb" />
@@ -287,5 +426,5 @@ function CartItemMiniWidget({ quantity, title, imageUrls, variant }) {
 	);
 }
 
-// Export as client-only (disable SSR)
+// Export client-only (no SSR)
 export default dynamic(() => Promise.resolve(PaymentPageWrapper), { ssr: false });
