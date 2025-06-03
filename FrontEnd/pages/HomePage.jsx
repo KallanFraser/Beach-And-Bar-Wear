@@ -29,9 +29,11 @@ const HomePage = () => {
 			  )
 			: [];
 
+	/*
 	visibleProducts.map((p) => {
 		console.log("123", p);
 	});
+	*/
 
 	return (
 		<div id="home-page">
