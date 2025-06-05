@@ -86,7 +86,6 @@ nextApp.prepare().then(() => {
 	// Database connection test
 	(async () => {
 		try {
-			// This will ultimately resolve over IPv6—so no IPv4 timeouts leak to you.
 			const { rows } = await pool.query("SELECT NOW()");
 			console.log("[✅] Connected to Supabase – now():", rows[0]);
 		} catch (err) {
