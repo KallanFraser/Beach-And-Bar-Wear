@@ -13,10 +13,10 @@
 							Product Card Container
 -------------------------------------------------------------------------------*/
 #product-card {
-	margin-top: 2%;
+	margin-top: 4vh;
+	margin-bottom: 4vh;
 	background-color: rgba(71, 71, 71, 0.411);
 	width: 70%;
-	max-height: 50rem;
 	overflow-y: hidden;
 	border-radius: 1rem;
 	padding: 1rem;
