@@ -13,12 +13,15 @@ const { Pool } = pkg;
 //Pool = multiple connections to the database.
 //Instead of waiting for each query to finish we have a pool of connections to work with
 const pool = new Pool({
-	user: "postgres",
-	host: "localhost",
-	host: process.env.databaseHost,
-	database: process.env.databaseName,
-	password: process.env.databasePassword,
-	port: process.env.databasePort,
+	user: process.env.supaBaseUser,
+	host: process.env.supaBaseHost,
+	database: process.env.supaBaseDatabase,
+	password: process.env.supaBaseDatabasePassword,
+	port: process.env.supaBasePort,
+
+	ssl: {
+		rejectUnauthorized: false,
+	},
 });
 
 export { pool };

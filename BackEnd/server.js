@@ -84,9 +84,15 @@ nextApp.prepare().then(() => {
                                         Tests & Recurring Jobs
   	----------------------------------------------------------------------------------------------*/
 	// Database connection test
-	pool.query("SELECT NOW()", (err) => {
-		console.log(err ? "[❌] DB connect error:" + err : "[✅] Connected to the Database");
-	});
+	(async () => {
+		try {
+			// This will ultimately resolve over IPv6—so no IPv4 timeouts leak to you.
+			const { rows } = await pool.query("SELECT NOW()");
+			console.log("[✅] Connected to Supabase – now():", rows[0]);
+		} catch (err) {
+			console.error("[❌] DB connect error:", err);
+		}
+	})();
 
 	//Refresh DB products
 	refreshProductsDatabase();
