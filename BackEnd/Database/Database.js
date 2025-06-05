@@ -14,11 +14,10 @@ const { Pool } = pkg;
 //Instead of waiting for each query to finish we have a pool of connections to work with
 const pool = new Pool({
 	user: process.env.supaBaseUser,
-	host: process.env.supaBaseHost,
+	host: process.env.supaBaseHost, // “db.orodbtnkhvmgfyslyjxj.supabase.co”
 	database: process.env.supaBaseDatabase,
 	password: process.env.supaBaseDatabasePassword,
-	port: process.env.supaBasePort,
-
+	port: parseInt(process.env.supaBasePort, 10),
 	ssl: {
 		rejectUnauthorized: false,
 	},
