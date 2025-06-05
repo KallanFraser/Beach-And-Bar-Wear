@@ -11,9 +11,9 @@ import axios from "axios";
 //Set products = useState setter function for all products
 const fetchProducts = async (setProducts) => {
 	try {
-		//const { data } = await axios.get("https://beachandbarwear.com/fetchAllProducts");
+		const { data } = await axios.get("https://beachandbarwear.com/fetchAllProducts");
 
-		const { data } = await axios.get("http://localhost:3000/fetchAllProducts");
+		//const { data } = await axios.get("http://localhost:3000/fetchAllProducts");
 
 		const ready = data.map((product) => {
 			//Checks if product.images is actually an array
