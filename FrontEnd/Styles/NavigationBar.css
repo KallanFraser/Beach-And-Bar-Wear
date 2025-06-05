@@ -16,7 +16,7 @@
 ----------------------------------------------------------------------------------------------*/
 
 #navigation-bar img {
-	max-width: 4rem;
+	max-width: 4vw;
 	margin-inline: 0.5rem;
 }
 
@@ -26,30 +26,18 @@
 
 #navigation-bar-center-content {
 	display: flex;
-	justify-content: space-between;
-	gap: 5rem;
-	text-decoration: none;
-	height: 4rem;
+	height: 8vh;
+	width: 35vw; /* Make it span the whole viewport */
+	display: flex;
+	justify-content: center; /* Center its contents horizontally */
+	align-items: stretch;
 }
 
 #navigation-bar-center-content img {
+	display: block;
 	height: 100%;
 	width: auto;
-	max-width: 100%;
-	object-fit: contain;
-}
-
-/*---------------------------------------------------------------------------------------------
-								Categories
-----------------------------------------------------------------------------------------------*/
-#clothing-categories {
-	display: flex;
-	color: white;
-	gap: 50%;
-	font-size: clamp(0.3rem, 1rem, 1rem);
-	justify-content: space-between;
-	width: 15%;
-	color: hsla(0, 0%, 100%, 0.7);
+	max-width: none;
 }
 
 /*---------------------------------------------------------------------------------------------
