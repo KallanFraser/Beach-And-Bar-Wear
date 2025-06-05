@@ -87,7 +87,7 @@ nextApp.prepare().then(() => {
 	(async () => {
 		try {
 			const { rows } = await pool.query("SELECT NOW()");
-			console.log("[✅] Connected to Supabase – now():", rows[0]);
+			console.log("[✅] Connected via Transaction Pooler – now():", rows[0]);
 		} catch (err) {
 			console.error("[❌] DB connect error:", err);
 		}
