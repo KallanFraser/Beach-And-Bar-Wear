@@ -45,11 +45,13 @@ const ProductCard = ({ product }) => {
 
 	const [modalSrc, setModalSrc] = useState(null);
 
-	const frontObj = product.images.find((img) => img.is_back === false) || null;
-	const backObj = product.images.find((img) => img.is_back === true) || null;
+	// find front/back objects (they now have `.path` instead of `.src`)
+	const frontObj = product.images.find((img) => !img.is_back) || null;
+	const backObj = product.images.find((img) => img.is_back) || null;
 
-	const frontUrl = frontObj ? `data:image/jpeg;base64,${frontObj.src}` : null;
-	const backUrl = backObj ? `data:image/jpeg;base64,${backObj.src}` : null;
+	// use the static file path directly—no base64 prefix
+	const frontUrl = frontObj ? frontObj.path : null;
+	const backUrl = backObj ? backObj.path : null;
 
 	return (
 		<div id="product-card">
