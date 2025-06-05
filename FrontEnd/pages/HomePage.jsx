@@ -104,14 +104,16 @@ const HomePage = () => {
 function ProductCard({ product }) {
 	const router = useRouter();
 
-	//Grabs the first two images of a known size always available for display
+	// pick a “large” variant (unchanged)
 	const largeVariant = product.variants.find((v) => /(^|\W)L($|\W)/i.test(v.title));
 
-	const frontObj = product.images.find((img) => img.is_back === false) || null;
-	const backObj = product.images.find((img) => img.is_back === true) || null;
+	// find front/back objects (they now have `.path` instead of `.src`)
+	const frontObj = product.images.find((img) => !img.is_back) || null;
+	const backObj = product.images.find((img) => img.is_back) || null;
 
-	const frontUrl = frontObj ? `data:image/jpeg;base64,${frontObj.src}` : null;
-	const backUrl = backObj ? `data:image/jpeg;base64,${backObj.src}` : null;
+	// use the static file path directly—no base64 prefix
+	const frontUrl = frontObj ? frontObj.path : null;
+	const backUrl = backObj ? backObj.path : null;
 
 	const handleClick = () => {
 		router.push(`/ViewProductPage/${product.id}`);
@@ -132,7 +134,7 @@ function ProductCard({ product }) {
 				</div>
 			)}
 			<ul className="price-section">
-				{largeVariant && <li key={largeVariant.id}> ${largeVariant.price.toFixed(2)}</li>}
+				{largeVariant && <li key={largeVariant.id}>${largeVariant.price.toFixed(2)}</li>}
 			</ul>
 		</div>
 	);

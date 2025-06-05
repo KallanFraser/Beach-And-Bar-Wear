@@ -70,10 +70,12 @@ nextApp.prepare().then(() => {
 		windowMs: 1 * 60 * 1000, // 1 minute
 		max: 20, // limit each IP to 20 requests per minute
 	});
-	application.use(globalLimiter);
+	//application.use(globalLimiter);
 
 	// Mounts existing API routes from routes.js
 	application.use(routes);
+
+	application.use("/images", express.static(path.join(process.cwd(), "public/images")));
 
 	// Mount all next js routes
 	application.all(/.*/, (req, res) => {
