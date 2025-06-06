@@ -18,21 +18,21 @@ const fetchProducts = async (setProducts) => {
 		//const { productData } = await axios.get("http://localhost:3000/fetchAllProducts");
 
 		//console.log("Dev Check: ", data);
-		const productDataWithImages = data.map((product) => {
+		const productDataWithImages = data.map((productObject) => {
 			//Safely checks if product.images exists and is also an array
 			//Prevents runtime errors if images are null or not formatted properly
 
 			//Then the map part assumes the images are base 64 encoded image strings and
 			//converts it to a understandable version for the browser to decode and display
 			//The entire data is still in the URL but in browser format
-			const imageUrls = Array.isArray(product.images)
-				? product.images.map((b64) => {
+			const imageUrls = Array.isArray(productObject.images)
+				? productObject.images.map((b64) => {
 						return `data:image/jpeg;base64,${b64}`;
 				  })
 				: [];
 
 			return {
-				...product,
+				...productObject,
 				imageUrls,
 			};
 		});

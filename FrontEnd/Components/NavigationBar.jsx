@@ -3,24 +3,23 @@
                                  Imports
 ----------------------------------------------------------------------------------------------*/
 // Library import
-import { useEffect, useContext } from "react";
-import Link from "next/link"; // ← Next.js Link
+import { useEffect, useContext } from "react"; //UseContext for getting Global Context
+import Link from "next/link"; //Link = enables client side navigation between pages in our Next.js App
 
 // Global Context Import
 import { GlobalContext } from "../GlobalContext.jsx";
-
 /*---------------------------------------------------------------------------------------------
                              Navigation Component
 ----------------------------------------------------------------------------------------------*/
 const NavigationBar = () => {
-	// Pull from global context:
+	// Pulls our theme controller from global context
 	const { isDayMode, setIsDayMode } = useContext(GlobalContext);
 
-	// Derive local flag for convenience:
+	// Deriving a local bool flag for convenience
 	const isNight = !isDayMode;
 
 	useEffect(() => {
-		// 1) toggle theme class on both <body> and <html>
+		//Code to toggle the theme class on our body and html elements
 		document.body.classList.toggle("night-mode", isNight);
 		document.documentElement.classList.toggle("night-mode", isNight);
 
