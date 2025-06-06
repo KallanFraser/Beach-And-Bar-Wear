@@ -4,45 +4,34 @@
 ----------------------------------------------------------------------------------------------*/
 import { createContext, useState, useEffect } from "react";
 
-//Fetch Imports
 import fetchProducts from "./FetchFunctions/FetchProducts.js";
 /*---------------------------------------------------------------------------------------------
 									Global Context
 ----------------------------------------------------------------------------------------------*/
-/*
-Allows us to store data globally, not just in one component.
-Can access and update that data from anywhere in our component tree.
-Its state will persist across different pages and routes.
-In other words, it will not be lost on navigation via routes.
-Perfect for:
- - Logged in user info
- - Shopping cart contents
- - Preferences
-*/
+//Allows us to share state across multipel components without having to pass them through
+//every layer of our component tree (i.e prop drilling - sucks dick)
+//Essentially it is just global state that can be accessed from any nested component
 
+//Creates a new context object and exports it to be used in our React / Next.js App
+//Note that this basically just works by wrapping our entire App in this
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-	//Different kinds of fetch functions to be called
-	//products should always store all the products until MAX array size
-	const MAX = 200;
-	//Fetch for home page on web page load
-	//
-	const [products, setProducts] = useState([]);
-	const [loading, setLoading] = useState(true);
+	const [products, setProducts] = useState([]); //stores all our product data
+	const [loading, setLoading] = useState(true); //bool variable for if we are still waiting on fetch
 
-	const [cart, setCart] = useState([]);
+	const [cart, setCart] = useState([]); //represents items in the cart (modified product objects)
 
-	const [isDayMode, setIsDayMode] = useState(true);
+	const [isDayMode, setIsDayMode] = useState(true); //For the theme controller across the app
 
+	//Also this is where we actually fetch our product data rather than in app.jsx
 	useEffect(() => {
-		const load = async () => {
+		const loadProducts = async () => {
 			setLoading(true);
 			await fetchProducts(setProducts);
 			setLoading(false);
 		};
-
-		load();
+		loadProducts();
 	}, []);
 
 	return (

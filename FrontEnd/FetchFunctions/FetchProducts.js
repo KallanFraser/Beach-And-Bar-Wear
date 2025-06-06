@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------------------------------
 										Imports
 ----------------------------------------------------------------------------------------------*/
-import axios from "axios";
+import axios from "axios"; //For easier GETs
 
 /*---------------------------------------------------------------------------------------------
 									Fetch Function
@@ -11,14 +11,19 @@ import axios from "axios";
 //Set products = useState setter function for all products
 const fetchProducts = async (setProducts) => {
 	try {
+		//For Production Builds
 		const { data } = await axios.get("https://beachandbarwear.com/fetchAllProducts");
 
-		//const { data } = await axios.get("http://localhost:3000/fetchAllProducts");
+		//For Development Builds
+		//const { productData } = await axios.get("http://localhost:3000/fetchAllProducts");
 
-		const ready = data.map((product) => {
-			//Checks if product.images is actually an array
-			//If so... for each base 64 string, turns it into a usable image
-			//If not an array, then transforms it into an empty array
+		const productDataWithImages = data.map((product) => {
+			//Safely checks if product.images exists and is also an array
+			//Prevents runtime errors if images are null or not formatted properly
+
+			//Then the map part assumes the images are base 64 encoded image strings and
+			//converts it to a understandable version for the browser to decode and display
+			//The entire data is still in the URL but in browser format
 			const imageUrls = Array.isArray(product.images)
 				? product.images.map((b64) => {
 						return `data:image/jpeg;base64,${b64}`;
@@ -31,8 +36,8 @@ const fetchProducts = async (setProducts) => {
 			};
 		});
 
-		setProducts(ready);
-		return ready;
+		setProducts(productDataWithImages);
+		return productDataWithImages;
 	} catch (error) {
 		console.error("Error fetching all product data", error);
 	}

@@ -1,23 +1,14 @@
-/**
- * ---------------------------------------------------------------------------------------------
- *                                         Imports
- * ----------------------------------------------------------------------------------------------
- *
- * @format
- */
-
-import { pool } from "../../Database/Database.js";
-
+/** @format */
+/*---------------------------------------------------------------------------------------------
+	                                       Imports
+---------------------------------------------------------------------------------------------*/
+import { pool } from "../Database/Database.js"; //Postgres DB connection pool
+/*---------------------------------------------------------------------------------------------
+	                                    Main Function
+---------------------------------------------------------------------------------------------*/
 export async function fetchAllProducts(req, res) {
-	console.time("fetchAllProducts_total");
-	console.log("[/fetchAllProducts] → Handler invoked at", new Date().toISOString());
-
-	const clientStart = Date.now();
-	const client = await pool.connect();
-	console.log(`[/fetchAllProducts] ← Acquired DB client in ${Date.now() - clientStart} ms`);
-
 	try {
-		// 1) Log request info (IP, UA, etc.) as before…
+		//Extracting client data (IP, browser type, etc) ---------------------------------------
 		let rawIp = "";
 		if (req.headers["x-forwarded-for"]) {
 			rawIp = req.headers["x-forwarded-for"].split(",")[0].trim();
@@ -36,21 +27,16 @@ export async function fetchAllProducts(req, res) {
 		const origin = req.get("Origin") || "";
 		const receivedAt = new Date().toISOString();
 
-		console.time("insert_product_fetch_log");
 		await client.query(
-			`
-      INSERT INTO product_fetch_logs
-        (client_ip, user_agent, accept_language, referer, host, origin, received_at)
-      VALUES ($1, $2, $3, $4, $5, $6, $7);
-    `,
+			`INSERT INTO product_fetch_logs
+       	 	(client_ip, user_agent, accept_language, referer, host, origin, received_at)
+      		VALUES ($1, $2, $3, $4, $5, $6, $7);`,
 			[clientIp, userAgent, acceptLanguage, referer, host, origin, receivedAt]
 		);
-		console.timeEnd("insert_product_fetch_log");
 
-		// 2) Fetch products + variants + image_path (no base64)
-		console.time("db_select_products");
+		//Actual Product & Its Variants Fetch ----------------------------------------------------
 		const { rows: products } = await client.query(`
-      SELECT
+      	SELECT
         p.product_id        AS id,
         p.product_title     AS title,
         p.is_visible        AS visible,
@@ -81,37 +67,25 @@ export async function fetchAllProducts(req, res) {
           ) FILTER (WHERE pi.image_path IS NOT NULL),
           '[]'
         ) AS images
-      FROM products p
-      LEFT JOIN product_variants v
+      	FROM products p
+      	LEFT JOIN product_variants v
         ON p.product_id = v.product_id
-      LEFT JOIN product_images pi
+      	LEFT JOIN product_images pi
         ON p.product_id = pi.product_id
         AND pi.is_selected = TRUE
-      GROUP BY p.product_id;
+      	GROUP BY p.product_id;
     `);
-		console.timeEnd("db_select_products");
-		console.log(`[/fetchAllProducts] ← Retrieved ${products.length} products`);
-
-		// 3) Stringify & send
-		console.time("json_stringify");
+		//Stringify & send data to client
+		//Note express actually stringifys under the hood but if we need to debug fetch times this is useful
 		const jsonString = JSON.stringify(products);
-		console.timeEnd("json_stringify");
-
-		const payloadBytes = Buffer.byteLength(jsonString, "utf8");
-		console.log(`[/fetchAllProducts] → Payload size ≈ ${Math.round(payloadBytes / 1024)} KB`);
-
-		console.time("res_send");
 		res.setHeader("Content-Type", "application/json");
 		res.send(jsonString);
-		console.timeEnd("res_send");
-		console.log("[/fetchAllProducts] ← Response sent to client");
+
+		console.log("Successfully Fetch ALL Products for: ", clientIp);
 	} catch (err) {
-		console.error("[/fetchAllProducts] ❌ ERROR:", err);
-		res.status(500).json({ error: "Failed to load products" });
+		console.error("Fetch All Products From Database Error: ", err);
+		res.status(500).json({ error: "Server Side Error: Failed to fetch products" });
 	} finally {
 		client.release();
-		console.log("[/fetchAllProducts] → Released DB client");
-		console.timeEnd("fetchAllProducts_total");
-		console.log("[/fetchAllProducts] ← Handler complete");
 	}
 }

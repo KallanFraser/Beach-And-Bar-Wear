@@ -6,7 +6,7 @@
 import express from "express";
 
 //Imported Functions
-import { fetchAllProducts } from "../PrintifyAPIController/FetchingProducts/FetchAllProducts.js";
+import { fetchAllProducts } from "../FetchFunctions/FetchAllProducts.js";
 import { checkoutHandler } from "../CheckOutHandler/CheckOut.js";
 
 /*---------------------------------------------------------------------------------------------

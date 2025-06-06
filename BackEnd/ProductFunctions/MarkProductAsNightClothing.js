@@ -2,10 +2,10 @@
 /*---------------------------------------------------------------------------------------------
                                     Imports
 ----------------------------------------------------------------------------------------------*/
-import { pool } from "../../Database/Database.js"; // adjust path as needed
+import { pool } from "../Database/Database.js"; //Postgres DB connection pool
 
 /*---------------------------------------------------------------------------------------------
-                        Mark a product as “night clothing”
+                       				 Mark a product As....
 ----------------------------------------------------------------------------------------------*/
 export async function markAsNightClothing(productId) {
 	const client = await pool.connect();

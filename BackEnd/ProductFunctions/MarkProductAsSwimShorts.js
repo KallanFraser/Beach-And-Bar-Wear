@@ -2,17 +2,17 @@
 /*---------------------------------------------------------------------------------------------
                                     Imports
 ----------------------------------------------------------------------------------------------*/
-import { pool } from "../../Database/Database.js"; // adjust path as needed
+import { pool } from "../Database/Database.js"; //Postgres DB connection pool
 
 /*---------------------------------------------------------------------------------------------
-                        Mark a product as “night clothing”
+                       				 Mark a product As....
 ----------------------------------------------------------------------------------------------*/
-export async function markAsClassicHeavy(productId) {
+export async function markAsSwimShorts(productId) {
 	const client = await pool.connect();
 	try {
 		const result = await client.query(
 			`UPDATE public.products
-            SET classic_heavy = TRUE
+            SET swim_short = TRUE
             WHERE product_id = $1`,
 			[productId]
 		);
@@ -21,9 +21,9 @@ export async function markAsClassicHeavy(productId) {
 			throw new Error(`No product found with id "${productId}"`);
 		}
 
-		console.log(`[✅] markAsClassicHeavy: classic_heavy for ${productId}`);
+		console.log(`[✅] markasSwimShorts: swim_short for ${productId}`);
 	} catch (err) {
-		console.error(`[❌] markAsClassicHeavy error:`, err);
+		console.error(`[❌] markasSwimShorts error:`, err);
 		throw err;
 	} finally {
 		client.release();
