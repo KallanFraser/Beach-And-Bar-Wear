@@ -8,6 +8,7 @@ import { pool } from "../Database/Database.js"; //Postgres DB connection pool
 ---------------------------------------------------------------------------------------------*/
 export async function fetchAllProducts(req, res) {
 	try {
+		const client = await pool.connect();
 		//Extracting client data (IP, browser type, etc) ---------------------------------------
 		let rawIp = "";
 		if (req.headers["x-forwarded-for"]) {

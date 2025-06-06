@@ -17,6 +17,7 @@ const fetchProducts = async (setProducts) => {
 		//For Development Builds
 		//const { productData } = await axios.get("http://localhost:3000/fetchAllProducts");
 
+		//console.log("Dev Check: ", data);
 		const productDataWithImages = data.map((product) => {
 			//Safely checks if product.images exists and is also an array
 			//Prevents runtime errors if images are null or not formatted properly
