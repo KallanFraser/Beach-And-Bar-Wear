@@ -7,8 +7,9 @@ import { pool } from "../Database/Database.js"; //Postgres DB connection pool
 	                                    Main Function
 ---------------------------------------------------------------------------------------------*/
 export async function fetchAllProducts(req, res) {
+	let client;
 	try {
-		const client = await pool.connect();
+		client = await pool.connect();
 		//Extracting client data (IP, browser type, etc) ---------------------------------------
 		let rawIp = "";
 		if (req.headers["x-forwarded-for"]) {
@@ -87,6 +88,6 @@ export async function fetchAllProducts(req, res) {
 		console.error("Fetch All Products From Database Error: ", err);
 		res.status(500).json({ error: "Server Side Error: Failed to fetch products" });
 	} finally {
-		client.release();
+		if (client) client.release();
 	}
 }
