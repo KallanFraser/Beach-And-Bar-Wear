@@ -23,21 +23,26 @@
 /*---------------------------------------------------------------------------------------------
 								Center piece Logo
 ----------------------------------------------------------------------------------------------*/
-
 #navigation-bar-center-content {
 	display: flex;
+	justify-content: center; /* center the link horizontally */
+	align-items: center; /* center the link vertically */
 	height: 8vh;
-	width: 35vw; /* Make it span the whole viewport */
-	display: flex;
-	justify-content: center; /* Center its contents horizontally */
-	align-items: stretch;
+	width: 35vw;
+}
+
+/* The Link -> <a> element needs a height so img:height:100% has something to use */
+#navigation-bar-center-content > a {
+	display: flex; /* so the img can align nicely inside */
+	align-items: center;
+	height: 100%;
 }
 
 #navigation-bar-center-content img {
 	display: block;
-	height: 100%;
-	width: auto;
-	max-width: none;
+	height: 100%; /* takes the full navbar height */
+	width: auto; /* keep aspect ratio */
+	max-width: 100%; /* doesnt overflow if it's super wide */
 }
 
 /*---------------------------------------------------------------------------------------------

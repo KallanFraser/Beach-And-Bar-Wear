@@ -5,46 +5,53 @@
 /*                        Gradient Color Palettes                            */
 /*--------------------------------------------------------------------------*/
 :root {
-	/* Day-mode stops for ::before */
-	--g1-1: #6bea7a;
-	--g1-2: #36439b;
-	--g1-3: #cd6423;
-	--g1-4: #f9c02f;
-	--g1-5: #4c61ac;
-	--g1-6: #6bea7a;
-	--g1-7: #2019e7;
+	/* Day-mode stops for ::before (soft, desaturated beach) */
+	--g1-1: #f2e8cf; /* sun haze */
+	--g1-2: #e8dcc3; /* warm sand */
+	--g1-3: #7fd1c3; /* seafoam */
+	--g1-4: #3ba7b5; /* aquamarine */
+	--g1-5: #0e5a6f; /* deep ocean */
+	--g1-6: #c2a783; /* dune */
+	--g1-7: #e39377; /* muted coral */
 
-	/* Day-mode stops for ::after */
-	--g2-1: #6bea7a;
-	--g2-2: #00b0ff;
-	--g2-3: #cd6423;
-	--g2-4: #f9c02f;
-	--g2-5: #cd6423;
-	--g2-6: #628398;
-	--g2-7: #2019e7;
+	/* Day-mode stops for ::after (cooler depth layer) */
+	--g2-1: #e8dcc3; /* sand */
+	--g2-2: #b7e0dc; /* pale surf */
+	--g2-3: #5fb7ba; /* coastal teal */
+	--g2-4: #2d7e90; /* mid ocean */
+	--g2-5: #0e5a6f; /* deep ocean */
+	--g2-6: #f2e8cf; /* sun haze */
+	--g2-7: #c88974; /* warm coral shadow */
 }
 
 /*--------------------------------------------------------------------------*/
 /*                            Night-mode overrides                           */
 /*--------------------------------------------------------------------------*/
 html.night-mode {
-	/* ::before stops */
-	--g1-1: #000000;
-	--g1-2: #2d0b0b;
-	--g1-3: #8a0000;
-	--g1-4: #000000;
-	--g1-5: #101010;
-	--g1-6: #0d1b2a;
-	--g1-7: #000000;
+	/* ::before stops (dark foundation) */
+	--g1-1: #0b0f14; /* charcoal */
+	--g1-2: #111827; /* slate */
+	--g1-3: #1f2a44; /* navy slate */
+	--g1-4: #3730a3; /* indigo */
+	--g1-5: #7a2846; /* wine */
+	--g1-6: #0f766e; /* deep teal */
+	--g1-7: #0b0f14; /* charcoal */
 
-	/* ::after stops */
-	--g2-1: #2d0b0b;
-	--g2-2: #000000;
-	--g2-3: #000000;
-	--g2-4: #8a0000;
-	--g2-5: #000000;
-	--g2-6: #000000;
-	--g2-7: #2d0b0b;
+	/* ::after stops (subtle glow accents) */
+	--g2-1: #111827; /* slate */
+	--g2-2: #0b132b; /* blue-black */
+	--g2-3: #2a1e3f; /* plum */
+	--g2-4: #2f3a8f; /* indigo shadow */
+	--g2-5: #34b3a8; /* muted neon teal */
+	--g2-6: #4d2a3a; /* wine shadow */
+	--g2-7: #0b0f14; /* charcoal */
+
+	/* optional polish */
+	filter: saturate(0.85) brightness(0.95);
+}
+html.night-mode::before,
+html.night-mode::after {
+	mix-blend-mode: soft-light;
 }
 
 /*--------------------------------------------------------------------------*/
@@ -76,9 +83,9 @@ html {
 /*                              Rainbow Effects                             */
 /*--------------------------------------------------------------------------*/
 body {
-	position: relative; /* stacking context for content */
-	min-height: 100vh; /* at least a full viewport, but grows */
-	overflow-x: hidden; /* horizontal overflow hidden */
+	position: relative;
+	min-height: 100vh;
+	overflow-x: hidden;
 	background-color: rgb(25, 25, 25);
 }
 
@@ -95,31 +102,13 @@ html::after {
 }
 
 html::before {
-	background-image: linear-gradient(
-		45deg,
-		var(--g1-1),
-		var(--g1-2),
-		var(--g1-3),
-		var(--g1-4),
-		var(--g1-5),
-		var(--g1-6),
-		var(--g1-7)
-	);
+	background-image: linear-gradient(45deg, var(--g1-1), var(--g1-2), var(--g1-3), var(--g1-4), var(--g1-5), var(--g1-6), var(--g1-7));
 	animation: gradientShift1 10s ease infinite;
 	opacity: 1;
 }
 
 html::after {
-	background-image: linear-gradient(
-		-45deg,
-		var(--g2-1),
-		var(--g2-2),
-		var(--g2-3),
-		var(--g2-4),
-		var(--g2-5),
-		var(--g2-6),
-		var(--g2-7)
-	);
+	background-image: linear-gradient(-45deg, var(--g2-1), var(--g2-2), var(--g2-3), var(--g2-4), var(--g2-5), var(--g2-6), var(--g2-7));
 	animation: gradientShift2 15s ease infinite reverse;
 	opacity: 0.6;
 }
@@ -179,7 +168,6 @@ html.night-mode::after {
 /*--------------------------------------------------------------------------*/
 /*                              Root Color Tokens                          */
 /*--------------------------------------------------------------------------*/
-
 :root {
 	--dark: hsl(156, 12%, 8%);
 	--secondary-color: hsl(157, 41%, 22%);
