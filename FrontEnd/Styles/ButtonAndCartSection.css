@@ -1,6 +1,6 @@
 /** @format */
 /*------------------------------------------------------------------------------
-								Button for sizes
+                                Button for sizes (refined)
 -------------------------------------------------------------------------------*/
 #variant-listings {
 	margin-top: 3%;
@@ -10,137 +10,239 @@
 	padding-top: 5%;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 0.5rem;
+	gap: 0.75rem;
 	min-width: 0;
-	justify-items: center; /* center items horizontally */
+	justify-items: center;
 }
 
 #variant-listings button {
-	padding: 3vh 0vw;
-	width: 70%;
-	font-size: 0.9rem;
-	font-weight: 600;
-	border-radius: 0.1rem;
-	border-style: none;
-	background-color: rgba(0, 0, 0, 0.694);
-	transition: transform 0.3s ease-in-out;
-	color: white;
+	width: 80%;
+	padding: 0.9rem 0;
+	font-size: 0.95rem;
+	font-weight: 650;
+	letter-spacing: 0.02em;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	background: rgba(255, 255, 255, 0.1);
+	color: #ffffff;
+	backdrop-filter: blur(6px);
+	transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
 }
 
 #variant-listings button:hover {
-	transform: scale(1.1);
+	transform: translateY(-2px);
+	border-color: rgba(255, 255, 255, 0.55);
+	background: rgba(255, 255, 255, 0.16);
 	cursor: pointer;
 }
 
+#variant-listings button:focus-visible {
+	outline: 2px solid #ffffff;
+	outline-offset: 2px;
+}
+
 #variant-listings button.not-in-stock-button {
-	color: hsla(0, 0%, 41%, 0.374);
+	color: rgba(255, 255, 255, 0.45);
+	background: rgba(255, 255, 255, 0.06);
+	border-color: rgba(255, 255, 255, 0.15);
+	cursor: not-allowed;
+	box-shadow: none;
+	transform: none;
 }
 
 .in-stock-selected {
-	outline: 2px solid hsl(0, 0%, 100%);
-	background-color: rgba(9, 255, 9, 0.1);
+	background: #ffffff !important;
+	color: #2b3e3e !important;
+	border-color: #ffffff !important;
+	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25) !important;
 }
+
 /*------------------------------------------------------------------------------
-						Quantity & Cart Button Section
+                        Quantity & Cart Button Section (refined)
 -------------------------------------------------------------------------------*/
 #cart-section {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	gap: 5%;
+	align-items: center;
+	gap: 1.25rem;
 	margin-top: 6vh;
+	flex-wrap: wrap;
 }
 
-#cart-button {
-	padding: 1.25vw 1.25vw;
-	border-radius: 1rem;
-	border-style: none;
-	background-color: rgba(0, 0, 0, 0.694);
-	color: white;
-	font-size: 1.2rem;
-}
-
-#cart-section button:hover {
-	transform: scale(1.1);
-	cursor: pointer;
-}
-
+/* Quantity controls */
 .qty-controls {
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 0.6rem;
 }
+
 .qty-controls button {
-	width: 3vw;
-	height: 3vw;
-	color: white;
+	width: 42px;
+	height: 42px;
+	display: grid;
+	place-items: center;
+	font-size: 1.1rem;
+	color: #ffffff;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.12);
+	backdrop-filter: blur(6px);
+	cursor: pointer;
+	transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.qty-controls button:hover {
+	transform: scale(1.07);
+	background: rgba(255, 255, 255, 0.18);
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+.qty-controls button:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+	transform: none;
+}
+
+/* Clean number field (no browser spinners) */
+.qty-controls input {
+	width: 68px;
+	font-size: 1.05rem;
+	font-weight: 700;
+	text-align: center;
+	color: #1f3333;
+	background: rgba(255, 255, 255, 0.94);
+	padding: 0.5rem 0.4rem;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.qty-controls input:focus {
+	outline: 2px solid rgba(255, 255, 255, 0.9);
+	outline-offset: 2px;
+}
+
+/* remove default arrows (Chrome/Edge/Safari) */
+.qty-controls input[type="number"]::-webkit-outer-spin-button,
+.qty-controls input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+/* remove default arrows (Firefox) */
+.qty-controls input[type="number"] {
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+
+/* Add to Cart button */
+#cart-button {
+	padding: 0.95rem 1.8rem;
+	border-radius: 14px;
 	border: none;
-	border-radius: 2vw;
-	background: rgba(0, 0, 0, 0.5);
+	background: linear-gradient(135deg, #ffffff, #dfeeed);
+	color: #233636;
+	font-size: 1.05rem;
+	font-weight: 750;
+	letter-spacing: 0.015em;
+	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+	transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+#cart-section button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 26px rgba(0, 0, 0, 0.24);
 	cursor: pointer;
 }
-.qty-controls button:disabled {
-	opacity: 0.4;
-	cursor: not-allowed;
-}
-.qty-controls input {
-	font-size: 1.2rem;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-	text-align: center;
-	background-color: rgba(255, 255, 255, 0.6);
-	padding: 0.2vw;
-	border: none;
-	border-radius: 0.5rem;
+
+#cart-button:active {
+	transform: translateY(0);
+	filter: brightness(0.98);
 }
 
 /*------------------------------------------------------------------------------
-						Responsive Styles for Phones
-------------------------------------------------------------------------------*/
+                        Responsive Styles for Phones (refined)
+-------------------------------------------------------------------------------*/
 @media (max-width: 600px) {
-	.image-container img {
-		width: 100%;
-		height: auto;
-		max-height: 40vh;
-		object-fit: contain;
-	}
-
 	#variant-listings {
 		grid-template-columns: repeat(2, 1fr);
-		gap: 0.5rem;
-		margin-top: 2rem;
+		gap: 0.6rem;
+		margin-top: 1.25rem;
 	}
 
 	#variant-listings button {
-		padding: 0.5rem;
-		width: 90%;
-		font-size: 0.8rem;
+		width: 92%;
+		padding: 0.7rem 0;
+		font-size: 0.9rem;
+		border-radius: 10px;
 	}
 
 	#cart-section {
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.9rem;
 		align-items: center;
 		margin-bottom: 2vh;
 	}
 
 	#cart-section button {
 		font-size: 1rem;
-		padding: 0.8rem 1.5rem;
+		padding: 0.85rem 1.4rem;
 	}
 
 	.qty-controls {
-		flex-direction: row;
 		justify-content: center;
 	}
 
 	.qty-controls button {
-		width: 2rem;
-		height: 2rem;
+		width: 38px;
+		height: 38px;
 		font-size: 1rem;
 	}
 
 	.qty-controls input {
-		width: 3rem;
+		width: 60px;
 		font-size: 1rem;
+		padding: 0.45rem 0.35rem;
 	}
+}
+
+/* --- Fix: Cart button staying white after click --- */
+
+/* Default: translucent glass */
+#cart-button {
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	color: #ffffff;
+}
+
+/* Hover/press: premium fill */
+#cart-button:hover {
+	background: linear-gradient(135deg, #ffffff, #dfeeed);
+	color: #233636;
+}
+
+/* Click flash, then back */
+#cart-button:active {
+	transform: translateY(0);
+	filter: brightness(0.98);
+}
+
+/* Keep it translucent when focused (prevents “stuck white” after click) */
+#cart-button:focus,
+#cart-button:focus-visible {
+	background: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+	outline: 2px solid rgba(255, 255, 255, 0.7);
+	outline-offset: 2px;
+}
+
+/* Disabled: translucent + muted */
+#cart-button:disabled {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(255, 255, 255, 0.18);
+	color: rgba(255, 255, 255, 0.6);
+	box-shadow: none;
+	transform: none;
+	cursor: not-allowed;
 }
