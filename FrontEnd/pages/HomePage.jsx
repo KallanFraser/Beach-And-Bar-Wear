@@ -1,142 +1,179 @@
 /** @format */
+/* =============================================================================
+   HomePage.jsx — Beach & Bar Wear
+   - Uses NavBar to toggle day/night (no theme logic here)
+   - Filters products based on isDayMode
+   - Renders hero + four sections
+============================================================================= */
 
-/*---------------------------------------------------------------------------------------------
-									Imports
-----------------------------------------------------------------------------------------------*/
-//Library Imports
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useRouter } from "next/router";
-
-//Component Imports
 import NavigationBar from "../Components/NavigationBar.jsx";
-
-//Global Context Import
 import { GlobalContext } from "../GlobalContext.jsx";
-/*---------------------------------------------------------------------------------------------
-								Main Component
-----------------------------------------------------------------------------------------------*/
+
+/* ---------------------------------------------------------------------------
+   Page
+--------------------------------------------------------------------------- */
 const HomePage = () => {
 	const { products, loading, isDayMode } = useContext(GlobalContext);
 
-	// filter based on current mode
+	// Filter based on current mode
 	const visibleProducts =
 		!loading && Array.isArray(products)
-			? products.filter(
-					(p) =>
-						isDayMode
-							? p.is_night_clothing === false // daytime: show only day clothing
-							: p.is_night_clothing === true // night mode: show only night clothing
+			? products.filter((p) =>
+					isDayMode ? p.is_night_clothing === false : p.is_night_clothing === true
 			  )
 			: [];
 
 	return (
 		<div id="home-page">
 			<NavigationBar />
-			<div id="header-banner">
-				<img src="/images/HorizontalLogo.png" />
-			</div>
-			<>
-				{loading ? (
-					<div id="home-page-loading">
-						<p>Loading clothing now</p>
+
+			{/* HERO / BANNER */}
+			<header id="header-banner" role="banner" aria-label="Summer Arrivals">
+				<div className="hero-media">
+					<img src="/images/HorizontalLogo.png" alt="Beach & Bar Wear" />
+				</div>
+
+				<div className="hero-copy">
+					<h1>Summer Arrivals</h1>
+					<p>{isDayMode ? "Day vibes. Pool to promenade." : "Night moves. Sunset to afters."}</p>
+
+					{/* Quick jump chips */}
+					<nav className="subnav" aria-label="Collections">
+						<a href="#swim" className="chip">
+							Swim Shorts
+						</a>
+						<a href="#dj" className="chip">
+							DJ Oversized
+						</a>
+						<a href="#boxy" className="chip">
+							Boxy Oversized
+						</a>
+						<a href="#hoodies" className="chip">
+							Hoodies
+						</a>
+					</nav>
+				</div>
+			</header>
+
+			{/* CONTENT */}
+			{loading ? (
+				<div id="home-page-loading" aria-live="polite">
+					<div className="skeleton-grid">
+						{Array.from({ length: 6 }).map((_, i) => (
+							<div className="skeleton-card" key={i} />
+						))}
 					</div>
-				) : (
-					<div id="first-line">
-						{isDayMode && (
-							<>
-								<div className="summer-header">
-									<h1>Summer Arrivals Collection</h1>
-									<h2>Mens Swim Shorts</h2>
-								</div>
-								<div className="products-container">
-									{visibleProducts.map((p) => {
-										if (p.is_swim_short) {
-											return <ProductCard key={p.id} product={p} />;
-										}
-										return null; // ensure something is returned for every item
-									})}
-								</div>
-							</>
+					<p className="loading-label">Loading clothing…</p>
+				</div>
+			) : (
+				<main id="first-line">
+					{/* Swim (day only) */}
+					{isDayMode && (
+						<>
+							<SectionHeader
+								id="swim"
+								title="Summer Arrivals Collection"
+								subtitle="Mens Swim Shorts"
+							/>
+							<div className="products-container">
+								{visibleProducts.map((p) =>
+									p.is_swim_short ? <ProductCard key={p.id} product={p} /> : null
+								)}
+							</div>
+						</>
+					)}
+
+					{/* DJ Oversized */}
+					<SectionHeader id="dj" title="Summer Arrivals Collection" subtitle="Oversized DJ Tee's" />
+					<div className="products-container">
+						{visibleProducts.map((p) =>
+							p.is_dj_oversized ? <ProductCard key={p.id} product={p} /> : null
 						)}
-						<div className="summer-header">
-							<h1>Summer Arrivals Collection</h1>
-							<h2>Oversized DJ Tee's</h2>
-						</div>
-						<div className="products-container">
-							{visibleProducts.map((p) => {
-								if (p.is_dj_oversized) {
-									return <ProductCard key={p.id} product={p} />;
-								}
-							})}
-						</div>
-						<div className="summer-header">
-							<h1>Summer Arrivals Collection</h1>
-							<h2>Boxy Oversized Tee's</h2>
-						</div>
-						<div className="products-container">
-							{visibleProducts.map((p) => {
-								if (p.is_boxy_oversized) {
-									return <ProductCard key={p.id} product={p} />;
-								}
-							})}
-						</div>
-						<div className="summer-header">
-							<h1>Summer Arrivals Collection</h1>
-							<h2>Mens Hoodies</h2>
-						</div>
-						<div className="products-container">
-							{visibleProducts.map((p) => {
-								if (p.is_hoodie) {
-									return <ProductCard key={p.id} product={p} />;
-								}
-							})}
-						</div>
 					</div>
-				)}
-			</>
+
+					{/* Boxy Oversized */}
+					<SectionHeader
+						id="boxy"
+						title="Summer Arrivals Collection"
+						subtitle="Boxy Oversized Tee's"
+					/>
+					<div className="products-container">
+						{visibleProducts.map((p) =>
+							p.is_boxy_oversized ? <ProductCard key={p.id} product={p} /> : null
+						)}
+					</div>
+
+					{/* Hoodies */}
+					<SectionHeader id="hoodies" title="Summer Arrivals Collection" subtitle="Mens Hoodies" />
+					<div className="products-container">
+						{visibleProducts.map((p) =>
+							p.is_hoodie ? <ProductCard key={p.id} product={p} /> : null
+						)}
+					</div>
+				</main>
+			)}
 		</div>
 	);
 };
 
-/*---------------------------------------------------------------------------------------------
-									Product Component
-----------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------
+   SectionHeader — simple, semantic header block
+--------------------------------------------------------------------------- */
+function SectionHeader({ id, title, subtitle }) {
+	return (
+		<section id={id} className="summer-header" aria-labelledby={`${id}-title`}>
+			<div className="header-inner">
+				<h1 id={`${id}-title`}>{title}</h1>
+				<h2>{subtitle}</h2>
+			</div>
+		</section>
+	);
+}
+
+/* ---------------------------------------------------------------------------
+   ProductCard — image swap on hover + price
+--------------------------------------------------------------------------- */
 function ProductCard({ product }) {
 	const router = useRouter();
 
-	// pick a “large” variant (unchanged)
 	const largeVariant = product.variants.find((v) => /(^|\W)L($|\W)/i.test(v.title));
 
-	// find front/back objects (they now have `.path` instead of `.src`)
 	const frontObj = product.images.find((img) => !img.is_back) || null;
 	const backObj = product.images.find((img) => img.is_back) || null;
 
-	// use the static file path directly—no base64 prefix
 	const frontUrl = frontObj ? frontObj.path : null;
 	const backUrl = backObj ? backObj.path : null;
 
-	const handleClick = () => {
-		router.push(`/ViewProductPage/${product.id}`);
-	};
+	const handleClick = () => router.push(`/ViewProductPage/${product.id}`);
 
 	return (
-		<div className="product-card" onClick={handleClick}>
-			{!product.is_swim_short && (
-				<div className="image-swapper">
-					{backUrl && <img className="primary" src={backUrl} alt={product.title} />}
-					{frontUrl && <img className="secondary" src={frontUrl} alt={product.title} />}
-				</div>
-			)}
-			{product.is_swim_short && (
-				<div className="image-swapper">
-					{frontUrl && <img className="primary" src={frontUrl} alt={product.title} />}
-					{backUrl && <img className="secondary" src={backUrl} alt={product.title} />}
-				</div>
-			)}
-			<ul className="price-section">
-				{largeVariant && <li key={largeVariant.id}>${largeVariant.price.toFixed(2)}</li>}
-			</ul>
-		</div>
+		<article
+			className="product-card"
+			onClick={handleClick}
+			role="button"
+			tabIndex={0}
+			aria-label={product.title}
+		>
+			<div className="image-swapper">
+				{product.is_swim_short ? (
+					<>
+						{frontUrl && <img className="primary" src={frontUrl} alt={product.title} />}
+						{backUrl && <img className="secondary" src={backUrl} alt={product.title} />}
+					</>
+				) : (
+					<>
+						{backUrl && <img className="primary" src={backUrl} alt={product.title} />}
+						{frontUrl && <img className="secondary" src={frontUrl} alt={product.title} />}
+					</>
+				)}
+			</div>
+
+			<footer className="price-section" aria-label="Price">
+				{largeVariant && <span>${largeVariant.price.toFixed(2)}</span>}
+			</footer>
+		</article>
 	);
 }
 

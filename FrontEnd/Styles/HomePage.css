@@ -1,91 +1,214 @@
 /** @format */
-/*--------------------------------------------------------------------------
-                           	  Main Section                                
---------------------------------------------------------------------------*/
+/* =============================================================================
+   HomePage.css — layout / hero / sections / grid / skeletons
+   NOTE: Global wallpapers are defined on html::before/::after elsewhere.
+============================================================================= */
+
+/* Transition overlay created by NavBar (fade during theme switch) */
+.mode-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.35);
+	pointer-events: none;
+	z-index: 9999;
+	opacity: 1;
+	transition: opacity 0.35s ease;
+}
+
+/* Page shell */
 #home-page {
 	position: relative;
 	min-height: 100vh;
+	color: var(--text-color, #fff);
 }
-/*--------------------------------------------------------------------------
-                           	Container for ALL products                                
---------------------------------------------------------------------------*/
+
+/* ============================== HERO ============================== */
+#header-banner {
+	position: relative;
+	width: 100%;
+	display: grid;
+	place-items: center;
+	padding: clamp(24px, 6vw, 80px) 16px 24px;
+}
+
+#header-banner .hero-media {
+	width: min(1180px, 92vw);
+	border-radius: 20px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid hsla(0, 0%, 100%, 0.18);
+}
+
+#header-banner .hero-media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	background-color: rgba(0, 0, 0, 0.1);
+	border: 2px solid rgba(255, 255, 255, 0.2); /* fixed rgba syntax */
+}
+
+#header-banner .hero-copy {
+	margin-top: 18px;
+	text-align: center;
+}
+
+#header-banner .hero-copy h1 {
+	margin: 0;
+	font-size: clamp(28px, 4vw, 56px);
+	letter-spacing: 0.02em;
+}
+
+#header-banner .hero-copy p {
+	margin: 6px 0 14px;
+	color: hsla(0, 0%, 100%, 0.75);
+	font-size: clamp(14px, 2vw, 18px);
+}
+
+/* Chips */
+.subnav {
+	position: sticky;
+	top: 64px;
+	display: inline-flex;
+	gap: 8px;
+	background: rgba(255, 255, 255, 0.08);
+	padding: 8px;
+	border-radius: 999px;
+	border: 1px solid hsla(0, 0%, 100%, 0.18);
+	backdrop-filter: blur(8px);
+}
+
+.chip {
+	display: inline-block;
+	padding: 8px 14px;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+	border: 1px solid transparent;
+	transition: transform 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.chip:hover {
+	transform: translateY(-1px);
+	background: rgba(255, 255, 255, 0.16);
+	border-color: hsla(0, 0%, 100%, 0.18);
+}
+
+/* =========================== SECTIONS =========================== */
 #first-line {
 	margin-bottom: 10vh;
 }
 
-#header-banner {
-	width: 100vw;
-}
-
-#header-banner img {
-	width: 100%;
-}
-
 .summer-header {
-	padding-block: 1vh;
-	border-top: 1px solid white;
-	border-bottom: 1px solid white;
+	padding: 24px 14px;
+	margin: 48px auto 18px;
+	border-top: 1px solid hsla(0, 0%, 100%, 0.18);
+	border-bottom: 1px solid hsla(0, 0%, 100%, 0.18);
 	text-align: center;
-	margin-bottom: 3vh;
-	color: white;
-	background-color: hsla(0, 0%, 0%, 0.25);
+	background: rgba(15, 15, 15, 0.3);
+	backdrop-filter: blur(4px);
+}
+
+.summer-header .header-inner {
+	max-width: 1080px;
+	margin: 0 auto;
 }
 
 .summer-header h1 {
-	font-size: 3rem;
+	font-size: clamp(20px, 2.4vw, 28px);
+	margin: 0 0 4px;
+	font-weight: 700;
+	color: #fff;
 }
 
+.summer-header h2 {
+	font-size: clamp(18px, 2vw, 22px);
+	margin: 0;
+	color: hsla(0, 0%, 100%, 0.75);
+}
+
+/* ============================= GRID ============================= */
+/* 3 / 2 / 1 columns — keeps 6 items as 3×2 on desktop */
 .products-container {
 	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	gap: 2rem;
-	padding-inline: 1vw;
-	justify-content: center;
+	max-width: 1200px; /* center & cap for clean rows */
+	margin: 0 auto;
+	padding-inline: min(3vw, 24px);
 	padding-bottom: 1vh;
+	display: grid;
+	gap: clamp(12px, 2vw, 24px);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	align-items: start;
 }
 
-.products-container h1 {
-	padding: 2rem;
-	background-color: red;
-	text-align: center;
+@media (min-width: 768px) and (max-width: 1199.98px) {
+	.products-container {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 }
 
+@media (max-width: 767.98px) {
+	.products-container {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ============================ LOADING ============================ */
 #home-page-loading {
 	width: 100%;
-	height: auto;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 5;
-	margin-top: 23%;
-	font-size: 3rem;
-	color: white;
+	display: grid;
+	place-items: center;
+	padding: 6vh 2vw;
+	color: #fff;
 }
 
-/*---------------------------------------------------------------------------
-                        Responsive Styling for Phones
----------------------------------------------------------------------------*/
-@media (max-width: 600px) {
-	/* Container adjustments */
-	#first-line h1 {
-		font-size: 2rem;
-		max-height: none;
-	}
+.loading-label {
+	margin-top: 12px;
+	color: hsla(0, 0%, 100%, 0.75);
+}
 
-	.products-container {
-		padding-inline: 3%;
-		gap: 0.5rem; /* Reduce gap to help fit 2 cards */
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
+.skeleton-grid {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	gap: 14px;
+	padding-inline: min(3vw, 24px);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-	/* Loading text */
-	#home-page-loading {
-		margin-top: 40%;
-		font-size: 2rem;
-		text-align: center;
-		padding-inline: 1rem;
+@media (min-width: 768px) and (max-width: 1199.98px) {
+	.skeleton-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767.98px) {
+	.skeleton-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.skeleton-card {
+	height: 320px;
+	border-radius: 16px;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0.06),
+		rgba(255, 255, 255, 0.12),
+		rgba(255, 255, 255, 0.06)
+	);
+	background-size: 200px 100%;
+	animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200px 0;
+	}
+	100% {
+		background-position: 200px 0;
 	}
 }
