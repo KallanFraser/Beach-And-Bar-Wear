@@ -54,7 +54,7 @@ const NavigationBar = () => {
 						data-theme="day"
 						onClick={() => setIsDayMode(true)}
 					>
-						Day Mode
+						Beachwear
 					</button>
 				</Link>
 			</div>
@@ -74,7 +74,7 @@ const NavigationBar = () => {
 						data-theme="night"
 						onClick={() => setIsDayMode(false)}
 					>
-						Night Mode
+						Barwear
 					</button>
 				</Link>
 			</div>

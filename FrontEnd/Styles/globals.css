@@ -55,33 +55,34 @@
 /* Night overrides                                                             */
 /* -------------------------------------------------------------------------- */
 html.night-mode {
-	/* LAYER 1 (dark base) */
-	--g1-1: #070b12; /* abyss */
-	--g1-2: #0d1321; /* deep navy */
-	--g1-3: #111827; /* slate */
-	--g1-4: #1f2a44; /* midnight */
-	--g1-5: #26255a; /* indigo */
-	--g1-6: #0f766e; /* teal shadow */
-	--g1-7: #0b0f14; /* near-black */
+	/* LAYER 1 — Deep water + shoreline shadow */
+	--g1-1: #030609; /* deep abyss */
+	--g1-2: #071019; /* ocean trench */
+	--g1-3: #0c1824; /* midnight blue */
+	--g1-4: #112032; /* deep tide */
+	--g1-5: #162a3d; /* horizon tint */
+	--g1-6: #1b364b; /* near-surface shimmer */
+	--g1-7: #0a141f; /* coastal shadow */
 
-	/* LAYER 2 (neon accents) */
-	--g2-1: #0b132b; /* blue-black */
-	--g2-2: #0e1726; /* ink */
-	--g2-3: #1e293b; /* steel */
-	--g2-4: #334155; /* gunmetal */
-	--g2-5: #06b6d4; /* cyan neon */
-	--g2-6: #22d3ee; /* electric aqua */
-	--g2-7: #7c3aed; /* violet neon */
+	/* LAYER 2 — Moonlight shimmer + cool glow */
+	--g2-1: #0c141f; /* waterline */
+	--g2-2: #162436; /* steel-blue reflection */
+	--g2-3: #1e3a4c; /* deep shimmer */
+	--g2-4: #2a5063; /* moon reflection band */
+	--g2-5: #3b7185; /* misty cyan */
+	--g2-6: #8fbdd8; /* moonlit silver-blue */
+	--g2-7: #c9e7f2; /* pale moon highlight */
 
-	/* Night brightness balance */
-	--bg1-opacity: 0.22; /* darker base */
-	--bg2-opacity: 0.62; /* neon carries */
+	/* Adjust brightness balance */
+	--bg1-opacity: 0.28; /* base darker */
+	--bg2-opacity: 0.5; /* reflection carries */
 }
 
-/* Optional: softer blending at night */
+/* Optional: softer moonlight blend */
 html.night-mode::before,
 html.night-mode::after {
-	mix-blend-mode: screen;
+	mix-blend-mode: lighten;
+	filter: blur(1px) brightness(1.1);
 }
 
 /* -------------------------------------------------------------------------- */

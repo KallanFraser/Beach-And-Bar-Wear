@@ -91,51 +91,49 @@ html.night-mode #navigation-bar {
 	padding: 0.55rem 1.4rem;
 	border-radius: 50px;
 	border: 1px solid transparent;
-	color: #fff;
-	background: rgba(255, 255, 255, 0.08);
+	color: #ffffff;
+	background: rgba(255, 255, 255, 0.06);
 	backdrop-filter: blur(8px);
 	cursor: pointer;
 	transition: all 0.25s ease-in-out;
 }
 
-/* Base hover — soft light lift */
+/* Hover — slight lift with subtle glow */
 .theme-button:hover {
 	transform: translateY(-1px);
 	background: rgba(255, 255, 255, 0.12);
-	box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+	box-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
 }
 
 /* ==================== ACTIVE STATE STYLES ==================== */
-/* ☀️ DAY — warm gradient glow */
-.theme-button.is-active[data-theme="day"] {
-	background: linear-gradient(135deg, #ffb347 0%, #ffd68f 40%, #fff2c0 100%);
-	color: #1a1a1a;
-	border: none;
-	box-shadow: 0 0 12px rgba(255, 221, 133, 0.6), 0 0 20px rgba(255, 240, 180, 0.4);
-	text-shadow: none;
-}
-
-/* 🌙 NIGHT — deep indigo glow */
-.theme-button.is-active[data-theme="night"] {
-	background: linear-gradient(135deg, #0f172a 0%, #312e81 45%, #60a5fa 100%);
+/* Simple white border highlight — no gradient */
+.theme-button.is-active {
+	border: 2px solid #ffffff;
+	background: rgba(255, 255, 255, 0.15);
+	box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
 	color: #ffffff;
-	border: none;
-	box-shadow: 0 0 14px rgba(96, 165, 250, 0.6), 0 0 24px rgba(56, 189, 248, 0.4);
 }
 
-/* Optional slight animation pulse for active button */
-@keyframes pulseGlow {
+/* Optional subtle pulse to indicate current mode */
+@keyframes pulseBorder {
 	0%,
 	100% {
-		box-shadow: 0 0 14px rgba(255, 255, 255, 0.25);
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 	}
 	50% {
-		box-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
+		box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
 	}
 }
 
 .theme-button.is-active {
-	animation: pulseGlow 2.8s infinite ease-in-out;
+	animation: pulseBorder 3s infinite ease-in-out;
+}
+
+/* Make inactive button plainer */
+.theme-button:not(.is-active) {
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.04);
+	box-shadow: none;
 }
 
 /* ============================== OVERLAY ========================== */
