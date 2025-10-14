@@ -1,142 +1,175 @@
 /** @format */
-/*---------------------------------------------------------------------------------------------
-								Navigation Bar
-----------------------------------------------------------------------------------------------*/
+/* =============================================================================
+   NavigationBar.css (Day/Night premium re-style)
+   - Polished buttons (soft glow, minimal glass)
+   - Proper logo scaling
+   - “Day” warm tones, “Night” cool tones
+============================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
+
+/* ============================== BAR ============================== */
 #navigation-bar {
 	width: 100vw;
-	background-color: rgba(49, 49, 49, 0.95);
 	height: 8vh;
+	min-height: 54px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background: rgba(15, 15, 15, 0.85);
+	backdrop-filter: blur(14px) saturate(1.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+	padding-inline: clamp(8px, 2vw, 20px);
 }
 
-/*---------------------------------------------------------------------------------------------
-								Navigation Images
-----------------------------------------------------------------------------------------------*/
-
-#navigation-bar img {
-	max-width: 4vw;
-	margin-inline: 0.5rem;
+html.night-mode #navigation-bar {
+	background: rgba(0, 0, 0, 0.9);
+	border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
-/*---------------------------------------------------------------------------------------------
-								Center piece Logo
-----------------------------------------------------------------------------------------------*/
+/* ============================== ICONS ============================ */
+.page-icon img {
+	display: block;
+	height: 100%;
+	width: auto;
+	max-height: 36px;
+	object-fit: contain;
+	filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.1));
+	transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.page-icon img:hover {
+	transform: scale(1.05);
+	filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+}
+
+/* ============================== LOGO ============================= */
 #navigation-bar-center-content {
 	display: flex;
-	justify-content: center; /* center the link horizontally */
-	align-items: center; /* center the link vertically */
-	height: 8vh;
-	width: 35vw;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 30vw;
 }
 
-/* The Link -> <a> element needs a height so img:height:100% has something to use */
-#navigation-bar-center-content > a {
-	display: flex; /* so the img can align nicely inside */
+#navigation-bar-center-content a {
+	display: flex;
 	align-items: center;
+	justify-content: center;
 	height: 100%;
 }
 
 #navigation-bar-center-content img {
-	display: block;
-	height: 100%; /* takes the full navbar height */
-	width: auto; /* keep aspect ratio */
-	max-width: 100%; /* doesnt overflow if it's super wide */
+	height: 100%;
+	width: auto;
+	object-fit: contain;
+	filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+	transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-/*---------------------------------------------------------------------------------------------
-								Theme Controller
-----------------------------------------------------------------------------------------------*/
+#navigation-bar-center-content img:hover {
+	transform: scale(1.05);
+	filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35));
+}
+
+/* ============================== THEME CONTROLLERS ================= */
 #theme-controller {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 12%;
-	height: 70%;
+	width: 14%;
+	min-width: 140px;
 }
 
 .theme-button {
-	width: 100%;
-	height: 100%;
-	background: none;
-	border: none;
+	font-family: "Poppins", system-ui, sans-serif;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	font-size: clamp(12px, 1.5vw, 14px);
+	padding: 0.55rem 1.4rem;
+	border-radius: 50px;
+	border: 1px solid transparent;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(8px);
 	cursor: pointer;
-	padding: 0;
+	transition: all 0.25s ease-in-out;
 }
 
-#theme-controller img {
-	height: 100%;
-	width: auto;
-	max-width: 100%;
-	object-fit: contain;
+/* Base hover — soft light lift */
+.theme-button:hover {
+	transform: translateY(-1px);
+	background: rgba(255, 255, 255, 0.12);
+	box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }
 
-/* Full-screen black overlay for mode switch */
+/* ==================== ACTIVE STATE STYLES ==================== */
+/* ☀️ DAY — warm gradient glow */
+.theme-button.is-active[data-theme="day"] {
+	background: linear-gradient(135deg, #ffb347 0%, #ffd68f 40%, #fff2c0 100%);
+	color: #1a1a1a;
+	border: none;
+	box-shadow: 0 0 12px rgba(255, 221, 133, 0.6), 0 0 20px rgba(255, 240, 180, 0.4);
+	text-shadow: none;
+}
+
+/* 🌙 NIGHT — deep indigo glow */
+.theme-button.is-active[data-theme="night"] {
+	background: linear-gradient(135deg, #0f172a 0%, #312e81 45%, #60a5fa 100%);
+	color: #ffffff;
+	border: none;
+	box-shadow: 0 0 14px rgba(96, 165, 250, 0.6), 0 0 24px rgba(56, 189, 248, 0.4);
+}
+
+/* Optional slight animation pulse for active button */
+@keyframes pulseGlow {
+	0%,
+	100% {
+		box-shadow: 0 0 14px rgba(255, 255, 255, 0.25);
+	}
+	50% {
+		box-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
+	}
+}
+
+.theme-button.is-active {
+	animation: pulseGlow 2.8s infinite ease-in-out;
+}
+
+/* ============================== OVERLAY ========================== */
 .mode-overlay {
 	position: fixed;
-	inset: 0; /* top/right/bottom/left = 0 */
-	background-color: black;
+	inset: 0;
+	background: black;
 	opacity: 1;
-	transition: opacity 8s ease; /* fade duration */
-	z-index: 9999; /* sit above everything */
-	pointer-events: none; /* don’t block clicks */
+	transition: opacity 0.8s ease;
+	z-index: 9999;
+	pointer-events: none;
 }
 
-/* When `fade-out` class is added, animate to transparent */
-.mode-overlay.fade-out {
-	opacity: 0;
-}
-
-/*---------------------------------------------------------------------------------------------
-							Responsive Styles for Phones
-----------------------------------------------------------------------------------------------*/
+/* ============================== RESPONSIVE ======================= */
 @media (max-width: 600px) {
 	#navigation-bar {
-		flex-direction: row;
 		height: 8vh;
-		padding: 0.2rem 0.1rem;
-		gap: 0.1rem;
-	}
-
-	#navigation-bar img {
-		margin-inline: 0.15rem;
+		padding: 0 8px;
 	}
 
 	#navigation-bar-center-content {
-		height: auto;
-		align-items: center;
-		padding: 0rem;
-		width: 35vw; /* Make it span the whole viewport */
-		display: flex;
-		justify-content: center; /* Center its contents horizontally */
-		align-items: center;
-	}
-
-	#navigation-bar-center-content img {
-		width: auto;
-		max-width: 100%;
-		object-fit: contain;
-		padding: 0rem;
+		width: 40vw;
 	}
 
 	#theme-controller {
-		width: 20%;
-		height: 100%;
+		width: 30%;
 	}
 
-	.theme-icon {
-		height: 100%;
-		width: 100%;
-		max-width: 100%;
-		object-fit: contain;
+	.theme-button {
+		font-size: 11px;
+		padding: 0.4rem 0.8rem;
 	}
 
-	.page-icon {
-		max-width: 15%;
-	}
 	.page-icon img {
-		width: 80%;
-		object-fit: contain;
+		max-height: 28px;
 	}
 }

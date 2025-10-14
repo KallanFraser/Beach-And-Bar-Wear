@@ -1,46 +1,38 @@
 /** @format */
-/*---------------------------------------------------------------------------------------------
-                                 Imports
-----------------------------------------------------------------------------------------------*/
-// Library import
-import { useEffect, useContext } from "react"; //UseContext for getting Global Context
-import Link from "next/link"; //Link = enables client side navigation between pages in our Next.js App
+/* =============================================================================
+   NavigationBar.jsx
+   - Keeps Home / Logo / Cart image links
+   - Day/Night toggles now text buttons (new font), same functionality
+   - Uses overlay fade + toggles html/body .night-mode (unchanged behavior)
+============================================================================= */
 
-// Global Context Import
+import { useEffect, useContext } from "react";
+import Link from "next/link";
 import { GlobalContext } from "../GlobalContext.jsx";
-/*---------------------------------------------------------------------------------------------
-                             Navigation Component
-----------------------------------------------------------------------------------------------*/
-const NavigationBar = () => {
-	// Pulls our theme controller from global context
-	const { isDayMode, setIsDayMode } = useContext(GlobalContext);
 
-	// Deriving a local bool flag for convenience
+const NavigationBar = () => {
+	const { isDayMode, setIsDayMode } = useContext(GlobalContext);
 	const isNight = !isDayMode;
 
 	useEffect(() => {
-		//Code to toggle the theme class on our body and html elements
+		// Toggle theme classes on <body> and <html> (your wallpaper depends on html.night-mode)
 		document.body.classList.toggle("night-mode", isNight);
 		document.documentElement.classList.toggle("night-mode", isNight);
 
-		// 2) create & style the full-screen overlay
+		// Fade overlay during mode switch (same behavior, cleaner cleanup)
 		const overlay = document.createElement("div");
 		overlay.className = "mode-overlay";
 		document.body.appendChild(overlay);
-
-		// 3) trigger the fade out on next frame
 		requestAnimationFrame(() => {
 			overlay.style.opacity = "0";
 		});
 
-		// 4) clean up when the fade finishes
 		const cleanup = () => {
 			overlay.removeEventListener("transitionend", cleanup);
-			if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+			overlay.remove();
 		};
 		overlay.addEventListener("transitionend", cleanup);
 
-		// in case the component unmounts mid-fade
 		return () => {
 			overlay.removeEventListener("transitionend", cleanup);
 			if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
@@ -49,35 +41,46 @@ const NavigationBar = () => {
 
 	return (
 		<div id="navigation-bar">
-			<Link href="/HomePage" className="page-icon">
+			{/* Left: Home */}
+			<Link href="/HomePage" className="page-icon" aria-label="Home">
 				<img src="/images/HomePage.png" alt="Home" />
 			</Link>
 
+			{/* Left Center: Day Mode */}
 			<div id="theme-controller">
-				{/* Day button sets isDayMode = true */}
-				<button className="theme-button" onClick={() => setIsDayMode(true)}>
-					<Link href="/HomePage">
-						<img src="/images/DayWear.png" alt="Day Mode" className="theme-icon" />
-					</Link>
-				</button>
+				<Link href="/HomePage" className="mode-link" aria-label="Switch to Day Mode">
+					<button
+						className={`theme-button ${isDayMode ? "is-active" : ""}`}
+						data-theme="day"
+						onClick={() => setIsDayMode(true)}
+					>
+						Day Mode
+					</button>
+				</Link>
 			</div>
 
+			{/* Center: Logo */}
 			<div id="navigation-bar-center-content">
-				<Link href="/">
+				<Link href="/" aria-label="Go to landing page">
 					<img src="/images/LogoScratched.png" alt="Logo" />
 				</Link>
 			</div>
 
+			{/* Right Center: Night Mode */}
 			<div id="theme-controller">
-				{/* Night button sets isDayMode = false */}
-				<button className="theme-button" onClick={() => setIsDayMode(false)}>
-					<Link href="/HomePage">
-						<img src="/images/NightWear.png" alt="Night Mode" className="theme-icon" />
-					</Link>
-				</button>
+				<Link href="/HomePage" className="mode-link" aria-label="Switch to Night Mode">
+					<button
+						className={`theme-button ${!isDayMode ? "is-active" : ""}`}
+						data-theme="night"
+						onClick={() => setIsDayMode(false)}
+					>
+						Night Mode
+					</button>
+				</Link>
 			</div>
 
-			<Link href="/ViewCartPage" className="page-icon">
+			{/* Right: Cart */}
+			<Link href="/ViewCartPage" className="page-icon" aria-label="View Cart">
 				<img src="/images/Cart.png" alt="Cart" />
 			</Link>
 		</div>

@@ -1,62 +1,92 @@
 /** @format */
+/* ============================================================================
+   GLOBALS — Original Two-Layer Gradient (refined palette, lower brightness)
+   - Day: Tropical Dawn (sand + sky + soft coral)
+   - Night: Neon Noir (deep navy + cyan/violet glow)
+   - Same structure you had: html::before + html::after + keyframes
+============================================================================ */
+
+/* -------------------------------------------------------------------------- */
+/* Font                                                                        */
+/* -------------------------------------------------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
-/*--------------------------------------------------------------------------*/
-/*                        Gradient Color Palettes                            */
-/*--------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------- */
+/* Root tokens (yours)                                                         */
+/* -------------------------------------------------------------------------- */
 :root {
-	/* Day-mode stops for ::before (soft, desaturated beach) */
-	--g1-1: #f2e8cf; /* sun haze */
-	--g1-2: #e8dcc3; /* warm sand */
-	--g1-3: #7fd1c3; /* seafoam */
-	--g1-4: #3ba7b5; /* aquamarine */
-	--g1-5: #0e5a6f; /* deep ocean */
-	--g1-6: #c2a783; /* dune */
-	--g1-7: #e39377; /* muted coral */
-
-	/* Day-mode stops for ::after (cooler depth layer) */
-	--g2-1: #e8dcc3; /* sand */
-	--g2-2: #b7e0dc; /* pale surf */
-	--g2-3: #5fb7ba; /* coastal teal */
-	--g2-4: #2d7e90; /* mid ocean */
-	--g2-5: #0e5a6f; /* deep ocean */
-	--g2-6: #f2e8cf; /* sun haze */
-	--g2-7: #c88974; /* warm coral shadow */
+	--dark: hsl(156, 12%, 8%);
+	--secondary-color: hsl(157, 41%, 22%);
+	--text-color: hsl(0, 0%, 95%);
+	--accent-color: hsl(0, 0%, 53%);
+	--border-color: hsla(0, 0%, 100%, 0.1);
+	--hunter-green: hsl(157, 26%, 27%);
+	--button-background-color: hsl(156, 27%, 31%);
 }
 
-/*--------------------------------------------------------------------------*/
-/*                            Night-mode overrides                           */
-/*--------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------- */
+/* Day palette (Layer 1 = warm; Layer 2 = cool counterpoint)                  */
+/* -------------------------------------------------------------------------- */
+:root {
+	/* LAYER 1 (softer, warm) */
+	--g1-1: #fff6e6; /* dawn haze */
+	--g1-2: #f1e4c9; /* pale sand */
+	--g1-3: #d8f2ff; /* sky mist */
+	--g1-4: #8ad9ff; /* morning blue */
+	--g1-5: #2aa9bf; /* coastal teal */
+	--g1-6: #ffd6be; /* apricot */
+	--g1-7: #ffb3b3; /* soft coral */
+
+	/* LAYER 2 (cool depth) */
+	--g2-1: #efe1c4; /* sand shade */
+	--g2-2: #c9f0ff; /* pale aqua */
+	--g2-3: #98ddff; /* sky */
+	--g2-4: #45b7cf; /* aqua pop */
+	--g2-5: #0f7a8b; /* deep teal */
+	--g2-6: #ffe8c7; /* sun glow */
+	--g2-7: #ffb9a8; /* warm coral */
+
+	/* Brightness control (lower = dimmer) */
+	--bg1-opacity: 0.6; /* BEFORE (warm) */
+	--bg2-opacity: 0.35; /* AFTER  (cool) */
+}
+
+/* -------------------------------------------------------------------------- */
+/* Night overrides                                                             */
+/* -------------------------------------------------------------------------- */
 html.night-mode {
-	/* ::before stops (dark foundation) */
-	--g1-1: #0b0f14; /* charcoal */
-	--g1-2: #111827; /* slate */
-	--g1-3: #1f2a44; /* navy slate */
-	--g1-4: #3730a3; /* indigo */
-	--g1-5: #7a2846; /* wine */
-	--g1-6: #0f766e; /* deep teal */
-	--g1-7: #0b0f14; /* charcoal */
+	/* LAYER 1 (dark base) */
+	--g1-1: #070b12; /* abyss */
+	--g1-2: #0d1321; /* deep navy */
+	--g1-3: #111827; /* slate */
+	--g1-4: #1f2a44; /* midnight */
+	--g1-5: #26255a; /* indigo */
+	--g1-6: #0f766e; /* teal shadow */
+	--g1-7: #0b0f14; /* near-black */
 
-	/* ::after stops (subtle glow accents) */
-	--g2-1: #111827; /* slate */
-	--g2-2: #0b132b; /* blue-black */
-	--g2-3: #2a1e3f; /* plum */
-	--g2-4: #2f3a8f; /* indigo shadow */
-	--g2-5: #34b3a8; /* muted neon teal */
-	--g2-6: #4d2a3a; /* wine shadow */
-	--g2-7: #0b0f14; /* charcoal */
+	/* LAYER 2 (neon accents) */
+	--g2-1: #0b132b; /* blue-black */
+	--g2-2: #0e1726; /* ink */
+	--g2-3: #1e293b; /* steel */
+	--g2-4: #334155; /* gunmetal */
+	--g2-5: #06b6d4; /* cyan neon */
+	--g2-6: #22d3ee; /* electric aqua */
+	--g2-7: #7c3aed; /* violet neon */
 
-	/* optional polish */
-	filter: saturate(0.85) brightness(0.95);
+	/* Night brightness balance */
+	--bg1-opacity: 0.22; /* darker base */
+	--bg2-opacity: 0.62; /* neon carries */
 }
+
+/* Optional: softer blending at night */
 html.night-mode::before,
 html.night-mode::after {
-	mix-blend-mode: soft-light;
+	mix-blend-mode: screen;
 }
 
-/*--------------------------------------------------------------------------*/
-/*                                Reset Styles                              */
-/*--------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------- */
+/* Reset                                                                       */
+/* -------------------------------------------------------------------------- */
 * {
 	margin: 0;
 	padding: 0;
@@ -66,30 +96,29 @@ html.night-mode::after {
 	letter-spacing: 0.5px;
 }
 
-/*--------------------------------------------------------------------------*/
-/*                       Make html the scroll container                     */
-/*--------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------- */
+/* Base layout (unchanged)                                                     */
+/* -------------------------------------------------------------------------- */
 html {
-	position: relative; /* for absolute pseudos */
-	min-height: 100%; /* at least one viewport, but can grow */
-	overflow-x: hidden; /* prevent horizontal scroll */
+	position: relative;
+	min-height: 100%;
+	overflow-x: hidden;
 
-	/* start dark, then fade up */
-	filter: brightness(0);
-	animation: fadeInBrightness 2s ease-in-out forwards;
+	/* keep your original fade-in, but not too harsh */
+	filter: brightness(0.92);
+	animation: fadeInBrightness 1200ms ease-in-out forwards;
 }
 
-/*--------------------------------------------------------------------------*/
-/*                              Rainbow Effects                             */
-/*--------------------------------------------------------------------------*/
 body {
 	position: relative;
 	min-height: 100vh;
 	overflow-x: hidden;
-	background-color: rgb(25, 25, 25);
+	background-color: #0b0f14; /* safe fallback */
 }
 
-/* attach gradient layers to html so they cover the full scrollable area */
+/* -------------------------------------------------------------------------- */
+/* Gradient Layers (original mechanism)                                        */
+/* -------------------------------------------------------------------------- */
 html::before,
 html::after {
 	content: "";
@@ -97,33 +126,45 @@ html::after {
 	inset: 0;
 	background-size: 600% 600%;
 	background-repeat: no-repeat;
-	mix-blend-mode: screen;
-	z-index: -1;
+	mix-blend-mode: screen; /* classic glossy vibe */
+	z-index: -1; /* sit behind everything */
 }
 
+/* Warm layer (on top in day; dim in night) */
 html::before {
-	background-image: linear-gradient(45deg, var(--g1-1), var(--g1-2), var(--g1-3), var(--g1-4), var(--g1-5), var(--g1-6), var(--g1-7));
-	animation: gradientShift1 10s ease infinite;
-	opacity: 1;
+	background-image: linear-gradient(
+		45deg,
+		var(--g1-1),
+		var(--g1-2),
+		var(--g1-3),
+		var(--g1-4),
+		var(--g1-5),
+		var(--g1-6),
+		var(--g1-7)
+	);
+	animation: gradientShift1 12s ease-in-out infinite;
+	opacity: var(--bg1-opacity);
 }
 
+/* Cool depth layer */
 html::after {
-	background-image: linear-gradient(-45deg, var(--g2-1), var(--g2-2), var(--g2-3), var(--g2-4), var(--g2-5), var(--g2-6), var(--g2-7));
-	animation: gradientShift2 15s ease infinite reverse;
-	opacity: 0.6;
+	background-image: linear-gradient(
+		-45deg,
+		var(--g2-1),
+		var(--g2-2),
+		var(--g2-3),
+		var(--g2-4),
+		var(--g2-5),
+		var(--g2-6),
+		var(--g2-7)
+	);
+	animation: gradientShift2 18s ease-in-out infinite reverse;
+	opacity: var(--bg2-opacity);
 }
 
-/* night-mode opacity overrides */
-html.night-mode::before {
-	opacity: 0;
-}
-html.night-mode::after {
-	opacity: 1;
-}
-
-/*--------------------------------------------------------------------------*/
-/*                                Keyframes                                 */
-/*--------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------- */
+/* Keyframes (your originals, slightly eased/slower for premium feel)         */
+/* -------------------------------------------------------------------------- */
 @keyframes gradientShift1 {
 	0%,
 	100% {
@@ -158,22 +199,9 @@ html.night-mode::after {
 
 @keyframes fadeInBrightness {
 	from {
-		filter: brightness(0);
+		filter: brightness(0.7);
 	}
 	to {
-		filter: brightness(1);
+		filter: brightness(0.92);
 	}
-}
-
-/*--------------------------------------------------------------------------*/
-/*                              Root Color Tokens                          */
-/*--------------------------------------------------------------------------*/
-:root {
-	--dark: hsl(156, 12%, 8%);
-	--secondary-color: hsl(157, 41%, 22%);
-	--text-color: hsl(0, 0%, 95%);
-	--accent-color: hsl(0, 0%, 53%);
-	--border-color: hsla(0, 0%, 100%, 0.1);
-	--hunter-green: hsl(157, 26%, 27%);
-	--button-background-color: hsl(156, 27%, 31%);
 }
