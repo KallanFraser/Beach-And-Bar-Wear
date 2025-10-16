@@ -212,3 +212,194 @@
 		background-position: 200px 0;
 	}
 }
+/* ======================= PHONE TWEAKS (≤ 600px) ======================= */
+@media (max-width: 600px) {
+	/* Page shell */
+	#home-page {
+		padding-bottom: max(16px, env(safe-area-inset-bottom));
+	}
+
+	/* HERO / BANNER */
+	#header-banner {
+		display: block;
+		padding: 16px 12px 12px;
+	}
+
+	#header-banner .hero-media {
+		width: 100%;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.06);
+		overflow: hidden;
+	}
+
+	#header-banner .hero-media img {
+		width: 100%;
+		height: auto;
+		max-height: 48vw;
+		object-fit: contain;
+		border-width: 1px;
+	}
+
+	#header-banner .hero-copy {
+		margin-top: 12px;
+		padding: 0 2px;
+		text-align: center;
+	}
+
+	#header-banner .hero-copy h1 {
+		font-size: clamp(20px, 6vw, 28px);
+		line-height: 1.1;
+		margin: 0 0 6px;
+	}
+
+	#header-banner .hero-copy p {
+		font-size: 14px;
+		margin: 0 0 10px;
+		opacity: 0.85;
+	}
+
+	/* ===== Updated Chips ===== */
+	.subnav {
+		position: sticky;
+		top: 56px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 6px;
+		padding: 4px 6px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		backdrop-filter: blur(8px);
+
+		/* horizontal scroll when needed */
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-snap-type: x proximity;
+		-webkit-overflow-scrolling: touch;
+		mask-image: linear-gradient(
+			to right,
+			transparent 0,
+			#000 16px,
+			#000 calc(100% - 16px),
+			transparent 100%
+		);
+	}
+
+	/* Invisible spacers keep chips centered even when short */
+	.subnav::before,
+	.subnav::after {
+		content: "";
+		flex: 1 0 8px;
+	}
+
+	.subnav::-webkit-scrollbar {
+		display: none;
+	}
+	.subnav {
+		scrollbar-width: none;
+	}
+
+	.chip {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 28px;
+		padding: 0 10px;
+		font-size: 11.5px;
+		font-weight: 600;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.04);
+		color: #fff;
+		text-decoration: none;
+		white-space: nowrap;
+		scroll-snap-align: start;
+		flex-shrink: 0;
+		transition: transform 0.15s, background 0.15s, border-color 0.15s;
+	}
+
+	.chip:hover {
+		transform: translateY(-1px);
+		background: rgba(255, 255, 255, 0.16);
+		border-color: hsla(0, 0%, 100%, 0.18);
+	}
+
+	/* Force centering under night mode too */
+	html.night-mode #header-banner .subnav {
+		justify-content: center;
+		margin-inline: auto;
+	}
+
+	/* SECTION HEADERS */
+	.summer-header {
+		margin: 28px auto 14px;
+		padding: 14px 10px;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(15, 15, 15, 0.24);
+		backdrop-filter: blur(3px);
+	}
+
+	.summer-header .header-inner {
+		padding: 0 4px;
+	}
+
+	.summer-header h1 {
+		font-size: 16px;
+		margin: 0 0 2px;
+	}
+
+	.summer-header h2 {
+		font-size: 14px;
+		margin: 0;
+		opacity: 0.9;
+	}
+
+	/* GRID */
+	.products-container {
+		padding-inline: 12px;
+		gap: 12px;
+	}
+
+	/* LOADING */
+	.skeleton-grid {
+		padding-inline: 12px;
+		gap: 12px;
+	}
+}
+
+/* ================= Extra-small phones (≤ 380px) ================= */
+@media (max-width: 380px) {
+	#header-banner {
+		padding: 14px 10px 10px;
+	}
+
+	#header-banner .hero-media img {
+		max-height: 54vw;
+	}
+
+	#header-banner .hero-copy h1 {
+		font-size: 18px;
+	}
+	#header-banner .hero-copy p {
+		font-size: 13px;
+	}
+
+	.chip {
+		height: 26px;
+		padding: 0 9px;
+		font-size: 11px;
+	}
+
+	.summer-header {
+		padding: 12px 8px;
+	}
+	.summer-header h1 {
+		font-size: 15px;
+	}
+	.summer-header h2 {
+		font-size: 13px;
+	}
+}
