@@ -14,47 +14,67 @@ import Script from "next/script";
 import Head from "next/head";
 import { GlobalProvider } from "../GlobalContext";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://beachandbarwear.com";
+// ❌ removed: const OG_IMAGE = `${SITE_URL}/images/og-hero.jpg`;
+
 export default function App({ Component, pageProps }) {
 	return (
 		<>
 			<Head>
-				<title>Beach & Bar Wear | Coastal Clothing for Endless Summers</title>
-				<meta
-					name="description"
-					content="Shop Beach & Bar Wear — premium coastal clothing inspired by sun, sand, and seaside nights. Find breezy shirts, resort sets, and accessories that capture the summer lifestyle."
-				/>
-				<meta
-					name="keywords"
-					content="beachwear, resort wear, summer clothing, vacation outfits, coastal fashion, beach shirts, bar attire, linen sets, tropical wear"
-				/>
-				<meta name="author" content="Kallan Fraser" />
-				<meta name="robots" content="index, follow" />
+				{/* Canonical + basic meta */}
+				<link rel="canonical" href={SITE_URL} />
+				<meta name="robots" content="index,follow" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta charSet="utf-8" />
 
-				{/* Open Graph (for Facebook, LinkedIn, etc.) */}
-				<meta property="og:title" content="Beach & Bar Wear | Coastal Clothing for Endless Summers" />
-				<meta
-					property="og:description"
-					content="Effortless coastal fashion. Premium resort wear for days on the beach and nights at the bar."
-				/>
+				{/* Favicons */}
+				<link rel="icon" href="/favicon.ico" />
+				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+				<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+				<link rel="manifest" href="/site.webmanifest" />
+				<meta name="theme-color" content="#0b0b0b" />
+
+				{/* Open Graph defaults */}
 				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://beachandbarwear.com" />
 				<meta property="og:site_name" content="Beach & Bar Wear" />
-				<meta property="og:image" content="/images/LogoType.png" />
+				<meta property="og:url" content={SITE_URL} />
+				{/* ❌ removed: <meta property="og:image" content={OG_IMAGE} /> */}
 
-				{/* Twitter Card */}
+				{/* Twitter */}
 				<meta name="twitter:card" content="summary_large_image" />
-				<meta
-					name="twitter:title"
-					content="Beach & Bar Wear | Coastal Clothing for Endless Summers"
-				/>
-				<meta
-					name="twitter:description"
-					content="Discover relaxed, resort-inspired apparel perfect for beaches, bars, and beyond."
-				/>
-				<meta name="twitter:image" content="/images/LogoType.png" />
+				{/* ❌ removed: <meta name="twitter:image" content={OG_IMAGE} /> */}
 
-				{/* Favicon */}
-				<link rel="icon" type="image/png" href="/images/LogoType.png" />
+				{/* Organization / Website JSON-LD */}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "Organization",
+							name: "Beach & Bar Wear",
+							url: SITE_URL,
+							logo: `${SITE_URL}/images/LogoType.png`,
+							sameAs: [],
+						}),
+					}}
+				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "WebSite",
+							url: SITE_URL,
+							name: "Beach & Bar Wear",
+							potentialAction: {
+								"@type": "SearchAction",
+								target: `${SITE_URL}/search?q={query}`,
+								"query-input": "required name=query",
+							},
+						}),
+					}}
+				/>
 			</Head>
 
 			{/* Google + Stripe Scripts */}
@@ -66,11 +86,11 @@ export default function App({ Component, pageProps }) {
 				strategy="afterInteractive"
 				dangerouslySetInnerHTML={{
 					__html: `
-						window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
-						gtag('js', new Date());
-						gtag('config', 'AW-17120768042');
-					`,
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17120768042');
+          `,
 				}}
 			/>
 			<Script src="https://js.stripe.com/v3/" strategy="beforeInteractive" />
