@@ -1,0 +1,269 @@
+/** @format */
+/* =============================================================================
+   NavigationBar.css (Day/Night premium re-style)
+   - Polished buttons (soft glow, minimal glass)
+   - Proper logo scaling
+   - “Day” warm tones, “Night” cool tones
+============================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
+
+/* ============================== BAR ============================== */
+#navigation-bar {
+	width: 100vw;
+	height: 8vh;
+	min-height: 54px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: rgba(15, 15, 15, 0.85);
+	backdrop-filter: blur(14px) saturate(1.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+	padding-inline: clamp(8px, 2vw, 20px);
+}
+
+html.night-mode #navigation-bar {
+	background: rgba(0, 0, 0, 0.9);
+	border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================== ICONS ============================ */
+.page-icon img {
+	display: block;
+	height: 100%;
+	width: auto;
+	max-height: 36px;
+	object-fit: contain;
+	filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.1));
+	transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.page-icon img:hover {
+	transform: scale(1.05);
+	filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+}
+
+/* ============================== LOGO ============================= */
+#navigation-bar-center-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 30vw;
+}
+
+#navigation-bar-center-content a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+#navigation-bar-center-content img {
+	height: 100%;
+	width: auto;
+	object-fit: contain;
+	filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+	transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+#navigation-bar-center-content img:hover {
+	transform: scale(1.05);
+	filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35));
+}
+
+/* ============================== THEME CONTROLLERS ================= */
+#theme-controller {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 14%;
+	min-width: 140px;
+}
+
+.theme-button {
+	font-family: "Poppins", system-ui, sans-serif;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	font-size: clamp(12px, 1.5vw, 14px);
+	padding: 0.55rem 1.4rem;
+	border-radius: 50px;
+	border: 1px solid transparent;
+	color: #ffffff;
+	background: rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(8px);
+	cursor: pointer;
+	transition: all 0.25s ease-in-out;
+}
+
+/* Hover — slight lift with subtle glow */
+.theme-button:hover {
+	transform: translateY(-1px);
+	background: rgba(255, 255, 255, 0.12);
+	box-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== ACTIVE STATE STYLES ==================== */
+/* Simple white border highlight — no gradient */
+.theme-button.is-active {
+	border: 2px solid #ffffff;
+	background: rgba(255, 255, 255, 0.15);
+	box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+	color: #ffffff;
+}
+
+/* Optional subtle pulse to indicate current mode */
+@keyframes pulseBorder {
+	0%,
+	100% {
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+	}
+	50% {
+		box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+	}
+}
+
+.theme-button.is-active {
+	animation: pulseBorder 3s infinite ease-in-out;
+}
+
+/* Make inactive button plainer */
+.theme-button:not(.is-active) {
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.04);
+	box-shadow: none;
+}
+
+/* ============================== OVERLAY ========================== */
+.mode-overlay {
+	position: fixed;
+	inset: 0;
+	background: black;
+	opacity: 1;
+	transition: opacity 0.8s ease;
+	z-index: 9999;
+	pointer-events: none;
+}
+
+/* ============================== RESPONSIVE ======================= */
+@media (max-width: 600px) {
+	#navigation-bar {
+		height: 8vh;
+		padding: 0 8px;
+	}
+
+	#navigation-bar-center-content {
+		width: 40vw;
+	}
+
+	#theme-controller {
+		width: 30%;
+	}
+
+	.theme-button {
+		font-size: 11px;
+		padding: 0.4rem 0.8rem;
+	}
+
+	.page-icon img {
+		max-height: 28px;
+	}
+}
+/* ===== Mobile navbar (≤600px): single line, centered logo, buttons pushed away ===== */
+@media (max-width: 600px) {
+	/* Bar stays one line */
+	#navigation-bar {
+		position: relative; /* anchor for absolute logo */
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		gap: 6px;
+		padding: 6px 8px;
+		min-height: 46px;
+		overflow: hidden;
+	}
+
+	/* collapse wrappers so only the buttons render inline */
+	#navigation-bar > #theme-controller,
+	#navigation-bar > #theme-controller .mode-link {
+		display: contents;
+	}
+
+	/* order: Home | Beachwear | (absolute Logo) | Barwear | Cart */
+	#navigation-bar > a.page-icon:first-of-type {
+		order: 1;
+	}
+	#navigation-bar .theme-button[data-theme="day"] {
+		order: 2;
+	} /* Beachwear */
+	#navigation-bar #navigation-bar-center-content {
+		/* absolute center logo */
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		pointer-events: none; /* let taps pass through container */
+	}
+	#navigation-bar #navigation-bar-center-content a {
+		pointer-events: auto;
+	}
+	#navigation-bar .theme-button[data-theme="night"] {
+		order: 4;
+	} /* Barwear */
+	#navigation-bar > a.page-icon:last-of-type {
+		order: 5;
+	}
+
+	/* logo sizing — slightly smaller to free center space */
+	#navigation-bar #navigation-bar-center-content img {
+		height: 22px;
+		max-width: 34vw; /* tighter than 40vw so buttons have room */
+		object-fit: contain;
+	}
+
+	/* icons smaller on phones */
+	.page-icon img {
+		max-height: 22px;
+	}
+
+	/* buttons: compact, no size increase */
+	#navigation-bar .theme-button {
+		white-space: nowrap;
+		font-size: 9px;
+		padding: 4px 8px;
+		line-height: 1.05;
+		border-radius: 14px;
+		border-width: 1px;
+		box-shadow: none;
+		letter-spacing: 0.02em;
+	}
+
+	/* push buttons away from the centered logo (no scaling) */
+	#navigation-bar .theme-button[data-theme="day"] {
+		margin-right: clamp(10px, 5vw, 28px); /* Beachwear nudged leftward */
+	}
+	#navigation-bar .theme-button[data-theme="night"] {
+		margin-left: clamp(10px, 5vw, 28px); /* Barwear nudged rightward */
+	}
+
+	/* subtle outline so they look cleaner without feeling bigger */
+	#navigation-bar .theme-button:not(.is-active) {
+		border-color: rgba(255, 255, 255, 0.18);
+		background: rgba(255, 255, 255, 0.04);
+	}
+	#navigation-bar .theme-button.is-active {
+		border-width: 2px;
+		border-color: rgba(255, 255, 255, 0.85);
+		background: rgba(255, 255, 255, 0.12);
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.18);
+	}
+
+	/* kill hover transforms on touch */
+	.theme-button:hover,
+	.page-icon img:hover,
+	#navigation-bar #navigation-bar-center-content img:hover {
+		transform: none !important;
+	}
+}

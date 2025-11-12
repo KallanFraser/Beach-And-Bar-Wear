@@ -1,0 +1,67 @@
+/* -------------------------------------------------------------------------- */
+/* Font                                                                       */
+/* -------------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+/* -------------------------------------------------------------------------- */
+/* Reset                                                                      */
+/* -------------------------------------------------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-weight: 500;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	letter-spacing: 0.5px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Base layout 			                                                      */
+/* -------------------------------------------------------------------------- */
+html {
+	position: relative;
+	min-height: 100%;
+	overflow-x: hidden;
+
+	filter: brightness(0.92);
+	animation: fadeInBrightness 1200ms ease-in-out forwards;
+}
+
+body {
+	position: relative;
+	min-height: 100vh;
+	overflow-x: hidden;
+	background-color: #0b0f14; /* safe fallback */
+}
+
+/* -------------------------------------------------------------------------- */
+/* Gradient Layers (original mechanism)                                       */
+/* -------------------------------------------------------------------------- */
+@keyframes fadeInBrightness {
+	from {
+		filter: brightness(0.7);
+	}
+	to {
+		filter: brightness(0.92);
+	}
+}
+
+/* Full-viewport, below all content, never intercepts clicks */
+.bg-video {
+	position: fixed;
+	inset: 0;
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	z-index: -1;
+	pointer-events: none;
+	/* small perf nudge to keep it on the GPU */
+	transform: translateZ(0);
+}
+
+/* Respect users who prefer less motion (optional) */
+@media (prefers-reduced-motion: reduce) {
+	.bg-video {
+		display: none;
+	}
+}

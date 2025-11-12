@@ -1,0 +1,405 @@
+/** @format */
+/* =============================================================================
+   HomePage.css — layout / hero / sections / grid / skeletons
+   NOTE: Global wallpapers are defined on html::before/::after elsewhere.
+============================================================================= */
+
+/* Transition overlay created by NavBar (fade during theme switch) */
+.mode-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.35);
+	pointer-events: none;
+	z-index: 9999;
+	opacity: 1;
+	transition: opacity 0.35s ease;
+}
+
+/* Page shell */
+#home-page {
+	position: relative;
+	min-height: 100vh;
+	color: var(--text-color, #fff);
+}
+
+/* ============================== HERO ============================== */
+#header-banner {
+	position: relative;
+	width: 100%;
+	display: grid;
+	place-items: center;
+	padding: clamp(24px, 6vw, 80px) 16px 24px;
+}
+
+#header-banner .hero-media {
+	width: min(1180px, 92vw);
+	border-radius: 20px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid hsla(0, 0%, 100%, 0.18);
+}
+
+#header-banner .hero-media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	background-color: rgba(0, 0, 0, 0.1);
+	border: 2px solid rgba(255, 255, 255, 0.2); /* fixed rgba syntax */
+}
+
+#header-banner .hero-copy {
+	margin-top: 18px;
+	text-align: center;
+}
+
+#header-banner .hero-copy h1 {
+	margin: 0;
+	font-size: clamp(28px, 4vw, 56px);
+	letter-spacing: 0.02em;
+}
+
+#header-banner .hero-copy p {
+	margin: 6px 0 14px;
+	color: hsla(0, 0%, 100%, 0.75);
+	font-size: clamp(14px, 2vw, 18px);
+}
+
+/* Chips */
+.subnav {
+	position: sticky;
+	top: 64px;
+	display: inline-flex;
+	gap: 8px;
+	background: rgba(255, 255, 255, 0.08);
+	padding: 8px;
+	border-radius: 999px;
+	border: 1px solid hsla(0, 0%, 100%, 0.18);
+	backdrop-filter: blur(8px);
+}
+
+.chip {
+	display: inline-block;
+	padding: 8px 14px;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+	border: 1px solid transparent;
+	transition: transform 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.chip:hover {
+	transform: translateY(-1px);
+	background: rgba(255, 255, 255, 0.16);
+	border-color: hsla(0, 0%, 100%, 0.18);
+}
+
+/* =========================== SECTIONS =========================== */
+#first-line {
+	margin-bottom: 10vh;
+}
+
+.summer-header {
+	padding: 24px 14px;
+	margin: 48px auto 18px;
+	border-top: 1px solid hsla(0, 0%, 100%, 0.18);
+	border-bottom: 1px solid hsla(0, 0%, 100%, 0.18);
+	text-align: center;
+	background: rgba(15, 15, 15, 0.3);
+	backdrop-filter: blur(4px);
+}
+
+.summer-header .header-inner {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+.summer-header h1 {
+	font-size: clamp(20px, 2.4vw, 28px);
+	margin: 0 0 4px;
+	font-weight: 700;
+	color: #fff;
+}
+
+.summer-header h2 {
+	font-size: clamp(18px, 2vw, 22px);
+	margin: 0;
+	color: hsla(0, 0%, 100%, 0.75);
+}
+
+/* ============================= GRID ============================= */
+/* 3 / 2 / 1 columns — keeps 6 items as 3×2 on desktop */
+.products-container {
+	width: 100%;
+	max-width: 1200px; /* center & cap for clean rows */
+	margin: 0 auto;
+	padding-inline: min(3vw, 24px);
+	padding-bottom: 1vh;
+	display: grid;
+	gap: clamp(12px, 2vw, 24px);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	align-items: start;
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+	.products-container {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767.98px) {
+	.products-container {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ============================ LOADING ============================ */
+#home-page-loading {
+	width: 100%;
+	display: grid;
+	place-items: center;
+	padding: 6vh 2vw;
+	color: #fff;
+}
+
+.loading-label {
+	margin-top: 12px;
+	color: hsla(0, 0%, 100%, 0.75);
+}
+
+.skeleton-grid {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	gap: 14px;
+	padding-inline: min(3vw, 24px);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+	.skeleton-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767.98px) {
+	.skeleton-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.skeleton-card {
+	height: 320px;
+	border-radius: 16px;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0.06),
+		rgba(255, 255, 255, 0.12),
+		rgba(255, 255, 255, 0.06)
+	);
+	background-size: 200px 100%;
+	animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200px 0;
+	}
+	100% {
+		background-position: 200px 0;
+	}
+}
+/* ======================= PHONE TWEAKS (≤ 600px) ======================= */
+@media (max-width: 600px) {
+	/* Page shell */
+	#home-page {
+		padding-bottom: max(16px, env(safe-area-inset-bottom));
+	}
+
+	/* HERO / BANNER */
+	#header-banner {
+		display: block;
+		padding: 16px 12px 12px;
+	}
+
+	#header-banner .hero-media {
+		width: 100%;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.06);
+		overflow: hidden;
+	}
+
+	#header-banner .hero-media img {
+		width: 100%;
+		height: auto;
+		max-height: 48vw;
+		object-fit: contain;
+		border-width: 1px;
+	}
+
+	#header-banner .hero-copy {
+		margin-top: 12px;
+		padding: 0 2px;
+		text-align: center;
+	}
+
+	#header-banner .hero-copy h1 {
+		font-size: clamp(20px, 6vw, 28px);
+		line-height: 1.1;
+		margin: 0 0 6px;
+	}
+
+	#header-banner .hero-copy p {
+		font-size: 14px;
+		margin: 0 0 10px;
+		opacity: 0.85;
+	}
+
+	/* ===== Updated Chips ===== */
+	.subnav {
+		position: sticky;
+		top: 56px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 6px;
+		padding: 4px 6px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		backdrop-filter: blur(8px);
+
+		/* horizontal scroll when needed */
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-snap-type: x proximity;
+		-webkit-overflow-scrolling: touch;
+		mask-image: linear-gradient(
+			to right,
+			transparent 0,
+			#000 16px,
+			#000 calc(100% - 16px),
+			transparent 100%
+		);
+	}
+
+	/* Invisible spacers keep chips centered even when short */
+	.subnav::before,
+	.subnav::after {
+		content: "";
+		flex: 1 0 8px;
+	}
+
+	.subnav::-webkit-scrollbar {
+		display: none;
+	}
+	.subnav {
+		scrollbar-width: none;
+	}
+
+	.chip {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 28px;
+		padding: 0 10px;
+		font-size: 11.5px;
+		font-weight: 600;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.04);
+		color: #fff;
+		text-decoration: none;
+		white-space: nowrap;
+		scroll-snap-align: start;
+		flex-shrink: 0;
+		transition: transform 0.15s, background 0.15s, border-color 0.15s;
+	}
+
+	.chip:hover {
+		transform: translateY(-1px);
+		background: rgba(255, 255, 255, 0.16);
+		border-color: hsla(0, 0%, 100%, 0.18);
+	}
+
+	/* Force centering under night mode too */
+	html.night-mode #header-banner .subnav {
+		justify-content: center;
+		margin-inline: auto;
+	}
+
+	/* SECTION HEADERS */
+	.summer-header {
+		margin: 28px auto 14px;
+		padding: 14px 10px;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(15, 15, 15, 0.24);
+		backdrop-filter: blur(3px);
+	}
+
+	.summer-header .header-inner {
+		padding: 0 4px;
+	}
+
+	.summer-header h1 {
+		font-size: 16px;
+		margin: 0 0 2px;
+	}
+
+	.summer-header h2 {
+		font-size: 14px;
+		margin: 0;
+		opacity: 0.9;
+	}
+
+	/* GRID */
+	.products-container {
+		padding-inline: 12px;
+		gap: 12px;
+	}
+
+	/* LOADING */
+	.skeleton-grid {
+		padding-inline: 12px;
+		gap: 12px;
+	}
+}
+
+/* ================= Extra-small phones (≤ 380px) ================= */
+@media (max-width: 380px) {
+	#header-banner {
+		padding: 14px 10px 10px;
+	}
+
+	#header-banner .hero-media img {
+		max-height: 54vw;
+	}
+
+	#header-banner .hero-copy h1 {
+		font-size: 18px;
+	}
+	#header-banner .hero-copy p {
+		font-size: 13px;
+	}
+
+	.chip {
+		height: 26px;
+		padding: 0 9px;
+		font-size: 11px;
+	}
+
+	.summer-header {
+		padding: 12px 8px;
+	}
+	.summer-header h1 {
+		font-size: 15px;
+	}
+	.summer-header h2 {
+		font-size: 13px;
+	}
+}

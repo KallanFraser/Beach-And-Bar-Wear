@@ -1,0 +1,134 @@
+/** @format */
+/*--------------------------------------------------------------------------
+                           	  Main Parent                                
+--------------------------------------------------------------------------*/
+#landing-page {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh;
+
+	/*Styling for inner content*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+/*--------------------------------------------------------------------------
+                           	 	 Keyframes                                
+--------------------------------------------------------------------------*/
+@keyframes sway {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(-0.1deg);
+	}
+	50% {
+		transform: rotate(0deg);
+	}
+	75% {
+		transform: rotate(0.1deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+/*--------------------------------------------------------------------------
+                           	  Logo Section                                
+--------------------------------------------------------------------------*/
+
+#logo-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+#logo-section img {
+	height: 20vh;
+	object-fit: contain;
+	transition: transform 0.3s;
+	transform-origin: bottom center;
+	animation: sway 6s ease-in-out infinite;
+}
+/*--------------------------------------------------------------------------
+                             Button Section                                
+--------------------------------------------------------------------------*/
+
+#button-section {
+	margin-top: 2vh;
+	display: flex;
+	justify-content: center;
+}
+
+/* Seamless fill: animate background-color, no pseudo, no gaps */
+.button {
+	cursor: pointer;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 10px 24px;
+	border: 5px solid #5e734d;
+	border-radius: 34px;
+
+	/* Start transparent but clip bg to padding so it never bleeds under border */
+	background-color: transparent;
+	background-clip: padding-box;
+
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+	overflow: hidden;
+
+	/* Smooth animations */
+	transition: background-color 240ms cubic-bezier(0.23, 1, 0.32, 1), transform 0.24s cubic-bezier(0.23, 1, 0.32, 1),
+		box-shadow 0.24s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Hover: just fade the bg; border stays crisp on top */
+.button:hover {
+	background-color: #5e734d;
+	transform: translateZ(0) scale(1.06); /* optional “pop”; remove if you want */
+	box-shadow: 0 0 20px rgba(193, 163, 98, 0.4);
+}
+
+.button:active {
+	transform: scale(1);
+}
+
+/* Image inside the button */
+.button .btn-img {
+	display: block;
+	height: 28px; /* tweak as needed */
+	width: auto;
+	pointer-events: none;
+	user-select: none;
+}
+
+/* Layout: keep your section centering */
+#button-section {
+	margin-top: 2vh;
+	display: flex;
+	justify-content: center;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.button {
+		transition: background-color 0.001s linear;
+	}
+}
+
+/* Button size tweaks */
+.button {
+	padding: 10px 25px; /* was 10px 24px */
+	border: 6px solid #5e734d; /* was 5px */
+	border-radius: 40px; /* was 34px */
+}
+
+/* Image inside the button */
+.button .btn-img {
+	height: clamp(32px, 4.2vh, 44px); /* was 28px */
+	width: auto;
+}

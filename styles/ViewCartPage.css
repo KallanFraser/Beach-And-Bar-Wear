@@ -1,0 +1,220 @@
+/** @format */
+/*---------------------------------------------------------------------------------------------
+									View Cart Page
+----------------------------------------------------------------------------------------------*/
+#view-cart-page {
+	width: 100vw;
+}
+
+/*---------------------------------------------------------------------------------------------
+									Cart Section
+----------------------------------------------------------------------------------------------*/
+#cart-list-section {
+	width: 100%;
+	padding: 5%;
+	margin-top: -1rem;
+}
+
+/*---------------------------------------------------------------------------------------------
+									Cart Container
+----------------------------------------------------------------------------------------------*/
+#cart-list {
+	background-color: rgba(130, 130, 130, 0.5);
+	padding: 1.8rem;
+	border-radius: 1rem;
+	height: auto;
+	overflow-y: visible;
+}
+
+/*---------------------------------------------------------------------------------------------
+								Each Cart Item Component Styling
+----------------------------------------------------------------------------------------------*/
+#cart-page-cart-item-widget {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 1%;
+	background-color: rgba(90, 90, 90, 0.8);
+	padding: 2%;
+	border-radius: 1rem;
+}
+
+.cart-page-cart-item-info {
+	display: flex;
+	flex-direction: column;
+	padding-inline: 2%;
+	padding-bottom: 5%;
+	color: white;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.cart-page-cart-item-info h2 {
+	text-align: center;
+	border-top: solid white 1px;
+	border-bottom: solid white 1px;
+	padding-block: 2%;
+}
+
+.cart-page-cart-item-info p {
+	text-align: center;
+	margin-top: 1rem;
+	font-size: 1.2rem;
+}
+
+.cart-page-cart-item-thumb {
+	height: auto;
+	width: auto;
+	max-width: 20%;
+	border: 3px solid black;
+}
+
+/*---------------------------------------------------------------------------------------------
+									Check out Section 
+----------------------------------------------------------------------------------------------*/
+#checkout-section {
+	width: 100%;
+	display: flex;
+}
+
+#checkout-section button {
+	padding: 1% 2%;
+	font-size: 1.3rem;
+	font-weight: 600;
+	border-radius: 1rem;
+	border-style: none;
+	background-color: rgba(0, 0, 0, 0.694);
+	transition: transform 0.3s ease-in-out;
+	color: white;
+}
+
+#checkout-section button:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+/*---------------------------------------------------------------------------------------------
+								Empty Cart Display
+----------------------------------------------------------------------------------------------*/
+#empty-cart-display {
+	text-align: center;
+	padding: 5%;
+	font-size: 2rem;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/*---------------------------------------------------------------------------------------------
+                        Responsive Styles for Phones – View Cart
+----------------------------------------------------------------------------------------------*/
+@media (max-width: 600px) {
+	#cart-list-section {
+		padding: 4%;
+		margin-top: 0;
+	}
+
+	#cart-list {
+		padding: 1rem;
+	}
+
+	#cart-page-cart-item-widget {
+		flex-direction: column;
+		align-items: center;
+		padding: 1rem;
+		gap: 1rem;
+	}
+
+	.cart-page-cart-item-thumb {
+		max-width: 80%;
+		width: 100%;
+	}
+
+	.cart-page-cart-item-info {
+		padding-inline: 0;
+		padding-bottom: 0;
+		text-align: center;
+	}
+
+	.cart-page-cart-item-info h2 {
+		font-size: 1.2rem;
+		padding-block: 1rem;
+	}
+
+	.cart-page-cart-item-info p {
+		font-size: 1rem;
+		margin-top: 0.5rem;
+	}
+
+	#checkout-section {
+		flex-direction: column;
+		align-items: center;
+		margin-top: 2rem;
+	}
+
+	#checkout-section button {
+		width: 90%;
+		padding: 0.8rem 1.5rem;
+		font-size: 1.1rem;
+	}
+
+	#empty-cart-display {
+		font-size: 1.4rem;
+		padding: 2rem 1rem;
+		text-align: center;
+	}
+}
+
+/* ---------- Checkout summary styling ---------- */
+#checkout-section {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end; /* push summary + button to the right */
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1.25rem;
+}
+
+.checkout-summary {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem 1rem;
+	border-radius: 0.75rem;
+	background: rgba(90, 90, 90, 0.9); /* matches cart item bg family */
+	border: 1px solid rgba(255, 255, 255, 0.12); /* subtle outline */
+	color: #fff;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-label {
+	font-weight: 600;
+	opacity: 0.9;
+	letter-spacing: 0.02em;
+}
+
+.checkout-value {
+	font-weight: 700;
+	font-variant-numeric: tabular-nums; /* aligned digits */
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+	background: rgba(0, 0, 0, 0.35); /* pill behind the number */
+}
+
+/* Phone tweaks */
+@media (max-width: 600px) {
+	#checkout-section {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.75rem;
+	}
+
+	.checkout-summary {
+		width: 100%;
+		justify-content: space-between; /* label left, value right */
+	}
+
+	#checkout-section button {
+		width: 100%;
+	}
+}
